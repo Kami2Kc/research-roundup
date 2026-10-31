@@ -2,6 +2,8 @@
 
 An automated Python pipeline that collects new economics research every week (top journals, G10 and European central banks, the 12 regional Feds, NBER, BPEA, the IMF and the BIS), screens and classifies each paper for a Global Markets audience, and publishes a monthly email-ready newsletter with a static web dashboard.
 
+**Live:** [dashboard](https://research-roundup-zeta.vercel.app) · [October 2026 newsletter](https://research-roundup-zeta.vercel.app/newsletters/2026-10/) · [paper explorer](https://research-roundup-zeta.vercel.app/papers/) · [sources and coverage](https://research-roundup-zeta.vercel.app/sources/)
+
 > Work in progress. A full README (architecture, live URLs, deployment, costs, design choices) comes with the final milestone. See [docs/PLAN.md](docs/PLAN.md) for the build plan and [docs/SOURCES.md](docs/SOURCES.md) for the source inventory.
 
 ## Repository layout

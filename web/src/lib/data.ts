@@ -112,6 +112,15 @@ export function getMeta(): Meta | null {
   return readJson<Meta | null>("meta", null);
 }
 
+/**
+ * Where a newsletter is served. Vercel serves .html files from public/ only at clean URLs
+ * (/newsletters/2026-10/) and returns 404 for the .html path, so builds on Vercel link there;
+ * every other host (next dev, GitHub Pages, any static server) serves the file itself.
+ */
+export function newsletterUrl(month: string): string {
+  return process.env.VERCEL ? `/newsletters/${month}/` : `/newsletters/${month}.html`;
+}
+
 /** The issue write-ups that featured a paper, newest issue first. */
 export function getFeatures(slug: string): { issue: Issue; entry: IssuePaperRef }[] {
   return getIssues().flatMap((issue) =>
