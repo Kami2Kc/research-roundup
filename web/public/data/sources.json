@@ -10,14 +10,17 @@
   "enabled": true,
   "url": null,
   "notes": "Crossref has abstracts for most articles. Records carry the issue date only.",
-  "paper_count": 19,
+  "status": "working",
+  "paper_count": 30,
+  "papers_with_abstract": 30,
+  "last_success": "2026-10-31T20:14:49+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:42+00:00",
+   "started_at": "2026-10-31T20:14:49+00:00",
    "status": "ok",
-   "items_found": 19,
-   "items_new": 19,
+   "items_found": 30,
+   "items_new": 11,
    "error": null,
-   "duration_s": 1.26
+   "duration_s": 1.21
   }
  },
  {
@@ -31,14 +34,17 @@
   "enabled": true,
   "url": null,
   "notes": "Crossref records carry the year only, so collection filters on DOI registration date.",
-  "paper_count": 0,
+  "status": "working",
+  "paper_count": 12,
+  "papers_with_abstract": 12,
+  "last_success": "2026-10-31T20:14:50+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:44+00:00",
+   "started_at": "2026-10-31T20:14:50+00:00",
    "status": "ok",
-   "items_found": 0,
-   "items_new": 0,
+   "items_found": 12,
+   "items_new": 12,
    "error": null,
-   "duration_s": 1.31
+   "duration_s": 0.99
   }
  },
  {
@@ -52,14 +58,17 @@
   "enabled": true,
   "url": null,
   "notes": "Crossref has no abstracts; OpenAlex fills about a third. Papers without one are logged and skipped.",
-  "paper_count": 7,
+  "status": "partial",
+  "paper_count": 25,
+  "papers_with_abstract": 4,
+  "last_success": "2026-10-31T20:14:51+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:46+00:00",
+   "started_at": "2026-10-31T20:14:51+00:00",
    "status": "ok",
-   "items_found": 7,
-   "items_new": 7,
+   "items_found": 25,
+   "items_new": 18,
    "error": null,
-   "duration_s": 2.76
+   "duration_s": 2.58
   }
  },
  {
@@ -73,14 +82,17 @@
   "enabled": true,
   "url": null,
   "notes": "",
-  "paper_count": 4,
+  "status": "working",
+  "paper_count": 13,
+  "papers_with_abstract": 13,
+  "last_success": "2026-10-31T20:14:54+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:49+00:00",
+   "started_at": "2026-10-31T20:14:54+00:00",
    "status": "ok",
-   "items_found": 4,
-   "items_new": 4,
+   "items_found": 13,
+   "items_new": 9,
    "error": null,
-   "duration_s": 1.26
+   "duration_s": 0.18
   }
  },
  {
@@ -94,14 +106,17 @@
   "enabled": true,
   "url": null,
   "notes": "",
-  "paper_count": 9,
+  "status": "working",
+  "paper_count": 36,
+  "papers_with_abstract": 36,
+  "last_success": "2026-10-31T20:14:54+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:51+00:00",
+   "started_at": "2026-10-31T20:14:54+00:00",
    "status": "ok",
-   "items_found": 9,
-   "items_new": 9,
+   "items_found": 36,
+   "items_new": 27,
    "error": null,
-   "duration_s": 1.27
+   "duration_s": 1.08
   }
  },
  {
@@ -115,14 +130,17 @@
   "enabled": true,
   "url": null,
   "notes": "Crossref has dates and authors but no abstracts; OpenAlex supplies them. The RSS feed has abstracts but no dates and only about a week of papers.",
-  "paper_count": 131,
+  "status": "working",
+  "paper_count": 423,
+  "papers_with_abstract": 388,
+  "last_success": "2026-10-31T20:14:55+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:22:53+00:00",
+   "started_at": "2026-10-31T20:14:55+00:00",
    "status": "ok",
-   "items_found": 131,
-   "items_new": 131,
+   "items_found": 423,
+   "items_new": 292,
    "error": null,
-   "duration_s": 5.72
+   "duration_s": 13.55
   }
  },
  {
@@ -133,11 +151,21 @@
   "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
-  "url": "https://www.brookings.edu/projects/brookings-papers-on-economic-activity/all-bpea-research/",
-  "notes": "Unresolved. Crossref only has the JSTOR archive; the paper list is loaded by JavaScript and Brookings' WordPress feeds return no items.",
-  "paper_count": 0,
-  "last_run": null
+  "enabled": true,
+  "url": "https://www.brookings.edu/projects/brookings-papers-on-economic-activity/",
+  "notes": "Partial. Crossref only has the JSTOR archive and the full paper list is rendered by JavaScript, so we read the 'New and Noteworthy' papers on the BPEA page. They carry no dates, so papers are dated when first seen (the current edition was already listed on our first run and stays undated). Abstracts are Brookings' summary of each paper.",
+  "status": "partial",
+  "paper_count": 4,
+  "papers_with_abstract": 0,
+  "last_success": "2026-10-31T20:33:55+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:33:55+00:00",
+   "status": "ok",
+   "items_found": 4,
+   "items_new": 4,
+   "error": null,
+   "duration_s": 1.16
+  }
  },
  {
   "id": "imf",
@@ -150,14 +178,17 @@
   "enabled": true,
   "url": null,
   "notes": "Crossref has abstracts for nearly all papers. The old IMF RSS endpoint now returns 404.",
-  "paper_count": 33,
+  "status": "working",
+  "paper_count": 74,
+  "papers_with_abstract": 74,
+  "last_success": "2026-10-31T20:15:08+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:23:00+00:00",
+   "started_at": "2026-10-31T20:15:08+00:00",
    "status": "ok",
-   "items_found": 33,
-   "items_new": 33,
+   "items_found": 74,
+   "items_new": 41,
    "error": null,
-   "duration_s": 1.43
+   "duration_s": 0.56
   }
  },
  {
@@ -171,14 +202,17 @@
   "enabled": true,
   "url": null,
   "notes": "'Research papers' feed: working papers, BIS Bulletins and BIS Papers, with summaries.",
-  "paper_count": 16,
+  "status": "working",
+  "paper_count": 20,
+  "papers_with_abstract": 19,
+  "last_success": "2026-10-31T20:15:09+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:23:02+00:00",
+   "started_at": "2026-10-31T20:15:09+00:00",
    "status": "ok",
-   "items_found": 16,
-   "items_new": 16,
+   "items_found": 20,
+   "items_new": 4,
    "error": null,
-   "duration_s": 1.08
+   "duration_s": 1.07
   }
  },
  {
@@ -192,14 +226,17 @@
   "enabled": true,
   "url": null,
   "notes": "FEDS, IFDP and FEDS Notes, all with abstracts.",
-  "paper_count": 19,
+  "status": "working",
+  "paper_count": 36,
+  "papers_with_abstract": 36,
+  "last_success": "2026-10-31T20:15:10+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:23:15+00:00",
+   "started_at": "2026-10-31T20:15:10+00:00",
    "status": "ok",
-   "items_found": 19,
-   "items_new": 19,
+   "items_found": 36,
+   "items_new": 17,
    "error": null,
-   "duration_s": 3.16
+   "duration_s": 3.06
   }
  },
  {
@@ -213,8 +250,18 @@
   "enabled": true,
   "url": null,
   "notes": "",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 10,
+  "papers_with_abstract": 10,
+  "last_success": "2026-10-31T20:15:13+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:15:13+00:00",
+   "status": "ok",
+   "items_found": 10,
+   "items_new": 10,
+   "error": null,
+   "duration_s": 3.05
+  }
  },
  {
   "id": "boe",
@@ -226,23 +273,43 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "General publications feed, filtered to staff working papers. Summaries are short.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "General publications feed, filtered to staff working papers. Its summaries are teasers, so abstracts come from each paper's page.",
+  "status": "working",
+  "paper_count": 15,
+  "papers_with_abstract": 15,
+  "last_success": "2026-10-31T20:28:05+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:28:05+00:00",
+   "status": "ok",
+   "items_found": 15,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 16.3
+  }
  },
  {
   "id": "boj",
   "name": "Bank of Japan",
   "group": "g10_cb",
   "country_or_region": "Japan",
-  "method": "rss",
+  "method": "html",
   "fallback": null,
   "paywalled": false,
   "enabled": true,
-  "url": null,
-  "notes": "'What's new' feed filtered to research. No summaries, and many links go straight to PDFs.",
-  "paper_count": 0,
-  "last_run": null
+  "url": "https://www.boj.or.jp/en/research/rs_all_{year}/index.htm",
+  "notes": "The year's list of reports and research papers, filtered to Working Papers and the BoJ Review. (The 'What's new' feed is mostly data releases and carries no summaries.)",
+  "status": "working",
+  "paper_count": 7,
+  "papers_with_abstract": 7,
+  "last_success": "2026-10-31T20:28:22+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:28:22+00:00",
+   "status": "ok",
+   "items_found": 7,
+   "items_new": 7,
+   "error": null,
+   "duration_s": 8.4
+  }
  },
  {
   "id": "snb",
@@ -255,8 +322,18 @@
   "enabled": true,
   "url": null,
   "notes": "Working Papers, Economic Studies and Economic Notes, with summaries.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 7,
+  "papers_with_abstract": 7,
+  "last_success": "2026-10-31T20:15:18+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:15:18+00:00",
+   "status": "ok",
+   "items_found": 7,
+   "items_new": 7,
+   "error": null,
+   "duration_s": 1.12
+  }
  },
  {
   "id": "riksbank",
@@ -266,11 +343,21 @@
   "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
+  "enabled": true,
   "url": "https://www.riksbank.se/en-gb/press-and-published/publications/working-paper-series/",
-  "notes": "No research feed (only press releases, notices, speeches, minutes, calendar). HTML collector planned.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "No research feed. The working-paper listing links straight to PDFs, so we get titles and dates but no abstracts: papers are logged and skipped.",
+  "status": "partial",
+  "paper_count": 6,
+  "papers_with_abstract": 0,
+  "last_success": "2026-10-31T20:28:31+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:28:31+00:00",
+   "status": "ok",
+   "items_found": 6,
+   "items_new": 6,
+   "error": null,
+   "duration_s": 1.94
+  }
  },
  {
   "id": "bundesbank",
@@ -282,9 +369,19 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "Discussion Papers feed. No summaries, so abstracts must come from each paper's page.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "Discussion Papers feed. No summaries, so the abstract (a non-technical summary) comes from each paper's page.",
+  "status": "working",
+  "paper_count": 10,
+  "papers_with_abstract": 10,
+  "last_success": "2026-10-31T20:28:34+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:28:34+00:00",
+   "status": "ok",
+   "items_found": 10,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 11.2
+  }
  },
  {
   "id": "bdf",
@@ -294,11 +391,21 @@
   "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
-  "url": "https://www.banque-france.fr/en/publications-and-research/research-publications",
-  "notes": "No feed found. The listing page has no paper links in its HTML (likely rendered by JavaScript).",
-  "paper_count": 0,
-  "last_run": null
+  "enabled": true,
+  "url": "https://www.banque-france.fr/en/publications-and-research/our-main-publications/working-papers",
+  "notes": "No feed. Working-paper listing page (the general research page is rendered by JavaScript); abstracts from each paper's page.",
+  "status": "working",
+  "paper_count": 11,
+  "papers_with_abstract": 11,
+  "last_success": "2026-10-31T20:28:47+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:28:47+00:00",
+   "status": "ok",
+   "items_found": 11,
+   "items_new": 11,
+   "error": null,
+   "duration_s": 13.82
+  }
  },
  {
   "id": "bancaditalia",
@@ -308,11 +415,21 @@
   "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
+  "enabled": true,
   "url": "https://www.bancaditalia.it/pubblicazioni/temi-discussione/index.html?com.dotmarketing.htmlpage.language=1",
-  "notes": "RSS exists under /util/, which robots.txt disallows. The working-paper listing is allowed (crawl delay 5s). HTML collector planned.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "RSS exists under /util/, which robots.txt disallows, so we use the working-paper listing (latest six; crawl delay 5s honoured). Abstracts from each paper's page.",
+  "status": "working",
+  "paper_count": 6,
+  "papers_with_abstract": 6,
+  "last_success": "2026-10-31T20:29:02+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:29:02+00:00",
+   "status": "ok",
+   "items_found": 6,
+   "items_new": 6,
+   "error": null,
+   "duration_s": 35.62
+  }
  },
  {
   "id": "dnb",
@@ -324,9 +441,19 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "No summaries, so abstracts must come from each paper's page.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "No summaries in the feed, so abstracts come from each paper's page.",
+  "status": "working",
+  "paper_count": 10,
+  "papers_with_abstract": 10,
+  "last_success": "2026-10-31T20:29:38+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:29:38+00:00",
+   "status": "ok",
+   "items_found": 10,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 12.3
+  }
  },
  {
   "id": "nbb",
@@ -338,9 +465,19 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "All-publications feed (working papers, Economic Review, projections). Short summaries.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "All-publications feed (working papers, Economic Review, projections). Short summaries, replaced by the intro on each paper's page.",
+  "status": "working",
+  "paper_count": 5,
+  "papers_with_abstract": 3,
+  "last_success": "2026-10-31T20:29:51+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:29:51+00:00",
+   "status": "ok",
+   "items_found": 5,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 5.94
+  }
  },
  {
   "id": "ecb",
@@ -353,12 +490,15 @@
   "enabled": true,
   "url": null,
   "notes": "Working Papers (with abstracts) and the Research Bulletin.",
-  "paper_count": 14,
+  "status": "working",
+  "paper_count": 17,
+  "papers_with_abstract": 17,
+  "last_success": "2026-10-31T20:15:24+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:23:04+00:00",
+   "started_at": "2026-10-31T20:15:24+00:00",
    "status": "ok",
-   "items_found": 14,
-   "items_new": 14,
+   "items_found": 17,
+   "items_new": 3,
    "error": null,
    "duration_s": 10.05
   }
@@ -374,8 +514,18 @@
   "enabled": true,
   "url": "https://www.bostonfed.org/",
   "notes": "Via Fed in Print. The bank's own research feed stopped in 2020.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 8,
+  "papers_with_abstract": 8,
+  "last_success": "2026-10-31T20:15:34+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:15:34+00:00",
+   "status": "ok",
+   "items_found": 8,
+   "items_new": 8,
+   "error": null,
+   "duration_s": 10.39
+  }
  },
  {
   "id": "ny_fed",
@@ -388,14 +538,17 @@
   "enabled": true,
   "url": "https://www.newyorkfed.org/research",
   "notes": "Via Fed in Print (Staff Reports, Liberty Street Economics).",
-  "paper_count": 12,
+  "status": "working",
+  "paper_count": 20,
+  "papers_with_abstract": 20,
+  "last_success": "2026-10-31T20:15:44+00:00",
   "last_run": {
-   "started_at": "2026-10-31T19:23:19+00:00",
+   "started_at": "2026-10-31T20:15:44+00:00",
    "status": "ok",
-   "items_found": 12,
-   "items_new": 12,
+   "items_found": 20,
+   "items_new": 8,
    "error": null,
-   "duration_s": 10.33
+   "duration_s": 9.93
   }
  },
  {
@@ -409,8 +562,18 @@
   "enabled": true,
   "url": "https://www.philadelphiafed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 13,
+  "papers_with_abstract": 13,
+  "last_success": "2026-10-31T20:15:54+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:15:54+00:00",
+   "status": "ok",
+   "items_found": 13,
+   "items_new": 13,
+   "error": null,
+   "duration_s": 10.05
+  }
  },
  {
   "id": "cleveland_fed",
@@ -423,8 +586,18 @@
   "enabled": true,
   "url": "https://www.clevelandfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 24,
+  "papers_with_abstract": 24,
+  "last_success": "2026-10-31T20:16:04+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:04+00:00",
+   "status": "ok",
+   "items_found": 24,
+   "items_new": 24,
+   "error": null,
+   "duration_s": 10.0
+  }
  },
  {
   "id": "richmond_fed",
@@ -437,8 +610,18 @@
   "enabled": true,
   "url": "https://www.richmondfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 23,
+  "papers_with_abstract": 23,
+  "last_success": "2026-10-31T20:16:14+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:14+00:00",
+   "status": "ok",
+   "items_found": 23,
+   "items_new": 23,
+   "error": null,
+   "duration_s": 9.96
+  }
  },
  {
   "id": "atlanta_fed",
@@ -451,8 +634,18 @@
   "enabled": true,
   "url": "https://www.atlantafed.org/",
   "notes": "Via Fed in Print. The bank's own working-paper feed (atlantafed.org/rss/wps) also works.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 7,
+  "papers_with_abstract": 7,
+  "last_success": "2026-10-31T20:16:24+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:24+00:00",
+   "status": "ok",
+   "items_found": 7,
+   "items_new": 7,
+   "error": null,
+   "duration_s": 10.09
+  }
  },
  {
   "id": "chicago_fed",
@@ -465,8 +658,18 @@
   "enabled": true,
   "url": "https://www.chicagofed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 4,
+  "papers_with_abstract": 4,
+  "last_success": "2026-10-31T20:16:34+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:34+00:00",
+   "status": "ok",
+   "items_found": 4,
+   "items_new": 4,
+   "error": null,
+   "duration_s": 9.93
+  }
  },
  {
   "id": "stlouis_fed",
@@ -479,8 +682,18 @@
   "enabled": true,
   "url": "https://www.stlouisfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 21,
+  "papers_with_abstract": 20,
+  "last_success": "2026-10-31T20:16:44+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:44+00:00",
+   "status": "ok",
+   "items_found": 21,
+   "items_new": 21,
+   "error": null,
+   "duration_s": 10.03
+  }
  },
  {
   "id": "minneapolis_fed",
@@ -493,8 +706,18 @@
   "enabled": true,
   "url": "https://www.minneapolisfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 10,
+  "papers_with_abstract": 8,
+  "last_success": "2026-10-31T20:16:54+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:16:54+00:00",
+   "status": "ok",
+   "items_found": 10,
+   "items_new": 10,
+   "error": null,
+   "duration_s": 10.04
+  }
  },
  {
   "id": "kc_fed",
@@ -507,8 +730,18 @@
   "enabled": true,
   "url": "https://www.kansascityfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 24,
+  "papers_with_abstract": 24,
+  "last_success": "2026-10-31T20:17:04+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:17:04+00:00",
+   "status": "ok",
+   "items_found": 24,
+   "items_new": 24,
+   "error": null,
+   "duration_s": 10.04
+  }
  },
  {
   "id": "dallas_fed",
@@ -521,8 +754,18 @@
   "enabled": true,
   "url": "https://www.dallasfed.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 18,
+  "papers_with_abstract": 18,
+  "last_success": "2026-10-31T20:17:14+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:17:14+00:00",
+   "status": "ok",
+   "items_found": 18,
+   "items_new": 18,
+   "error": null,
+   "duration_s": 9.87
+  }
  },
  {
   "id": "sf_fed",
@@ -535,8 +778,18 @@
   "enabled": true,
   "url": "https://www.frbsf.org/",
   "notes": "Via Fed in Print.",
-  "paper_count": 0,
-  "last_run": null
+  "status": "working",
+  "paper_count": 20,
+  "papers_with_abstract": 20,
+  "last_success": "2026-10-31T20:17:24+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:17:24+00:00",
+   "status": "ok",
+   "items_found": 20,
+   "items_new": 20,
+   "error": null,
+   "duration_s": 10.01
+  }
  },
  {
   "id": "bde",
@@ -548,22 +801,35 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "Publications feed filtered to Working and Occasional Papers. Short summaries; papers also have Crossref DOIs (prefix 10.53479) with abstracts for about 60%.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "Publications feed filtered to Working and Occasional Papers. Feed summaries are teasers, so abstracts come from each paper's page.",
+  "status": "working",
+  "paper_count": 18,
+  "papers_with_abstract": 18,
+  "last_success": "2026-10-31T20:29:58+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:29:58+00:00",
+   "status": "ok",
+   "items_found": 18,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 18.34
+  }
  },
  {
   "id": "bof",
   "name": "Bank of Finland",
   "group": "european_ncb",
   "country_or_region": "Finland",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.suomenpankki.fi/en/publications/research-publications/discussion-papers/",
-  "notes": "No feed for Research Discussion Papers (the BoF Bulletin has one, but carries policy articles). HTML collector planned.",
+  "notes": "Not covered. Discussion Papers are listed only in the Bank's DSpace repository (publications.bof.fi), which sits behind Cloudflare and returns 403 to our identified crawler; its content signals also do not grant AI use. Not in OpenAlex.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -571,13 +837,16 @@
   "name": "Bank of Finland Institute for Emerging Economies (BOFIT)",
   "group": "european_ncb",
   "country_or_region": "Finland (covers emerging economies)",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.bofit.fi/en/publications/discussion-papers/",
-  "notes": "No feed. The listing page has no paper links in its HTML; needs a closer look. A good EM source.",
+  "notes": "Not covered, for the same reason as the Bank of Finland: the listing is rendered by JavaScript from publications.bof.fi, which returns 403 to our crawler. Not in OpenAlex.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -590,8 +859,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "No feed found and the working-paper listing URL is not yet located.",
+  "notes": "Not covered. No feed, and we could not locate a server-rendered working-paper listing on oenb.at.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -599,13 +871,16 @@
   "name": "Central Bank of Ireland",
   "group": "european_ncb",
   "country_or_region": "Ireland",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.centralbank.ie/publication/research-publications/research-technical-papers",
-  "notes": "No feed. Listing page loads (robots.txt allows it); selectors to be written.",
+  "notes": "Not covered. No feed, and the Research Technical Papers listing is rendered by JavaScript.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -618,8 +893,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "Site returns 403 to our identified crawler. Not bypassed.",
+  "notes": "Not covered. The site returns 403 to our identified crawler; we do not try to get around it.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -632,9 +910,19 @@
   "paywalled": false,
   "enabled": true,
   "url": null,
-  "notes": "No summaries, so abstracts must come from each paper's page.",
-  "paper_count": 0,
-  "last_run": null
+  "notes": "No summaries in the feeds, so abstracts come from each paper's page.",
+  "status": "working",
+  "paper_count": 4,
+  "papers_with_abstract": 4,
+  "last_success": "2026-10-31T20:30:17+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:30:17+00:00",
+   "status": "ok",
+   "items_found": 4,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 30.26
+  }
  },
  {
   "id": "nationalbanken",
@@ -645,9 +933,12 @@
   "fallback": null,
   "paywalled": false,
   "enabled": false,
-  "url": null,
-  "notes": "No feed found; the site appears to render with JavaScript.",
+  "url": "https://www.nationalbanken.dk/en/news-and-knowledge/publications-and-speeches",
+  "notes": "Not covered. No feed, and the publications list (including working papers) is rendered by JavaScript.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -660,8 +951,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "Site returns 403 to our identified crawler. Not bypassed.",
+  "notes": "Not covered. The site returns 403 to our identified crawler; we do not try to get around it.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -669,13 +963,16 @@
   "name": "Czech National Bank",
   "group": "european_ncb",
   "country_or_region": "Czechia",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
-  "url": "https://www.cnb.cz/en/economic-research/research-publications/",
-  "notes": "Feeds cover only press releases and the cnBlog. The research page has no paper links in its HTML; needs a closer look.",
+  "url": "https://www.cnb.cz/en/economic-research/research-publications/cnb-working-paper-series/",
+  "notes": "Not covered. Feeds cover only press releases and the cnBlog, and the working-paper series page is rendered by JavaScript.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -683,14 +980,24 @@
   "name": "Magyar Nemzeti Bank",
   "group": "european_ncb",
   "country_or_region": "Hungary",
-  "method": "none",
+  "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
-  "url": null,
-  "notes": "No feed found and the working-paper listing URL is not yet located.",
-  "paper_count": 0,
-  "last_run": null
+  "enabled": true,
+  "url": "https://www.mnb.hu/en/publications/studies-publications-statistics/working-papers-1-1",
+  "notes": "Working-paper listing with abstracts on each paper's page. The site shows no publication dates, so papers are dated when we first see them (the existing back catalogue stays undated).",
+  "status": "partial",
+  "paper_count": 100,
+  "papers_with_abstract": 0,
+  "last_success": "2026-10-31T20:30:48+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:30:48+00:00",
+   "status": "ok",
+   "items_found": 100,
+   "items_new": 100,
+   "error": null,
+   "duration_s": 1.36
+  }
  },
  {
   "id": "bank_of_greece",
@@ -702,8 +1009,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "Site returns 403 to our identified crawler. Not bypassed.",
+  "notes": "Not covered. The site returns 403 to our identified crawler; we do not try to get around it.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -711,13 +1021,16 @@
   "name": "Národná banka Slovenska",
   "group": "european_ncb",
   "country_or_region": "Slovakia",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://nbs.sk/en/publications/research-papers-working-and-occasional-papers-wp-op/",
-  "notes": "No feed. Listing page found; selectors to be written.",
+  "notes": "Not covered. The listing shows abstracts inline but has no publication dates and no per-paper pages, so papers cannot be identified or placed in a month reliably.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -725,13 +1038,16 @@
   "name": "Banka Slovenije",
   "group": "european_ncb",
   "country_or_region": "Slovenia",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.bsi.si/en/blog-and-research-publications",
-  "notes": "No feed. Listing page links to posts in its HTML; selectors to be written.",
+  "notes": "Not covered. The page mixes blog posts with research and has no simple research listing.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -744,8 +1060,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "Site returns 403 to our identified crawler. Not bypassed.",
+  "notes": "Not covered. The site returns 403 to our identified crawler; we do not try to get around it.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -753,13 +1072,16 @@
   "name": "Latvijas Banka",
   "group": "european_ncb",
   "country_or_region": "Latvia",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.bank.lv/en/news-and-events/working-papers/2026",
-  "notes": "No feed. Yearly listing pages; no paper links in the HTML we fetched.",
+  "notes": "Not covered. No feed, and the yearly listing pages have no paper links in their HTML.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -767,13 +1089,16 @@
   "name": "Eesti Pank",
   "group": "european_ncb",
   "country_or_region": "Estonia",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.eestipank.ee/en/publications/working-papers",
-  "notes": "No feed. The homepage links recent working papers in its HTML; selectors to be written.",
+  "notes": "Not covered. The listing is a JavaScript app; its data is embedded as JSON, which would need a custom parser.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -781,13 +1106,16 @@
   "name": "Banque centrale du Luxembourg",
   "group": "european_ncb",
   "country_or_region": "Luxembourg",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.bcl.lu/en/publications/Working-papers/index.html",
-  "notes": "Only a general news feed (press releases). Working-paper listing found; selectors to be written.",
+  "notes": "Not covered. The only feed carries press releases, and the working-paper listing is not in the page HTML.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -795,13 +1123,16 @@
   "name": "Central Bank of Malta",
   "group": "european_ncb",
   "country_or_region": "Malta",
-  "method": "html",
+  "method": "none",
   "fallback": null,
   "paywalled": false,
   "enabled": false,
   "url": "https://www.centralbankmalta.org/en/all-pubs-res",
-  "notes": "Listing is in the HTML, but items link straight to PDFs with no abstract.",
+  "notes": "Not covered. The listing links straight to PDFs with no abstracts, so every paper would be skipped.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -814,8 +1145,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "No feed and no paper links found on the publications page.",
+  "notes": "Not covered. No feed and no paper links on the publications page.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  },
  {
@@ -826,11 +1160,21 @@
   "method": "html",
   "fallback": null,
   "paywalled": false,
-  "enabled": false,
+  "enabled": true,
   "url": "https://www.hnb.hr/en/analyses-and-publications/occasional-publications/working-papers",
-  "notes": "No feed. The listing page has no paper links in its HTML.",
+  "notes": "Working-paper listing (dates are month only) with abstracts on each paper's page.",
+  "status": "working",
   "paper_count": 0,
-  "last_run": null
+  "papers_with_abstract": 0,
+  "last_success": "2026-10-31T20:30:50+00:00",
+  "last_run": {
+   "started_at": "2026-10-31T20:30:50+00:00",
+   "status": "ok",
+   "items_found": 0,
+   "items_new": 0,
+   "error": null,
+   "duration_s": 1.49
+  }
  },
  {
   "id": "bnb",
@@ -842,8 +1186,11 @@
   "paywalled": false,
   "enabled": false,
   "url": null,
-  "notes": "RSS covers press-office categories in Bulgarian only; no research listing found in the HTML.",
+  "notes": "Not covered. Its feeds cover press-office categories in Bulgarian only, and no research listing is in the page HTML.",
+  "status": "not covered",
   "paper_count": 0,
+  "papers_with_abstract": 0,
+  "last_success": null,
   "last_run": null
  }
 ]

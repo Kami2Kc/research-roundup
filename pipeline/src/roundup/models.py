@@ -41,6 +41,7 @@ class Source(BaseModel):
     doi_prefix: str | None = None  # crossref: query by DOI prefix instead (e.g. NBER)
     link_pattern: str | None = None  # regex: keep only feed items whose link matches
     exclude_pattern: str | None = None  # regex: drop items whose title or series matches
+    title_strip: str | None = None  # regex: remove this from titles (e.g. a series prefix like "FEDS Paper: ")
     selectors: dict[str, str] | None = None
     fallback: Method | None = None
     paywalled: bool = False
@@ -57,8 +58,8 @@ class Source(BaseModel):
             raise ValueError(f"{self.id}: method '{self.method}' needs ISSNs or a DOI prefix")
         if self.method == Method.RSS and not self.feed_urls:
             raise ValueError(f"{self.id}: method 'rss' needs at least one feed URL")
-        if self.method == Method.HTML and not (self.url and self.selectors):
-            raise ValueError(f"{self.id}: method 'html' needs a url and selectors")
+        if self.method == Method.HTML and not (self.url and self.selectors and self.selectors.get("item")):
+            raise ValueError(f"{self.id}: method 'html' needs a url and an 'item' selector")
         return self
 
 

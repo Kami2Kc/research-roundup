@@ -4,6 +4,7 @@ import hashlib
 import logging
 import sqlite3
 from dataclasses import dataclass
+from datetime import date
 from typing import Literal
 
 from pydantic import BaseModel, Field
@@ -84,10 +85,12 @@ class ScreeningStats:
 
 
 def screen_papers(conn: sqlite3.Connection, llm: LLM, model: str, sources: dict[str, Source],
-                  limit: int) -> ScreeningStats:
+                  limit: int, since: date | None = None) -> ScreeningStats:
     """Screen unscreened papers, newest first, making at most `limit` LLM calls. Screened papers are never redone."""
     stats = ScreeningStats()
     for row in db.papers_to_screen(conn):
+        if since and (row["published_date"] is None or row["published_date"] < since.isoformat()):
+            continue
         abstract = row["abstract"] or ""
         if len(abstract) < MIN_ABSTRACT_CHARS:
             reason = f"abstract too short ({len(abstract)} chars)" if abstract else "no abstract"

@@ -94,8 +94,11 @@ def connect(path: Path = DB_PATH) -> sqlite3.Connection:
     return conn
 
 
+FULL_ABSTRACT_CHARS = 300  # a stored abstract shorter than this (a feed teaser) may be replaced by a longer one
+
+
 def upsert_papers(conn: sqlite3.Connection, papers: list[Paper]) -> int:
-    """Insert papers we haven't seen; fill in an abstract that was missing before. Returns the number of new papers."""
+    """Insert papers we haven't seen; fill in an abstract that was missing or only a teaser. Returns the new count."""
     new = 0
     for p in papers:
         row = conn.execute("SELECT abstract FROM papers WHERE id = ?", (p.id,)).fetchone()
@@ -109,10 +112,27 @@ def upsert_papers(conn: sqlite3.Connection, papers: list[Paper]) -> int:
                 ),
             )
             new += 1
-        elif not row["abstract"] and p.abstract:
+        elif p.abstract and len(row["abstract"] or "") < FULL_ABSTRACT_CHARS and len(p.abstract) > len(row["abstract"] or ""):
             conn.execute("UPDATE papers SET abstract = ? WHERE id = ?", (p.abstract, p.id))
     conn.commit()
     return new
+
+
+def stored_abstract_lengths(conn: sqlite3.Connection, ids: list[str]) -> dict[str, int]:
+    rows = conn.execute(
+        f"SELECT id, length(abstract) FROM papers WHERE id IN ({','.join('?' * len(ids))})", ids
+    ).fetchall()
+    return {row[0]: row[1] or 0 for row in rows}
+
+
+def existing_ids(conn: sqlite3.Connection, ids: list[str]) -> set[str]:
+    return set(stored_abstract_lengths(conn, ids))
+
+
+def has_successful_run(conn: sqlite3.Connection, source_id: str) -> bool:
+    return conn.execute(
+        "SELECT 1 FROM source_runs WHERE source_id = ? AND status = 'ok' LIMIT 1", (source_id,)
+    ).fetchone() is not None
 
 
 def record_run(conn: sqlite3.Connection, source_id: str, started_at: str, status: str,

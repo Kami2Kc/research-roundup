@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from datetime import date
 
 from roundup import db
-from roundup.collectors import crossref, openalex, rss
+from roundup.collectors import crossref, html, openalex, rss
 from roundup.collectors.base import HttpClient
 from roundup.models import Method, Paper, Source
 
@@ -17,6 +17,7 @@ log = logging.getLogger(__name__)
 COLLECTORS = {
     Method.CROSSREF: crossref.collect,
     Method.RSS: rss.collect,
+    Method.HTML: html.collect,
 }
 
 
@@ -44,6 +45,12 @@ def collect_source(conn: sqlite3.Connection, source: Source, http: HttpClient, s
             raise NotImplementedError(f"no collector for method '{source.method}' yet")
         papers = apply_filters(source, collector(source, http, since), since)
         found = len(papers)
+        date_first_seen(conn, source, papers)
+        if source.selectors and source.selectors.get("abstract"):
+            stored = db.stored_abstract_lengths(conn, [p.id for p in papers])
+            needs_page = [p for p in papers
+                          if p.published_date and stored.get(p.id, 0) < html.FULL_ABSTRACT_CHARS]
+            html.fill_abstracts(needs_page, http, source.selectors["abstract"])
         if source.fallback == Method.OPENALEX:
             openalex.fill_abstracts(papers, http)
         new = db.upsert_papers(conn, papers)
@@ -55,10 +62,27 @@ def collect_source(conn: sqlite3.Connection, source: Source, http: HttpClient, s
     return result
 
 
+def date_first_seen(conn: sqlite3.Connection, source: Source, papers: list[Paper]) -> None:
+    """Listings without dates: a paper new to us is dated today.
+
+    On a source's first successful run nothing is dated, so its back catalogue doesn't land in the current month.
+    """
+    undated = [p for p in papers if p.published_date is None and p.raw_meta.get("undated")]
+    if not undated or not db.has_successful_run(conn, source.id):
+        return
+    known = db.existing_ids(conn, [p.id for p in undated])
+    for p in undated:
+        if p.id not in known:
+            p.published_date = date.today()
+            p.raw_meta["date_source"] = "first_seen"
+
+
 def apply_filters(source: Source, papers: list[Paper], since: date) -> list[Paper]:
-    """Apply the source's link/exclude patterns and drop items published before `since`."""
+    """Apply the source's link/exclude patterns, drop items published before `since`, and tidy titles."""
     kept = []
     for p in papers:
+        if source.title_strip:
+            p.title = re.sub(source.title_strip, "", p.title).strip() or p.title
         if source.link_pattern and not re.search(source.link_pattern, p.url):
             continue
         if source.exclude_pattern and re.search(source.exclude_pattern, f"{p.title} {p.raw_meta.get('series') or ''}"):

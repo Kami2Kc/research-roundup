@@ -23,7 +23,14 @@ def test_upsert_fills_an_abstract_that_arrives_later(conn):
     assert conn.execute("SELECT abstract FROM papers").fetchone()[0] == "Now we have one."
 
 
-def test_upsert_never_overwrites_an_existing_abstract(conn):
-    db.upsert_papers(conn, [make_paper(abstract="Original.")])
-    db.upsert_papers(conn, [make_paper(abstract="Different.")])
-    assert conn.execute("SELECT abstract FROM papers").fetchone()[0] == "Original."
+def test_upsert_never_overwrites_a_full_abstract(conn):
+    full = "An abstract long enough to count as complete. " * 8
+    db.upsert_papers(conn, [make_paper(abstract=full)])
+    db.upsert_papers(conn, [make_paper(abstract=full + " Something longer.")])
+    assert conn.execute("SELECT abstract FROM papers").fetchone()[0] == full
+
+
+def test_upsert_replaces_a_short_teaser_with_a_longer_abstract(conn):
+    db.upsert_papers(conn, [make_paper(abstract="A one-line teaser from the feed.")])
+    db.upsert_papers(conn, [make_paper(abstract="The full abstract from the paper's own page. " * 3)])
+    assert conn.execute("SELECT abstract FROM papers").fetchone()[0].startswith("The full abstract")

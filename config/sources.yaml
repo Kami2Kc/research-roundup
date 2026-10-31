@@ -73,9 +73,13 @@ sources:
     group: bpea
     country_or_region: United States
     method: html
-    url: https://www.brookings.edu/projects/brookings-papers-on-economic-activity/all-bpea-research/
-    enabled: false
-    notes: "Unresolved. Crossref only has the JSTOR archive; the paper list is loaded by JavaScript and Brookings' WordPress feeds return no items."
+    url: https://www.brookings.edu/projects/brookings-papers-on-economic-activity/
+    selectors:
+      item: "div.bpea-best-item"
+      title: "p.bpea-best-title"
+      authors: "p.bpea-best-conference"
+      abstract: "section#content div.byo-block.-narrow"
+    notes: "Partial. Crossref only has the JSTOR archive and the full paper list is rendered by JavaScript, so we read the 'New and Noteworthy' papers on the BPEA page. They carry no dates, so papers are dated when first seen (the current edition was already listed on our first run and stays undated). Abstracts are Brookings' summary of each paper."
 
   - id: imf
     name: IMF Working Papers
@@ -104,6 +108,7 @@ sources:
       - https://www.federalreserve.gov/feeds/feds.xml
       - https://www.federalreserve.gov/feeds/ifdp.xml
       - https://www.federalreserve.gov/feeds/feds_notes.xml
+    title_strip: "^(FEDS Paper|IFDP Paper|FEDS Note):\\s*"
     notes: "FEDS, IFDP and FEDS Notes, all with abstracts."
 
   - id: boc
@@ -123,16 +128,23 @@ sources:
     method: rss
     feed_urls: ["https://www.bankofengland.co.uk/rss/publications"]
     link_pattern: "/(working-paper|macro-technical-paper)/"
-    notes: "General publications feed, filtered to staff working papers. Summaries are short."
+    selectors:
+      abstract: "div.page-content > p"
+    notes: "General publications feed, filtered to staff working papers. Its summaries are teasers, so abstracts come from each paper's page."
 
   - id: boj
     name: Bank of Japan
     group: g10_cb
     country_or_region: Japan
-    method: rss
-    feed_urls: ["https://www.boj.or.jp/en/rss/whatsnew.xml"]
-    link_pattern: "/en/research/"
-    notes: "'What's new' feed filtered to research. No summaries, and many links go straight to PDFs."
+    method: html
+    url: https://www.boj.or.jp/en/research/rs_all_{year}/index.htm
+    link_pattern: "/research/wps_rev/"
+    selectors:
+      item: "tbody tr"
+      title: "td a"
+      date: "td"
+      abstract: "main#contents div.outline > p"
+    notes: "The year's list of reports and research papers, filtered to Working Papers and the BoJ Review. (The 'What's new' feed is mostly data releases and carries no summaries.)"
 
   - id: snb
     name: Swiss National Bank
@@ -148,8 +160,13 @@ sources:
     country_or_region: Sweden
     method: html
     url: https://www.riksbank.se/en-gb/press-and-published/publications/working-paper-series/
-    enabled: false
-    notes: "No research feed (only press releases, notices, speeches, minutes, calendar). HTML collector planned."
+    selectors:
+      item: "div.listing-block__body li"
+      title: ".header--file__title"
+      link: "a"
+      date: ".label"
+    title_strip: "^No\\.\\s*\\d+\\s+"
+    notes: "No research feed. The working-paper listing links straight to PDFs, so we get titles and dates but no abstracts: papers are logged and skipped."
 
   - id: bundesbank
     name: Deutsche Bundesbank
@@ -157,16 +174,22 @@ sources:
     country_or_region: Germany
     method: rss
     feed_urls: ["https://www.bundesbank.de/service/rss/en/633292/feed.rss"]
-    notes: "Discussion Papers feed. No summaries, so abstracts must come from each paper's page."
+    selectors:
+      abstract: "main div.richtext"
+    notes: "Discussion Papers feed. No summaries, so the abstract (a non-technical summary) comes from each paper's page."
 
   - id: bdf
     name: Banque de France
     group: g10_cb
     country_or_region: France
     method: html
-    url: https://www.banque-france.fr/en/publications-and-research/research-publications
-    enabled: false
-    notes: "No feed found. The listing page has no paper links in its HTML (likely rendered by JavaScript)."
+    url: https://www.banque-france.fr/en/publications-and-research/our-main-publications/working-papers
+    selectors:
+      item: "a.card.card-vertical"
+      title: "h3.card-title"
+      date: "small"
+      abstract: "div.hero-text div.text-formatted"
+    notes: "No feed. Working-paper listing page (the general research page is rendered by JavaScript); abstracts from each paper's page."
 
   - id: bancaditalia
     name: Banca d'Italia
@@ -174,8 +197,14 @@ sources:
     country_or_region: Italy
     method: html
     url: https://www.bancaditalia.it/pubblicazioni/temi-discussione/index.html?com.dotmarketing.htmlpage.language=1
-    enabled: false
-    notes: "RSS exists under /util/, which robots.txt disallows. The working-paper listing is allowed (crawl delay 5s). HTML collector planned."
+    selectors:
+      item: "div.bdi-ultime-pubblicazioni li"
+      title: "a.bdi-ultime-pubblicazioni-title"
+      date: ".bdi-ultime-pubblicazioni-date"
+      authors: ".bdi-ultime-pubblicazioni-first"
+      abstract: "div.bdi-main-column div.bdi-typography"
+    title_strip: "^No\\.\\s*\\d+\\s*-\\s*"
+    notes: "RSS exists under /util/, which robots.txt disallows, so we use the working-paper listing (latest six; crawl delay 5s honoured). Abstracts from each paper's page."
 
   - id: dnb
     name: De Nederlandsche Bank
@@ -185,7 +214,9 @@ sources:
     feed_urls:
       - https://www.dnb.nl/en/rss/16455/4614/Working%20Papers
       - https://www.dnb.nl/en/rss/16455/4614/Occasional%20Studies
-    notes: "No summaries, so abstracts must come from each paper's page."
+    selectors:
+      abstract: "#rs-content div.component > p"
+    notes: "No summaries in the feed, so abstracts come from each paper's page."
 
   - id: nbb
     name: National Bank of Belgium
@@ -193,7 +224,9 @@ sources:
     country_or_region: Belgium
     method: rss
     feed_urls: ["https://www.nbb.be/en/publication_rss.xml"]
-    notes: "All-publications feed (working papers, Economic Review, projections). Short summaries."
+    selectors:
+      abstract: "div.node-publication-full-top__intro"
+    notes: "All-publications feed (working papers, Economic Review, projections). Short summaries, replaced by the intro on each paper's page."
 
   - id: ecb
     name: European Central Bank
@@ -336,25 +369,28 @@ sources:
     method: rss
     feed_urls: ["https://www.bde.es/wbe/en/inicio/rss/rss-estudios-publicaciones/"]
     link_pattern: "/(documentos-trabajo|documentos-ocasionales)/"
-    notes: "Publications feed filtered to Working and Occasional Papers. Short summaries; papers also have Crossref DOIs (prefix 10.53479) with abstracts for about 60%."
+    selectors:
+      abstract: "div.block-entry-content--detail-content > p"
+    title_strip: "^(Working|Occasional) Papers\\.\\s*"
+    notes: "Publications feed filtered to Working and Occasional Papers. Feed summaries are teasers, so abstracts come from each paper's page."
 
   - id: bof
     name: Bank of Finland
     group: european_ncb
     country_or_region: Finland
-    method: html
+    method: none
     url: https://www.suomenpankki.fi/en/publications/research-publications/discussion-papers/
     enabled: false
-    notes: "No feed for Research Discussion Papers (the BoF Bulletin has one, but carries policy articles). HTML collector planned."
+    notes: "Not covered. Discussion Papers are listed only in the Bank's DSpace repository (publications.bof.fi), which sits behind Cloudflare and returns 403 to our identified crawler; its content signals also do not grant AI use. Not in OpenAlex."
 
   - id: bofit
     name: Bank of Finland Institute for Emerging Economies (BOFIT)
     group: european_ncb
     country_or_region: Finland (covers emerging economies)
-    method: html
+    method: none
     url: https://www.bofit.fi/en/publications/discussion-papers/
     enabled: false
-    notes: "No feed. The listing page has no paper links in its HTML; needs a closer look. A good EM source."
+    notes: "Not covered, for the same reason as the Bank of Finland: the listing is rendered by JavaScript from publications.bof.fi, which returns 403 to our crawler. Not in OpenAlex."
 
   - id: oenb
     name: Oesterreichische Nationalbank
@@ -362,16 +398,16 @@ sources:
     country_or_region: Austria
     method: none
     enabled: false
-    notes: "No feed found and the working-paper listing URL is not yet located."
+    notes: "Not covered. No feed, and we could not locate a server-rendered working-paper listing on oenb.at."
 
   - id: cbi
     name: Central Bank of Ireland
     group: european_ncb
     country_or_region: Ireland
-    method: html
+    method: none
     url: https://www.centralbank.ie/publication/research-publications/research-technical-papers
     enabled: false
-    notes: "No feed. Listing page loads (robots.txt allows it); selectors to be written."
+    notes: "Not covered. No feed, and the Research Technical Papers listing is rendered by JavaScript."
 
   - id: bportugal
     name: Banco de Portugal
@@ -379,7 +415,7 @@ sources:
     country_or_region: Portugal
     method: none
     enabled: false
-    notes: "Site returns 403 to our identified crawler. Not bypassed."
+    notes: "Not covered. The site returns 403 to our identified crawler; we do not try to get around it."
 
   - id: norges_bank
     name: Norges Bank
@@ -389,15 +425,18 @@ sources:
     feed_urls:
       - https://www.norges-bank.no/en/rss-feeds/Working-papers---Norges-Bank/
       - https://www.norges-bank.no/en/rss-feeds/Staff-Memo---Norges-Bank/
-    notes: "No summaries, so abstracts must come from each paper's page."
+    selectors:
+      abstract: "div.publication-start__body"
+    notes: "No summaries in the feeds, so abstracts come from each paper's page."
 
   - id: nationalbanken
     name: Danmarks Nationalbank
     group: european_ncb
     country_or_region: Denmark
     method: none
+    url: https://www.nationalbanken.dk/en/news-and-knowledge/publications-and-speeches
     enabled: false
-    notes: "No feed found; the site appears to render with JavaScript."
+    notes: "Not covered. No feed, and the publications list (including working papers) is rendered by JavaScript."
 
   - id: nbp
     name: Narodowy Bank Polski
@@ -405,51 +444,55 @@ sources:
     country_or_region: Poland
     method: none
     enabled: false
-    notes: "Site returns 403 to our identified crawler. Not bypassed."
+    notes: "Not covered. The site returns 403 to our identified crawler; we do not try to get around it."
 
   - id: cnb
     name: Czech National Bank
     group: european_ncb
     country_or_region: Czechia
-    method: html
-    url: https://www.cnb.cz/en/economic-research/research-publications/
+    method: none
+    url: https://www.cnb.cz/en/economic-research/research-publications/cnb-working-paper-series/
     enabled: false
-    notes: "Feeds cover only press releases and the cnBlog. The research page has no paper links in its HTML; needs a closer look."
+    notes: "Not covered. Feeds cover only press releases and the cnBlog, and the working-paper series page is rendered by JavaScript."
 
   - id: mnb
     name: Magyar Nemzeti Bank
     group: european_ncb
     country_or_region: Hungary
-    method: none
-    enabled: false
-    notes: "No feed found and the working-paper listing URL is not yet located."
+    method: html
+    url: https://www.mnb.hu/en/publications/studies-publications-statistics/working-papers-1-1
+    selectors:
+      item: "a.cb-file"
+      abstract: "div.c-txt div.text.embed"
+    notes: "Working-paper listing with abstracts on each paper's page. The site shows no publication dates, so papers are dated when we first see them (the existing back catalogue stays undated)."
 
   # ── European national central banks: rest of the euro area ──────────────────
+  # Covered only where there is a feed or a simple page (about 15 minutes per scraper).
   - id: bank_of_greece
     name: Bank of Greece
     group: european_ncb
     country_or_region: Greece
     method: none
     enabled: false
-    notes: "Site returns 403 to our identified crawler. Not bypassed."
+    notes: "Not covered. The site returns 403 to our identified crawler; we do not try to get around it."
 
   - id: nbs
     name: Národná banka Slovenska
     group: european_ncb
     country_or_region: Slovakia
-    method: html
+    method: none
     url: https://nbs.sk/en/publications/research-papers-working-and-occasional-papers-wp-op/
     enabled: false
-    notes: "No feed. Listing page found; selectors to be written."
+    notes: "Not covered. The listing shows abstracts inline but has no publication dates and no per-paper pages, so papers cannot be identified or placed in a month reliably."
 
   - id: bsi
     name: Banka Slovenije
     group: european_ncb
     country_or_region: Slovenia
-    method: html
+    method: none
     url: https://www.bsi.si/en/blog-and-research-publications
     enabled: false
-    notes: "No feed. Listing page links to posts in its HTML; selectors to be written."
+    notes: "Not covered. The page mixes blog posts with research and has no simple research listing."
 
   - id: lb
     name: Lietuvos bankas
@@ -457,43 +500,43 @@ sources:
     country_or_region: Lithuania
     method: none
     enabled: false
-    notes: "Site returns 403 to our identified crawler. Not bypassed."
+    notes: "Not covered. The site returns 403 to our identified crawler; we do not try to get around it."
 
   - id: latvijas_banka
     name: Latvijas Banka
     group: european_ncb
     country_or_region: Latvia
-    method: html
+    method: none
     url: https://www.bank.lv/en/news-and-events/working-papers/2026
     enabled: false
-    notes: "No feed. Yearly listing pages; no paper links in the HTML we fetched."
+    notes: "Not covered. No feed, and the yearly listing pages have no paper links in their HTML."
 
   - id: eesti_pank
     name: Eesti Pank
     group: european_ncb
     country_or_region: Estonia
-    method: html
+    method: none
     url: https://www.eestipank.ee/en/publications/working-papers
     enabled: false
-    notes: "No feed. The homepage links recent working papers in its HTML; selectors to be written."
+    notes: "Not covered. The listing is a JavaScript app; its data is embedded as JSON, which would need a custom parser."
 
   - id: bcl
     name: Banque centrale du Luxembourg
     group: european_ncb
     country_or_region: Luxembourg
-    method: html
+    method: none
     url: https://www.bcl.lu/en/publications/Working-papers/index.html
     enabled: false
-    notes: "Only a general news feed (press releases). Working-paper listing found; selectors to be written."
+    notes: "Not covered. The only feed carries press releases, and the working-paper listing is not in the page HTML."
 
   - id: cbm
     name: Central Bank of Malta
     group: european_ncb
     country_or_region: Malta
-    method: html
+    method: none
     url: https://www.centralbankmalta.org/en/all-pubs-res
     enabled: false
-    notes: "Listing is in the HTML, but items link straight to PDFs with no abstract."
+    notes: "Not covered. The listing links straight to PDFs with no abstracts, so every paper would be skipped."
 
   - id: cbc
     name: Central Bank of Cyprus
@@ -501,7 +544,7 @@ sources:
     country_or_region: Cyprus
     method: none
     enabled: false
-    notes: "No feed and no paper links found on the publications page."
+    notes: "Not covered. No feed and no paper links on the publications page."
 
   - id: hnb
     name: Hrvatska narodna banka
@@ -509,8 +552,13 @@ sources:
     country_or_region: Croatia
     method: html
     url: https://www.hnb.hr/en/analyses-and-publications/occasional-publications/working-papers
-    enabled: false
-    notes: "No feed. The listing page has no paper links in its HTML."
+    selectors:
+      item: "div.entry-container"
+      title: "h4.title a"
+      date: "tr:nth-of-type(2) td"
+      authors: "tr:nth-of-type(4) td"
+      abstract: "article.module-publication-details > div"
+    notes: "Working-paper listing (dates are month only) with abstracts on each paper's page."
 
   - id: bnb
     name: Bulgarian National Bank
@@ -518,4 +566,4 @@ sources:
     country_or_region: Bulgaria
     method: none
     enabled: false
-    notes: "RSS covers press-office categories in Bulgarian only; no research listing found in the HTML."
+    notes: "Not covered. Its feeds cover press-office categories in Bulgarian only, and no research listing is in the page HTML."

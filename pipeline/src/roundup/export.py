@@ -6,6 +6,7 @@ import sqlite3
 from pathlib import Path
 
 from roundup.config import WEB_PUBLIC
+from roundup.health import source_health
 from roundup.models import Source
 
 
@@ -92,18 +93,10 @@ def export_papers(conn: sqlite3.Connection, sources: dict[str, Source]) -> list[
 
 
 def export_sources(conn: sqlite3.Connection, sources: list[Source]) -> list[dict]:
-    """Every configured source, with its paper count and latest run (including sources we don't collect)."""
-    counts = dict(conn.execute("SELECT source_id, COUNT(*) FROM papers GROUP BY source_id").fetchall())
-    latest = {
-        row["source_id"]: dict(row)
-        for row in conn.execute(
-            """SELECT r.* FROM source_runs r
-               JOIN (SELECT source_id, MAX(id) AS id FROM source_runs GROUP BY source_id) last ON last.id = r.id"""
-        )
-    }
+    """Every configured source, with its health status, paper counts and latest run (including sources we don't collect)."""
     rows = []
-    for s in sources:
-        run = latest.get(s.id)
+    for h in source_health(conn, sources):
+        s, run = h.source, h.last_run
         rows.append({
             "id": s.id,
             "name": s.name,
@@ -115,7 +108,10 @@ def export_sources(conn: sqlite3.Connection, sources: list[Source]) -> list[dict
             "enabled": s.enabled,
             "url": s.url,
             "notes": s.notes,
-            "paper_count": counts.get(s.id, 0),
+            "status": h.status,
+            "paper_count": h.papers,
+            "papers_with_abstract": h.with_abstract,
+            "last_success": h.last_success,
             "last_run": {k: run[k] for k in ("started_at", "status", "items_found", "items_new", "error", "duration_s")}
             if run else None,
         })

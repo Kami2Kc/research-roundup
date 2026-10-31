@@ -9,6 +9,7 @@ import typer
 
 from roundup import db, editor, export as exporter, newsletter
 from roundup.collectors import collect_all
+from roundup.health import source_health
 from roundup.collectors.base import HttpClient
 from roundup.config import load_settings, load_sources
 from roundup.llm import LLMError, estimate_cost, get_llm
@@ -68,7 +69,10 @@ def collect(
 
 
 @app.command()
-def screen(limit: int | None = typer.Option(None, help="Maximum LLM calls this run (default: SCREEN_LIMIT).")) -> None:
+def screen(
+    limit: int | None = typer.Option(None, help="Maximum LLM calls this run (default: SCREEN_LIMIT)."),
+    since: str | None = typer.Option(None, help="Only screen papers published on or after this date (YYYY-MM-DD)."),
+) -> None:
     """Classify papers that haven't been screened yet."""
     settings = load_settings()
     if not settings.llm_screen_model:
@@ -79,7 +83,8 @@ def screen(limit: int | None = typer.Option(None, help="Maximum LLM calls this r
         fail(str(e))
     sources = {s.id: s for s in load_sources()}
     with closing(db.connect()) as conn:
-        stats = screen_papers(conn, llm, settings.llm_screen_model, sources, limit or settings.screen_limit)
+        stats = screen_papers(conn, llm, settings.llm_screen_model, sources, limit or settings.screen_limit,
+                              since=date.fromisoformat(since) if since else None)
     typer.echo(
         f"Screened {stats.screened}, skipped {stats.no_abstract} without an abstract, {stats.errors} errors. "
         f"Tokens: {stats.input_tokens:,} in / {stats.output_tokens:,} out, estimated cost ${stats.cost_usd:.4f}."
@@ -145,16 +150,32 @@ def backfill(
 
 
 @app.command("sources-report")
-def sources_report() -> None:
+def sources_report(
+    markdown: bool = typer.Option(False, help="Print a Markdown table (for docs/SOURCES.md)."),
+) -> None:
     """Print the coverage and health table."""
-    sources = load_sources()
-    typer.echo(f"{'ID':<22} {'GROUP':<14} {'METHOD':<9} {'ENABLED':<8} NAME")
-    for s in sources:
-        typer.echo(f"{s.id:<22} {s.group:<14} {s.method:<9} {'yes' if s.enabled else 'no':<8} {s.name}")
+    with closing(db.connect()) as conn:
+        report = source_health(conn, load_sources())
 
-    enabled = sum(s.enabled for s in sources)
-    by_method = Counter(str(s.method) for s in sources)
-    typer.echo(f"\n{len(sources)} sources, {enabled} enabled. By method: {dict(sorted(by_method.items()))}")
+    def abstracts(h) -> str:
+        return f"{h.with_abstract}/{h.papers}" if h.papers else "–"
+
+    if markdown:
+        typer.echo("| Source | Group | Method | Status | Papers with abstracts | Last run |")
+        typer.echo("|---|---|---|---|---|---|")
+        for h in report:
+            last = h.last_run["started_at"][:10] if h.last_run else "–"
+            typer.echo(f"| {h.source.name} | {h.source.group} | {h.source.method} | {h.status} | {abstracts(h)} | {last} |")
+    else:
+        typer.echo(f"{'ID':<16} {'GROUP':<13} {'METHOD':<9} {'STATUS':<12} {'ABSTRACTS':>9}  {'LAST RUN':<17} ERROR")
+        for h in report:
+            run = h.last_run
+            last = f"{run['started_at'][:16]}" if run else "–"
+            typer.echo(f"{h.source.id:<16} {h.source.group:<13} {h.source.method:<9} {h.status:<12} "
+                       f"{abstracts(h):>9}  {last:<17} {(run or {}).get('error') or ''}")
+
+    statuses = Counter(h.status for h in report)
+    typer.echo(f"\n{len(report)} sources: " + ", ".join(f"{n} {status}" for status, n in statuses.most_common()))
 
 
 @app.command("eval")
