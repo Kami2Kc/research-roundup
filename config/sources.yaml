@@ -176,6 +176,7 @@ sources:
     feed_urls: ["https://www.bundesbank.de/service/rss/en/633292/feed.rss"]
     selectors:
       abstract: "main div.richtext"
+    title_strip: "\\s*\\|.*$"  # the feed appends " | author names"
     notes: "Discussion Papers feed. No summaries, so the abstract (a non-technical summary) comes from each paper's page."
 
   - id: bdf

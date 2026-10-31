@@ -1,68 +1,68 @@
 [
  {
   "month": "2026-10",
-  "editor_note": "This issue looks at how shocks travel through global markets. Three papers examine the United States as a source: Treasury bond supply, monetary policy and the global financial cycle, and the safe-haven status of government bonds. Two papers turn to geopolitics, separating feared from realised energy disruptions and tracing how euro area sovereign bond holders react to geopolitical risk. A further group covers market structure and policy design, with evidence on offshore forwards in emerging-market currencies, Bank of Japan equity purchases and stablecoin flows. Taken together, the papers show that the dollar, investor composition and expectations often matter as much as the initial shock.",
-  "selection_rationale": "I prioritised the 10/10 papers on US rates and dollar spillovers, EM FX plumbing, safe-haven behaviour and central-bank balance sheets, then added energy-shock and geopolitical-risk papers because they are the month's dominant macro theme. The pick has three Transversal, three DM and two EM papers, and mixes IMF, NBER, BIS, Fed and ECB sources. I left out the IMF paper on US long rates and EM local-currency bonds because it overlaps with the bond supply spillovers paper, and I took the BIS NDF paper instead for EM. I also left out strong 9/10 DM pieces, such as the AER inflation papers, the sovereign-bank nexus note, the Treasury dealer balance sheet note and the tariff pass-through post, because their topics were more specialised or more US-centric, or the issue was already weighted toward IMF and NBER output. The thin-abstract BIS 'Inflation after the Iran war' was also left out in favour of the more fully documented IMF energy-shock paper.",
+  "editor_note": "October's papers share a common thread: how US policy and the dollar's special status shape prices elsewhere. Two studies ask why the dollar and Treasuries behave as they do, one empirically around the April 2025 tariffs and one through a model of dollar-short arbitrageurs. A third shows how US rates spill into emerging-market local bonds, and how domestic investors soften the blow. Alongside, the issue looks at how monetary-policy risk and inflation risk are priced, how European banks remain tied to their sovereigns, and two papers on alternatives and complements to dollar safe assets, stablecoins and gold. Together they ask where safety, and risk, now sit.",
+  "selection_rationale": "I prioritised the 10/10 papers that bear on rates, FX and policy transmission, and led with the Bundesbank piece on the post-tariff dollar and Treasury puzzle. The issue has four DM, two EM and two Transversal papers, so no focus exceeds half. Sources are varied (Bundesbank, NBER, IMF twice, ECB, a regional Fed, BIS and the Fed Board), and no topic or source breaches the limits. I left out the IMF paper on global spillovers from US bond supply, and the Banco de España inflation-options paper, because they overlap closely with the EM local-bond paper and the ECB inflation-risk paper respectively. I chose the stablecoin paper over the Morocco and euroisation EM papers because it adds a fresh EM FX and capital-flow angle, and the sovereign-bank nexus paper over other DM central-bank work because it brings credit coverage. I also left out the IMF oil and gas shock paper and the NBER AI-financing paper, strong but lower on the rates, FX and credit core and constrained by source and topic limits..",
   "newsletter": "/newsletters/2026-10.html",
   "pool_size": 40,
-  "papers_screened": 239,
-  "built_at": "2026-10-31T19:32:04+00:00",
+  "papers_screened": 349,
+  "built_at": "2026-10-31T21:09:51+00:00",
   "papers": [
    {
-    "slug": "10-5089-9798229064385-001",
+    "slug": "url-1e24a7627c54f070",
     "position": 1,
-    "headline": "U.S. Treasury supply shocks lift foreign yields and depress global output",
-    "selection_reason": "Scores 10/10 and quantifies how US Treasury supply shocks pass through to foreign long yields (about 7bp per 10bp), FX and growth, which bears directly on rates and FX positioning.",
-    "market_focus": "Transversal"
-   },
-   {
-    "slug": "url-028c8790a21e6b44",
-    "position": 2,
-    "headline": "Offshore NDF order flow moves onshore spot rates in emerging markets",
-    "selection_reason": "Scores 10/10 and uses transaction-level cleared NDF data for ten EM currencies to show how offshore flow drives onshore spot and the forward spread, making it the issue's core EM FX paper.",
-    "market_focus": "EM"
+    "headline": "Dollar weakness after April 2025 tariffs reflected a US credibility shock",
+    "selection_reason": "Explains why the dollar fell and long Treasury yields rose after the April 2025 tariffs, which is a live puzzle for rates and FX desks.",
+    "market_focus": "DM"
    },
    {
     "slug": "10-3386-w35902",
+    "position": 2,
+    "headline": "US monetary tightening raises global risk premia by hitting dollar-short arbitrageurs",
+    "selection_reason": "A tightly specified model of how US monetary policy moves global risk premia through dollar-funded arbitrageurs, useful for thinking about spillovers to every market we cover.",
+    "market_focus": "Transversal"
+   },
+   {
+    "slug": "10-5089-9798229062336-001",
     "position": 3,
-    "headline": "A model linking U.S. monetary policy to global risk premia through dollar funding",
-    "selection_reason": "Scores 10/10 and gives a general equilibrium account of how US tightening raises the global price of risk through dollar-short arbitrageurs, a framework for FX and risk-premium spillovers.",
-    "market_focus": "Transversal"
+    "headline": "Rising US long rates lift emerging-market local bond yields; domestic investors cushion",
+    "selection_reason": "Shows that US long-term rates raise EM local-currency yields and term premia, and that domestic investor bases cushion the effect, which is directly relevant to EM rates positioning.",
+    "market_focus": "EM"
    },
    {
-    "slug": "url-6dcfd5ada2be210e",
+    "slug": "url-c91c1879e340660e",
     "position": 4,
-    "headline": "Did government bonds lose their safe-haven role during the Middle East escalation?",
-    "selection_reason": "Scores 10/10 and asks whether DM government bonds still act as safe havens when an energy shock raises inflation, a live question for rates and cross-asset desks.",
+    "headline": "Euro area inflation risks differ by horizon and carry distinct macro signals",
+    "selection_reason": "Uses euro-area inflation caps and floors to extract the term structure of inflation risk, a market-based gauge for euro rates and inflation trades.",
     "market_focus": "DM"
    },
    {
-    "slug": "10-3386-w35886",
+    "slug": "10-21033-wp-2026-20",
     "position": 5,
-    "headline": "Bank of Japan stock purchases: effects depend on yield curve control",
-    "selection_reason": "Scores 10/10 and offers clean causal evidence on how BoJ equity purchases interact with yield curve control, adding an advanced-economy central-bank-balance-sheet angle.",
-    "market_focus": "DM"
-   },
-   {
-    "slug": "10-5089-9798229062282-001",
-    "position": 6,
-    "headline": "Fear of energy shortages moves prices before supply disruptions arrive",
-    "selection_reason": "Scores 9/10 and separates realised oil and gas supply disruptions from geopolitical-risk shocks, with implications for inflation and central banks in the 2026 Middle East energy episode.",
-    "market_focus": "Transversal"
-   },
-   {
-    "slug": "url-17577215441633be",
-    "position": 7,
-    "headline": "How euro area sovereign bond holders respond to geopolitical risk",
-    "selection_reason": "Scores 9/10 and uses granular ECB holdings data to show how investor types react to geopolitical risk in high-debt euro area sovereigns, adding an ECB source and a euro-area credit and spreads view.",
+    "headline": "Monetary-policy uncertainty is priced across US bonds and stocks, model shows",
+    "selection_reason": "Quantifies how monetary-policy uncertainty is priced across nominal and real yields and equities, and assesses the rise in policy risk after 2022.",
     "market_focus": "DM"
    },
    {
     "slug": "10-5089-9798229061612-001",
-    "position": 8,
-    "headline": "Stablecoin holdings rise after capital controls and currency crises",
-    "selection_reason": "Scores 9/10 and covers 188 countries to show how capital controls and currency crises drive stablecoin flows and dollarisation, a second EM paper on a topic that is new for EM FX and flows.",
+    "position": 6,
+    "headline": "Stablecoin use rises after capital controls and currency crises, IMF paper finds",
+    "selection_reason": "Documents $21.4tn of stablecoin flows concentrated in EM, rising under capital controls and in currency crises, which adds a new EM FX and capital-flow angle.",
     "market_focus": "EM"
+   },
+   {
+    "slug": "url-446217aa6de1df23",
+    "position": 7,
+    "headline": "BIS paper tests how gold responds to geopolitical risk across financial conditions",
+    "selection_reason": "Examines how gold's safe-haven response to geopolitical risk depends on financial conditions, which matters for the commodities and macro-hedging discussion.",
+    "market_focus": "Transversal"
+   },
+   {
+    "slug": "url-7d7189cdf1f3d46e",
+    "position": 8,
+    "headline": "Sovereign risk still reaches European banks, but only under certain conditions",
+    "selection_reason": "Shows the sovereign-bank link in Europe is still economically meaningful but conditional, which adds a credit and bank-risk view to an otherwise rates-heavy issue.",
+    "market_focus": "DM"
    }
   ]
  }

@@ -6,7 +6,8 @@ from roundup.screening import PROMPT_VERSION, ScreeningResult, fake_screening, s
 from tests.test_db import make_paper
 
 ABSTRACT = "We study how monetary policy shocks transmit to sovereign bond yields across the euro area. " * 2
-VALID = '{"relevance_score": 8, "market_focus": "DM", "focus_rationale": "Euro area.", "topics": ["rates"], "regions": ["euro area"]}'
+VALID = ('{"relevance_score": 8, "market_focus": "DM", "focus_rationale": "Euro area.", '
+         '"topics": ["interest rates and bonds"], "regions": ["euro area"]}')
 
 
 def responder_from(outputs: list[str]):
@@ -30,6 +31,11 @@ def test_invalid_output_three_times_raises():
 def test_out_of_range_score_is_rejected():
     with pytest.raises(ValueError):
         ScreeningResult.model_validate_json(VALID.replace("8", "11"))
+
+
+def test_topics_must_come_from_the_fixed_list():
+    with pytest.raises(ValueError):
+        ScreeningResult.model_validate_json(VALID.replace("interest rates and bonds", "rates"))
 
 
 def test_screening_skips_missing_abstracts_and_never_rescreens(conn):

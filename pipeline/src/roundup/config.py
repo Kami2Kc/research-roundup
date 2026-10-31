@@ -25,6 +25,7 @@ class Settings:
     contact_email: str | None
     screen_limit: int  # cost guard: maximum LLM screening calls per run
     relevance_threshold: int  # minimum relevance score for the editor's candidate pool
+    site_url: str | None  # the deployed dashboard, for links in the newsletter
 
 
 def load_settings() -> Settings:
@@ -38,6 +39,7 @@ def load_settings() -> Settings:
         contact_email=os.getenv("CONTACT_EMAIL") or None,
         screen_limit=int(os.getenv("SCREEN_LIMIT", "300")),
         relevance_threshold=int(os.getenv("RELEVANCE_THRESHOLD", "6")),
+        site_url=os.getenv("SITE_URL") or None,
     )
 
 

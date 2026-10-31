@@ -1,86 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
 <title>The Research Roundup – {{ month_label }}</title>
 <style>
-  body { margin: 0; padding: 0; background: #f3f4f6; font-family: Georgia, 'Times New Roman', serif; color: #1f2937; }
-  .wrapper { width: 100%; background: #f3f4f6; }
+  body { margin: 0; padding: 0; background: #eef1f5; color: #1f2937; font-family: Arial, Helvetica, sans-serif; }
+  table { border-collapse: collapse; }
+  td { font-family: Arial, Helvetica, sans-serif; }  /* some clients (Gmail) drop <body> styles */
+  a { color: #13315c; }
+  .preheader { display: none; max-height: 0; overflow: hidden; mso-hide: all; font-size: 1px; line-height: 1px; color: #eef1f5; }
   .container { width: 600px; max-width: 600px; background: #ffffff; }
-  .header { padding: 32px 32px 24px 32px; border-bottom: 3px solid #111827; }
-  .kicker { font-family: Arial, Helvetica, sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6b7280; margin: 0 0 8px 0; }
-  .masthead { font-size: 32px; line-height: 38px; font-weight: bold; color: #111827; margin: 0; }
-  .tagline { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4b5563; margin: 8px 0 0 0; }
-  .note { padding: 24px 32px; font-size: 16px; line-height: 25px; color: #374151; }
-  .note-label { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: #111827; margin: 0 0 8px 0; }
-  .card { padding: 24px 32px; border-top: 1px solid #e5e7eb; }
-  .meta { font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #6b7280; margin: 0 0 10px 0; }
-  .badge { display: inline-block; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 3px; }
-  .headline { font-size: 21px; line-height: 27px; font-weight: bold; color: #111827; margin: 0 0 6px 0; }
-  .title { font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 19px; color: #4b5563; margin: 0 0 12px 0; }
-  .summary { font-size: 16px; line-height: 25px; color: #1f2937; margin: 0 0 14px 0; }
-  .label { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: #111827; margin: 0 0 6px 0; }
-  .takeaways { margin: 0 0 14px 0; padding: 0 0 0 20px; font-size: 15px; line-height: 23px; color: #1f2937; }
-  .why { background: #f9fafb; border-left: 3px solid #111827; padding: 12px 16px; font-size: 15px; line-height: 23px; color: #1f2937; }
-  .focus { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #6b7280; margin: 10px 0 0 0; }
-  .abstract-only { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-style: italic; color: #6b7280; }
-  .link { font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color: #1d4ed8; text-decoration: none; }
-  .footer { padding: 24px 32px 32px 32px; border-top: 3px solid #111827; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #6b7280; }
+  .masthead { background: #0b2545; padding: 28px 32px 24px 32px; }
+  .kicker { margin: 0 0 10px 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9fb3c8; }
+  .title { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 34px; line-height: 40px; font-weight: bold; color: #ffffff; }
+  .tagline { margin: 8px 0 0 0; font-size: 14px; line-height: 20px; color: #d9e2ec; }
+  .stats { background: #13315c; padding: 10px 32px; font-size: 12px; line-height: 18px; color: #d9e2ec; }
+  .section { padding: 26px 32px 6px 32px; }
+  .label { margin: 0 0 10px 0; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; color: #13315c; }
+  .note { margin: 0 0 14px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 17px; line-height: 27px; color: #243b53; }
+  .toc-row td { padding: 7px 0; border-bottom: 1px solid #edf0f4; vertical-align: top; }
+  .toc-num { width: 30px; font-family: Georgia, serif; font-size: 15px; font-weight: bold; color: #9fb3c8; }
+  .toc-headline { font-size: 14px; line-height: 20px; color: #1f2937; text-decoration: none; font-weight: bold; }
+  .toc-source { font-size: 12px; color: #6b7280; }
+  .badge { display: inline-block; padding: 2px 7px; border-radius: 3px; font-size: 10px; font-weight: bold; letter-spacing: 0.6px; text-transform: uppercase; }
+  .card { padding: 26px 32px; border-top: 1px solid #e5e7eb; }
+  .num { font-family: Georgia, serif; font-size: 28px; line-height: 28px; font-weight: bold; color: #d9e2ec; }
+  .meta { margin: 0 0 8px 0; font-size: 12px; line-height: 18px; color: #6b7280; }
+  .headline { margin: 0 0 6px 0; font-family: Georgia, 'Times New Roman', serif; font-size: 22px; line-height: 28px; font-weight: bold; color: #0b2545; }
+  .paper-title { margin: 0 0 14px 0; font-size: 13px; line-height: 19px; color: #6b7280; }
+  .summary { margin: 0 0 16px 0; font-size: 15px; line-height: 24px; color: #1f2937; }
+  .takeaways { margin: 0 0 16px 0; padding: 0 0 0 18px; font-size: 14px; line-height: 22px; color: #1f2937; }
+  .takeaways li { margin: 0 0 6px 0; }
+  .why { padding: 12px 16px; background: #f5f7fa; font-size: 14px; line-height: 22px; color: #1f2937; }
+  .why-label { font-weight: bold; color: #0b2545; }
+  .focus { margin: 12px 0 0 0; font-size: 12px; line-height: 18px; color: #6b7280; }
+  .button { display: inline-block; padding: 9px 16px; background: #0b2545; color: #ffffff !important; font-size: 13px; font-weight: bold; text-decoration: none; border-radius: 3px; }
+  .abstract-only { font-size: 11px; font-style: italic; color: #6b7280; }
+  .footer { padding: 24px 32px 30px 32px; background: #f5f7fa; border-top: 3px solid #0b2545; font-size: 12px; line-height: 19px; color: #52606d; }
+  .footer p { margin: 0 0 10px 0; }
   @media only screen and (max-width: 620px) {
     .container { width: 100% !important; }
-    .header, .note, .card, .footer { padding-left: 18px !important; padding-right: 18px !important; }
-    .masthead { font-size: 26px !important; line-height: 32px !important; }
-    .headline { font-size: 19px !important; line-height: 25px !important; }
+    .masthead, .stats, .section, .card, .footer { padding-left: 18px !important; padding-right: 18px !important; }
+    .title { font-size: 28px !important; line-height: 34px !important; }
+    .headline { font-size: 20px !important; line-height: 26px !important; }
+    .num-cell { display: none !important; }
   }
 </style>
 </head>
 <body>
-<table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
+<div class="preheader">{{ preheader }}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#eef1f5" style="background: #eef1f5;">
 <tr><td align="center" style="padding: 24px 0;">
+<!--[if mso]><table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
 <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0">
 
-  <tr><td class="header">
-    <p class="kicker">{{ month_label }} · Issue {{ issue_number }}</p>
-    <h1 class="masthead">The Research Roundup</h1>
-    <p class="tagline">New economics research for Global Markets: rates, FX, credit, macro and emerging markets.</p>
+  <tr><td class="masthead" bgcolor="#0b2545">
+    <p class="kicker">{{ month_label }} &nbsp;·&nbsp; Issue {{ issue_number }}</p>
+    <h1 class="title">The Research Roundup</h1>
+    <p class="tagline">The month's most useful new economics research for Global Markets: rates, FX, credit, macro and emerging markets.</p>
+  </td></tr>
+  <tr><td class="stats" bgcolor="#13315c">
+    {{ papers_screened }} papers screened &nbsp;·&nbsp; {{ sources_monitored }} sources monitored &nbsp;·&nbsp; {{ papers|length }} selected
   </td></tr>
 
-  <tr><td class="note">
-    <p class="note-label">Editor's note</p>
-    {% for para in note_paragraphs %}<p style="margin: 0 0 12px 0;">{{ para }}</p>{% endfor %}
+  <tr><td class="section">
+    <p class="label">Editor's note</p>
+    {% for para in note_paragraphs %}<p class="note">{{ para }}</p>{% endfor %}
+  </td></tr>
+
+  <tr><td class="section" style="padding-bottom: 22px;">
+    <p class="label">In this issue</p>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      {% for p in papers %}
+      {% set tag = tag_colours[p.market_focus] %}
+      <tr class="toc-row">
+        <td class="toc-num">{{ loop.index }}</td>
+        <td>
+          <a class="toc-headline" href="#paper-{{ loop.index }}">{{ p.headline }}</a><br>
+          <span class="badge" style="background: {{ tag.bg }}; color: {{ tag.fg }};">{{ p.market_focus }}</span>
+          <span class="toc-source">&nbsp;{{ p.source_name }}</span>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
   </td></tr>
 
   {% for p in papers %}
   {% set tag = tag_colours[p.market_focus] %}
-  <tr><td class="card">
-    <p class="meta">
-      <span class="badge" style="background: {{ tag.bg }}; color: {{ tag.fg }};">{{ p.market_focus }}</span>
-      &nbsp;{{ p.source_name }} · {{ p.published_label }}
-    </p>
-    <h2 class="headline">{{ p.headline }}</h2>
-    <p class="title">{{ p.title }}{% if p.authors %} — {{ p.authors_label }}{% endif %}</p>
-    <p class="summary">{{ p.summary }}</p>
-    <p class="label">Key takeaways</p>
-    <ul class="takeaways">
-      {% for t in p.takeaways %}<li>{{ t }}</li>{% endfor %}
-    </ul>
-    <div class="why"><strong>Why it matters for markets.</strong> {{ p.why_it_matters }}</div>
-    <p class="focus"><strong>Market focus: {{ p.market_focus }}.</strong> {{ p.focus_rationale }}</p>
-    <p style="margin: 14px 0 0 0;">
-      <a class="link" href="{{ p.url }}">Read the paper &rarr;</a>
-      {% if p.paywalled %}&nbsp;&nbsp;<span class="abstract-only">Summary based on abstract</span>{% endif %}
-    </p>
+  <tr><td class="card" id="paper-{{ loop.index }}">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+      <td class="num-cell" width="44" valign="top"><span class="num">{{ "%02d"|format(loop.index) }}</span></td>
+      <td valign="top">
+        <p class="meta">
+          <span class="badge" style="background: {{ tag.bg }}; color: {{ tag.fg }};">{{ p.market_focus }}</span>
+          &nbsp;{{ p.source_type }} &nbsp;·&nbsp; {{ p.source_name }} &nbsp;·&nbsp; {{ p.published_label }}
+        </p>
+        <h2 class="headline">{{ p.headline }}</h2>
+        <p class="paper-title">{{ p.title }}{% if p.authors %}<br>{{ p.authors_label }}{% endif %}</p>
+        <p class="summary">{{ p.summary }}</p>
+        <p class="label">Key takeaways</p>
+        <ul class="takeaways">
+          {% for t in p.takeaways %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+        <div class="why" style="border-left: 3px solid {{ tag.fg }};"><span class="why-label">Why it matters for markets.</span> {{ p.why_it_matters }}</div>
+        <p class="focus"><strong>Market focus: {{ p.market_focus }}.</strong> {{ p.focus_rationale }}</p>
+        <p style="margin: 16px 0 0 0;">
+          <a class="button" href="{{ p.url }}">Read the paper &rarr;</a>
+          {% if p.paywalled %}&nbsp;&nbsp;<span class="abstract-only">Summary based on abstract</span>{% endif %}
+        </p>
+      </td>
+    </tr></table>
   </td></tr>
   {% endfor %}
 
   <tr><td class="footer">
-    <p style="margin: 0 0 8px 0;"><strong>How this issue was made.</strong> We monitor {{ sources_monitored }} sources: the top five economics journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, the IMF and the BIS. This month {{ papers_screened }} new papers were screened by a language model for relevance and market focus (EM, DM or Transversal), and an AI editor chose {{ papers|length }} of the {{ pool_size }} strongest candidates. Summaries are written from titles and abstracts only; for paywalled journals and NBER, we never use the full text.</p>
-    <p style="margin: 0;">EM: emerging and developing economies. DM: advanced economies. Transversal: global, cross-country or methodological.</p>
+    <p><strong>How this issue was made.</strong> Each week we collect new papers from {{ sources_monitored }} sources: the top five economics journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, Brookings, the IMF and the BIS. A language model screens every paper for relevance and market focus. Each month an AI editor reviews the strongest {{ pool_size }} candidates, chooses a balanced selection and writes the summaries. Summaries are based on titles and abstracts only; for paywalled journals and NBER we never use the full text. Check the original paper before citing it.</p>
+    <p>
+      <span class="badge" style="background: {{ tag_colours.EM.bg }}; color: {{ tag_colours.EM.fg }};">EM</span> emerging and developing economies &nbsp;
+      <span class="badge" style="background: {{ tag_colours.DM.bg }}; color: {{ tag_colours.DM.fg }};">DM</span> advanced economies &nbsp;
+      <span class="badge" style="background: {{ tag_colours.Transversal.bg }}; color: {{ tag_colours.Transversal.fg }};">Transversal</span> global, cross-country or methodological
+    </p>
+    {% if site_url %}<p><a href="{{ site_url }}/issues/{{ month }}/">View this issue online</a> &nbsp;·&nbsp; <a href="{{ site_url }}/papers/">Explore every screened paper</a> &nbsp;·&nbsp; <a href="{{ site_url }}/sources/">Sources and coverage</a></p>{% endif %}
   </td></tr>
 
 </table>
+<!--[if mso]></td></tr></table><![endif]-->
 </td></tr>
 </table>
 </body>

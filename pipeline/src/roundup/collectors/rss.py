@@ -22,6 +22,18 @@ def collect(source: Source, http: HttpClient, since: date) -> list[Paper]:
     return papers
 
 
+def split_names(field: str) -> list[str]:
+    """Fed in Print sends "King, Thomas B.; Feldman, Corey": split on ';' and turn "Last, First" into "First Last"."""
+    names = []
+    for name in (n.strip() for n in field.split(";")):
+        last, sep, first = name.partition(", ")
+        if sep and first and "," not in first and first.rstrip(".") not in ("Jr", "Sr", "II", "III"):
+            name = f"{first} {last}"
+        if name:
+            names.append(name)
+    return names
+
+
 def parse_entry(entry: dict, source: Source, feed_url: str) -> Paper | None:
     title = clean_text(entry.get("title"))
     link = entry.get("link")
@@ -33,7 +45,7 @@ def parse_entry(entry: dict, source: Source, feed_url: str) -> Paper | None:
         id=make_paper_id(doi, link),
         source_id=source.id,
         title=title,
-        authors=[a["name"] for a in entry.get("authors", []) if a.get("name")],
+        authors=[name for a in entry.get("authors", []) for name in split_names(a.get("name", ""))],
         abstract=clean_text(entry.get("summary")) or None,
         url=link,
         published_date=date(parsed.tm_year, parsed.tm_mon, parsed.tm_mday) if parsed else None,  # UTC

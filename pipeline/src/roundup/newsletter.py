@@ -9,7 +9,7 @@ import css_inline
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from roundup.config import WEB_PUBLIC
-from roundup.editor import BuiltIssue
+from roundup.editor import SOURCE_TYPES, BuiltIssue
 from roundup.models import Source
 
 TEMPLATES = Path(__file__).resolve().parents[2] / "templates"
@@ -26,7 +26,7 @@ _env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoesc
 _inliner = css_inline.CSSInliner(keep_at_rules=True, load_remote_stylesheets=False)
 
 
-def render(issue: BuiltIssue, issue_number: int, sources_monitored: int) -> str:
+def render(issue: BuiltIssue, issue_number: int, sources_monitored: int, site_url: str | None = None) -> str:
     papers = []
     for p in issue.papers:
         authors = p["authors"]
@@ -35,26 +35,31 @@ def render(issue: BuiltIssue, issue_number: int, sources_monitored: int) -> str:
             **p,
             "published_label": f"{published.day} {published:%b %Y}",
             "authors_label": ", ".join(authors[:4]) + (" et al." if len(authors) > 4 else ""),
+            "source_type": SOURCE_TYPES.get(p["source_group"], ""),
         })
+    note_paragraphs = [para.strip() for para in issue.editor_note.split("\n\n") if para.strip()]
     html = _env.get_template("newsletter.html.j2").render(
+        month=issue.month,
         month_label=datetime.strptime(issue.month, "%Y-%m").strftime("%B %Y"),
         issue_number=issue_number,
-        note_paragraphs=[para.strip() for para in issue.editor_note.split("\n\n") if para.strip()],
+        preheader=note_paragraphs[0][:150] if note_paragraphs else "",
+        note_paragraphs=note_paragraphs,
         papers=papers,
         tag_colours=TAG_COLOURS,
         sources_monitored=sources_monitored,
         papers_screened=issue.papers_screened,
         pool_size=issue.pool_size,
+        site_url=(site_url or "").rstrip("/"),
     )
     return _inliner.inline(html)
 
 
-def write(conn: sqlite3.Connection, issue: BuiltIssue, sources_monitored: int,
+def write(conn: sqlite3.Connection, issue: BuiltIssue, sources_monitored: int, site_url: str | None = None,
           out_dir: Path = WEB_PUBLIC / "newsletters") -> Path:
     issue_number = conn.execute("SELECT COUNT(*) FROM issues WHERE month <= ?", (issue.month,)).fetchone()[0]
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{issue.month}.html"
-    path.write_text(render(issue, issue_number, sources_monitored), encoding="utf-8")
+    path.write_text(render(issue, issue_number, sources_monitored, site_url), encoding="utf-8")
     return path
 
 
@@ -71,7 +76,9 @@ def load_issue(conn: sqlite3.Connection, month: str, sources: dict[str, Source])
            WHERE ip.month = ? ORDER BY ip.position""",
         (month,),
     ):
+        source = sources[ip["source_id"]]
         papers.append({**dict(ip), "id": ip["paper_id"], "authors": json.loads(ip["authors"]),
-                       "takeaways": json.loads(ip["takeaways"]), "source_name": sources[ip["source_id"]].name})
+                       "takeaways": json.loads(ip["takeaways"]), "source_name": source.name,
+                       "source_group": str(source.group)})
     return BuiltIssue(month, row["editor_note"], row["selection_rationale"], papers, row["pool_size"],
                       row["papers_screened"])

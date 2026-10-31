@@ -57,3 +57,52 @@ def test_selection_check_catches_rule_breaks(conn, http):
     assert any("Choose between" in p for p in problems)
     bad_id = editor.Selection(picks=[editor.Pick(paper_id="nope", reason="r")] * 5, rationale="r")
     assert any("not in the candidate list" in p for p in editor.check_selection(bad_id, pool))
+
+
+def add_screened(conn, paper_id, focus, relevance, source_id="ecb", topic="monetary policy", abstract_len=600):
+    from roundup import db as roundup_db
+    from tests.test_db import make_paper
+    roundup_db.upsert_papers(conn, [make_paper(id=paper_id, source_id=source_id, abstract="x" * abstract_len)])
+    roundup_db.save_screening(conn, paper_id, "screened", model="test", prompt_version="test", result={
+        "relevance_score": relevance, "market_focus": focus, "focus_rationale": "r", "topics": [topic], "regions": []})
+
+
+def test_pool_reserves_places_for_each_focus_and_skips_thin_abstracts(conn):
+    for i in range(50):
+        add_screened(conn, f"dm{i}", "DM", 10)
+    add_screened(conn, "em1", "EM", 6)
+    add_screened(conn, "tr1", "Transversal", 7)
+    add_screened(conn, "thin", "EM", 9, abstract_len=150)
+    pool = editor.candidate_pool(conn, "2026-10", threshold=6)
+    ids = {row["id"] for row in pool}
+    assert len(pool) == editor.POOL_CAP
+    assert {"em1", "tr1"} <= ids  # lower-scored, but reserved places keep them in
+    assert "thin" not in ids
+
+
+def test_selection_rules_on_balance_sources_and_topics(conn):
+    for i in range(4):
+        add_screened(conn, f"dm{i}", "DM", 9, source_id="ecb" if i < 3 else "boe", topic="inflation")
+        add_screened(conn, f"em{i}", "EM", 8, source_id="imf", topic="fx and capital flows")
+        add_screened(conn, f"tr{i}", "Transversal", 8, source_id=f"src{i}", topic="other")
+    pool = editor.candidate_pool(conn, "2026-10", threshold=6)
+    picks = ["dm0", "dm1", "dm2", "dm3", "em0", "tr0"]
+    problems = editor.check_selection(
+        editor.Selection(picks=[editor.Pick(paper_id=i, reason="r") for i in picks], rationale="r"), pool)
+    joined = " ".join(problems)
+    assert "no more than half" in joined  # 4 of 6 are DM
+    assert "share a source" in joined  # three from the ECB
+    assert "main topic 'inflation'" in joined
+    good = ["dm0", "dm3", "em0", "em1", "tr0", "tr1"]
+    assert editor.check_selection(
+        editor.Selection(picks=[editor.Pick(paper_id=i, reason="r") for i in good], rationale="r"), pool) == []
+
+
+def test_draft_word_limits_are_checked():
+    long_summary = "word " * 200
+    draft = editor.IssueDraft(editor_note="Too short.", papers=[editor.Writeup(
+        paper_id="p1", headline="A perfectly reasonable headline here", summary=long_summary,
+        takeaways=["a", "b", "c"], why_it_matters="word " * 40, market_focus="DM", focus_rationale="r")])
+    problems = editor.check_draft(draft, ["p1"])
+    assert any("editor's note" in p for p in problems)
+    assert any("summary has 200 words" in p for p in problems)

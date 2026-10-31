@@ -15,15 +15,28 @@ from roundup.models import Source
 
 log = logging.getLogger(__name__)
 
-PROMPT_VERSION = "screen-v2"  # v2: euro area periphery is DM; non-euro CEE and the Gulf are EM
+# v2: euro area periphery is DM; non-euro CEE and the Gulf are EM
+# v3: fixed topic list, region naming rules, sector and methods guidance, calibration examples
+PROMPT_VERSION = "screen-v3"
 MIN_ABSTRACT_CHARS = 100  # shorter "abstracts" are feed teasers, too thin to classify
+FOCUSES = ("EM", "DM", "Transversal")
+
+# A fixed list so the dashboard can filter by topic.
+Topic = Literal[
+    "monetary policy", "inflation", "interest rates and bonds", "fx and capital flows",
+    "credit and corporate finance", "banking and financial stability", "fiscal policy and sovereign debt",
+    "growth and productivity", "labour markets", "trade and supply chains", "housing and real estate",
+    "energy and commodities", "climate and esg", "equities and asset pricing", "households and consumption",
+    "payments and digital money", "ai and technology", "industrials, autos and retail", "development",
+    "econometrics and forecasting", "health, education and social policy", "other",
+]
 
 
 class ScreeningResult(BaseModel):
     relevance_score: int = Field(ge=0, le=10)
     market_focus: Literal["EM", "DM", "Transversal"]
     focus_rationale: str
-    topics: list[str]
+    topics: list[Topic] = Field(min_length=1, max_length=3)
     regions: list[str]
 
 
@@ -40,11 +53,18 @@ relevance_score: an integer from 0 to 10 for how useful the paper is to this tea
 rates, FX, credit, sovereign risk, capital flows or financial stability, with implications a strategist \
 could use now.
 - 6-8: a macro or financial topic with a clear indirect link to markets: labour markets, productivity, \
-trade, housing, banking, energy, the climate transition, or dynamics in industrials, autos or retail.
+trade, housing, banking, energy, equities, the climate transition, or dynamics in industrials, autos or \
+retail. Forecasting and nowcasting methods that macro economists can apply belong here too.
 - 3-5: economics with a weak link to markets, such as most applied microeconomics, public-finance details, \
-or development topics without a macro or financial angle.
+general econometric theory, or development topics without a macro or financial angle.
 - 0-2: no meaningful link: health, education, history, pure theory with no application, or items that are \
 not research.
+Calibration examples:
+- "Treasury issuance and dealer balance sheets" (repo and bond market functioning): 9.
+- "Monetary policy transmission in Morocco after an exchange-rate reform": 8.
+- "Pricing power in the US mortgage market": 7.
+- "Clustered standard errors for regression with spatial data": 3.
+- "Selective admissions in nursing homes": 2.
 
 market_focus: exactly one of "EM", "DM" or "Transversal".
 - DM: mainly about advanced economies, such as the US, the euro area, the UK, Japan, Canada, Switzerland, \
@@ -59,10 +79,10 @@ Decide from the economies the paper studies, not from the institution that publi
 about Chinese exports is EM, and a Federal Reserve paper with a purely theoretical model is Transversal.
 
 focus_rationale: one or two sentences naming the economies studied, or why the paper is Transversal.
-topics: one to four short lowercase labels, such as "monetary policy", "inflation", "fx", "sovereign debt", \
-"banking", "labour market".
-regions: the economies or regions studied, such as "US", "euro area", "Brazil" or "global". Use an empty \
-list if the paper studies no particular place.
+topics: one to three topics from the allowed list, most important first.
+regions: the economies or regions studied, using short common names: "US", "euro area", "UK", "Japan", \
+"China", "Germany", "Brazil", "Latin America", "sub-Saharan Africa". Use "global" for worldwide or broad \
+cross-country samples. Use an empty list for theory with no particular place.
 """
 
 
@@ -130,7 +150,7 @@ def fake_screening(prompt: str) -> ScreeningResult:
         relevance_score=h % 11,
         market_focus=("EM", "DM", "Transversal")[h % 3],
         focus_rationale="Placeholder classification from FakeLLM.",
-        topics=["placeholder"],
+        topics=["other"],
         regions=[],
     )
 

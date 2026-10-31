@@ -11,10 +11,10 @@ from roundup import db, editor, export as exporter, newsletter
 from roundup.collectors import collect_all
 from roundup.health import source_health
 from roundup.collectors.base import HttpClient
-from roundup.config import load_settings, load_sources
+from roundup.config import REPO_ROOT, load_settings, load_sources
 from roundup.llm import LLMError, estimate_cost, get_llm
 from roundup.models import Source
-from roundup.screening import screen_papers
+from roundup.screening import PROMPT_VERSION as SCREEN_PROMPT_VERSION, screen_papers
 
 app = typer.Typer(help="The Research Roundup pipeline.", no_args_is_help=True)
 
@@ -111,7 +111,8 @@ def build_issue(
                                            settings.relevance_threshold)
         except (LLMError, ValueError) as e:
             fail(str(e))
-        path = newsletter.write(conn, issue, sources_monitored=sum(s.enabled for s in all_sources))
+        path = newsletter.write(conn, issue, sources_monitored=sum(s.enabled for s in all_sources),
+                                site_url=settings.site_url)
         usage = conn.execute("SELECT model, input_tokens, output_tokens FROM issues WHERE month = ?", (month,)).fetchone()
     typer.echo(f"{month}: {len(issue.papers)} papers chosen from a pool of {issue.pool_size}. Wrote {path}")
     if not render_only:
@@ -181,7 +182,35 @@ def sources_report(
 @app.command("eval")
 def eval_() -> None:
     """Compare the model's market focus with eval/labels.csv."""
-    not_implemented("M3")
+    from roundup.eval import LABELS, run_eval
+
+    settings = load_settings()
+    if not settings.llm_screen_model:
+        fail("LLM_SCREEN_MODEL is not set (see .env.example).")
+    labels_path = REPO_ROOT / "eval" / "labels.csv"
+    try:
+        report = run_eval(get_llm(settings), settings.llm_screen_model, labels_path,
+                          REPO_ROOT / "eval" / "results.csv")
+    except (LLMError, ValueError) as e:
+        fail(str(e))
+    if not report.rows:
+        fail(f"no labelled rows in {labels_path} (fill in label_market_focus).")
+
+    n = len(report.rows)
+    typer.echo(f"Market focus: model agrees with the label on {round(report.agreement * n)}/{n} papers "
+               f"({report.agreement:.0%}); Cohen's kappa {report.kappa:.2f}. Prompt {SCREEN_PROMPT_VERSION}.")
+    confusion = report.confusion()
+    typer.echo(f"\n{'label \\ model':<14}" + "".join(f"{c:>13}" for c in LABELS))
+    for label in LABELS:
+        typer.echo(f"{label:<14}" + "".join(f"{confusion.get((label, c), 0):>13}" for c in LABELS))
+    if (mae := report.relevance_mae()) is not None:
+        typer.echo(f"\nRelevance: mean absolute difference from your scores {mae:.1f} points.")
+    disagreements = [r for r in report.rows if r["label"] != r["predicted"]]
+    if disagreements:
+        typer.echo("\nDisagreements:")
+        for r in disagreements:
+            typer.echo(f"- {r['title'][:70]}: label {r['label']}, model {r['predicted']}. {r['rationale']}")
+    typer.echo(f"\nDetails in eval/results.csv. Estimated cost ${report.cost_usd:.4f}.")
 
 
 if __name__ == "__main__":

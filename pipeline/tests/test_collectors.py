@@ -121,3 +121,9 @@ def test_paper_ids():
     assert make_paper_id("10.3386/W35838", "https://x") == "10.3386/w35838"
     assert normalise_url("HTTPS://WWW.ECB.europa.eu//pub/a.pdf#top") == "https://www.ecb.europa.eu/pub/a.pdf"
     assert make_paper_id(None, "https://a.org/x/") == make_paper_id(None, "https://A.org//x")
+
+
+def test_fed_in_print_author_names_are_normalised():
+    assert rss.split_names("King, Thomas B.; Feldman, Corey") == ["Thomas B. King", "Corey Feldman"]
+    assert rss.split_names("Jane Smith") == ["Jane Smith"]
+    assert rss.split_names("Smith, Jr.") == ["Smith, Jr."]
