@@ -7,18 +7,16 @@ from datetime import date, timedelta
 
 import typer
 
-from roundup import db, editor, export as exporter, newsletter
-from roundup.collectors import collect_all
-from roundup.health import source_health
+from roundup import db, export as exporter, jobs, newsletter
+from roundup.collectors import RunResult, collect_all
 from roundup.collectors.base import HttpClient
 from roundup.config import REPO_ROOT, load_settings, load_sources
+from roundup.editor import BuiltIssue
+from roundup.health import source_health
 from roundup.llm import LLMError, estimate_cost, get_llm
-from roundup.models import Source
-from roundup.screening import PROMPT_VERSION as SCREEN_PROMPT_VERSION, screen_papers
+from roundup.screening import PROMPT_VERSION as SCREEN_PROMPT_VERSION, ScreeningStats, screen_papers
 
 app = typer.Typer(help="The Research Roundup pipeline.", no_args_is_help=True)
-
-DEFAULT_LOOKBACK_DAYS = 14  # weekly runs overlap by a week; upserts make the overlap harmless
 
 
 @app.callback()
@@ -33,39 +31,62 @@ def fail(message: str) -> None:
     raise typer.Exit(code=1)
 
 
-def not_implemented(milestone: str) -> None:
-    fail(f"not implemented yet (planned for {milestone}).")
+def job_context(conn, *, collect: bool = True, screen: bool = True, edit: bool = True) -> jobs.Context:
+    """Check the settings a job needs and build its context."""
+    settings = load_settings()
+    if collect and not settings.contact_email:
+        fail("CONTACT_EMAIL is not set (see .env.example); it is required for a polite User-Agent.")
+    if screen and not settings.llm_screen_model:
+        fail("LLM_SCREEN_MODEL is not set (see .env.example).")
+    if edit and not settings.llm_editor_model:
+        fail("LLM_EDITOR_MODEL is not set (see .env.example).")
+    llm = None
+    if screen or edit:
+        try:
+            llm = get_llm(settings)
+        except LLMError as e:
+            fail(str(e))
+    return jobs.Context(conn, settings, load_sources(), HttpClient(settings.contact_email or ""), llm)
 
 
-def enabled_sources() -> list[Source]:
-    return [s for s in load_sources() if s.enabled]
+def print_collected(results: list[RunResult]) -> None:
+    typer.echo(f"\n{'SOURCE':<18} {'STATUS':<7} {'FOUND':>6} {'NEW':>5}  ERROR")
+    for r in results:
+        typer.echo(f"{r.source_id:<18} {r.status:<7} {r.found:>6} {r.new:>5}  {r.error or ''}")
+    failed = sum(r.status == "error" for r in results)
+    typer.echo(f"{len(results)} sources, {sum(r.new for r in results)} new papers, {failed} failed.\n")
+
+
+def print_screened(stats: ScreeningStats) -> None:
+    typer.echo(
+        f"Screened {stats.screened}, skipped {stats.no_abstract} without an abstract, {stats.errors} errors. "
+        f"Tokens: {stats.input_tokens:,} in / {stats.output_tokens:,} out, estimated cost ${stats.cost_usd:.4f}."
+    )
+
+
+def print_issue(conn, issue: BuiltIssue) -> None:
+    usage = conn.execute("SELECT model, input_tokens, output_tokens FROM issues WHERE month = ?",
+                         (issue.month,)).fetchone()
+    cost = estimate_cost(usage["model"], usage["input_tokens"], usage["output_tokens"])
+    typer.echo(f"{issue.month}: {len(issue.papers)} papers chosen from a pool of {issue.pool_size}. "
+               f"Editor tokens: {usage['input_tokens']:,} in / {usage['output_tokens']:,} out, "
+               f"estimated cost ${cost or 0:.4f}.")
 
 
 @app.command()
 def collect(
     since: str | None = typer.Option(None, help="Only keep items published on or after this date (YYYY-MM-DD). "
-                                                f"Default: {DEFAULT_LOOKBACK_DAYS} days ago."),
+                                                f"Default: {jobs.WEEKLY_LOOKBACK_DAYS} days ago."),
     source: str | None = typer.Option(None, help="Only collect from this source ID."),
 ) -> None:
     """Fetch new publications."""
-    settings = load_settings()
-    if not settings.contact_email:
-        fail("CONTACT_EMAIL is not set (see .env.example); it is required for a polite User-Agent.")
-    since_date = date.fromisoformat(since) if since else date.today() - timedelta(days=DEFAULT_LOOKBACK_DAYS)
-    sources = enabled_sources()
-    if source:
-        sources = [s for s in sources if s.id == source]
+    with closing(db.connect()) as conn:
+        ctx = job_context(conn, screen=False, edit=False)
+        since_date = date.fromisoformat(since) if since else date.today() - timedelta(days=jobs.WEEKLY_LOOKBACK_DAYS)
+        sources = [s for s in ctx.enabled if not source or s.id == source]
         if not sources:
             fail(f"no enabled source with ID '{source}'.")
-
-    with closing(db.connect()) as conn:
-        results = collect_all(conn, sources, HttpClient(settings.contact_email), since_date)
-
-    typer.echo(f"\n{'SOURCE':<18} {'STATUS':<7} {'FOUND':>6} {'NEW':>5}  ERROR")
-    for r in results:
-        typer.echo(f"{r.source_id:<18} {r.status:<7} {r.found:>6} {r.new:>5}  {r.error or ''}")
-    failed = sum(r.status == "error" for r in results)
-    typer.echo(f"\n{len(results)} sources, {sum(r.new for r in results)} new papers, {failed} failed.")
+        print_collected(collect_all(conn, sources, ctx.http, since_date))
 
 
 @app.command()
@@ -74,21 +95,11 @@ def screen(
     since: str | None = typer.Option(None, help="Only screen papers published on or after this date (YYYY-MM-DD)."),
 ) -> None:
     """Classify papers that haven't been screened yet."""
-    settings = load_settings()
-    if not settings.llm_screen_model:
-        fail("LLM_SCREEN_MODEL is not set (see .env.example).")
-    try:
-        llm = get_llm(settings)
-    except LLMError as e:
-        fail(str(e))
-    sources = {s.id: s for s in load_sources()}
     with closing(db.connect()) as conn:
-        stats = screen_papers(conn, llm, settings.llm_screen_model, sources, limit or settings.screen_limit,
-                              since=date.fromisoformat(since) if since else None)
-    typer.echo(
-        f"Screened {stats.screened}, skipped {stats.no_abstract} without an abstract, {stats.errors} errors. "
-        f"Tokens: {stats.input_tokens:,} in / {stats.output_tokens:,} out, estimated cost ${stats.cost_usd:.4f}."
-    )
+        ctx = job_context(conn, collect=False, edit=False)
+        print_screened(screen_papers(conn, ctx.llm, ctx.settings.llm_screen_model, ctx.by_id,
+                                     limit or ctx.settings.screen_limit,
+                                     since=date.fromisoformat(since) if since else None))
 
 
 @app.command("build-issue")
@@ -97,28 +108,17 @@ def build_issue(
     render_only: bool = typer.Option(False, help="Re-render the stored issue without calling the editor."),
 ) -> None:
     """Build the newsletter for a month."""
-    settings = load_settings()
-    all_sources = load_sources()
-    sources = {s.id: s for s in all_sources}
     with closing(db.connect()) as conn:
+        ctx = job_context(conn, collect=False, screen=False, edit=not render_only)
         try:
             if render_only:
-                issue = newsletter.load_issue(conn, month, sources)
+                issue = newsletter.load_issue(conn, month, ctx.by_id)
+                path = newsletter.write(conn, issue, sources_monitored=len(ctx.enabled), site_url=ctx.settings.site_url)
+                typer.echo(f"{month}: re-rendered {path}")
             else:
-                if not settings.llm_editor_model:
-                    fail("LLM_EDITOR_MODEL is not set (see .env.example).")
-                issue = editor.build_issue(conn, get_llm(settings), settings.llm_editor_model, month, sources,
-                                           settings.relevance_threshold)
+                print_issue(conn, jobs.build_and_render(ctx, month))
         except (LLMError, ValueError) as e:
             fail(str(e))
-        path = newsletter.write(conn, issue, sources_monitored=sum(s.enabled for s in all_sources),
-                                site_url=settings.site_url)
-        usage = conn.execute("SELECT model, input_tokens, output_tokens FROM issues WHERE month = ?", (month,)).fetchone()
-    typer.echo(f"{month}: {len(issue.papers)} papers chosen from a pool of {issue.pool_size}. Wrote {path}")
-    if not render_only:
-        cost = estimate_cost(usage["model"], usage["input_tokens"], usage["output_tokens"])
-        typer.echo(f"Editor tokens: {usage['input_tokens']:,} in / {usage['output_tokens']:,} out, "
-                   f"estimated cost ${cost or 0:.4f}.")
 
 
 @app.command()
@@ -132,22 +132,50 @@ def export() -> None:
 @app.command("run-weekly")
 def run_weekly() -> None:
     """Collect, screen, then export."""
-    not_implemented("M5")
+    with closing(db.connect()) as conn:
+        report = jobs.run_weekly(job_context(conn, edit=False), date.today())
+    print_collected(report.collected)
+    print_screened(report.screened)
+    if report.all_sources_failed:
+        fail("every source failed; check the network or the source configuration.")
 
 
 @app.command("run-monthly")
-def run_monthly() -> None:
+def run_monthly(
+    month: str | None = typer.Option(None, help="Issue month (YYYY-MM). Default: the previous month."),
+) -> None:
     """Collect, screen, build the previous month's issue, then export."""
-    not_implemented("M5")
+    target = month or jobs.previous_month(date.today())
+    with closing(db.connect()) as conn:
+        try:
+            report = jobs.run_monthly(job_context(conn), target)
+        except LLMError as e:
+            fail(f"{target}: {e}")
+        print_collected(report.collected)
+        print_screened(report.screened)
+        for issue in report.issues:
+            print_issue(conn, issue)
 
 
 @app.command()
 def backfill(
     from_: str = typer.Option(..., "--from", help="Start date (YYYY-MM-DD)."),
     to: str = typer.Option(..., help="End date (YYYY-MM-DD)."),
+    limit: int = typer.Option(2000, help="Maximum LLM screening calls for the whole backfill."),
+    rebuild: bool = typer.Option(False, help="Rebuild issues that already exist."),
 ) -> None:
     """Collect, screen and build issues for past months."""
-    not_implemented("M5")
+    with closing(db.connect()) as conn:
+        try:
+            report = jobs.backfill(job_context(conn), date.fromisoformat(from_), date.fromisoformat(to), limit, rebuild)
+        except LLMError as e:
+            fail(str(e))
+        print_collected(report.collected)
+        print_screened(report.screened)
+        for issue in report.issues:
+            print_issue(conn, issue)
+        if not report.issues:
+            typer.echo("No new issues to build (use --rebuild to rebuild existing ones).")
 
 
 @app.command("sources-report")

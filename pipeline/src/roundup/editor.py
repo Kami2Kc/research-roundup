@@ -42,6 +42,10 @@ SOURCE_TYPES = {
 T = TypeVar("T", bound=BaseModel)
 
 
+class EmptyPoolError(LLMError):
+    """No screened papers qualify for the month, so there is nothing to edit."""
+
+
 class Pick(BaseModel):
     paper_id: str
     reason: str
@@ -204,13 +208,22 @@ def check_selection(selection: Selection, pool: list[sqlite3.Row]) -> list[str]:
         for focus, n in chosen.items():
             if n > len(picked) // 2:
                 problems.append(f"{n} of {len(picked)} papers are {focus}; no more than half may share a market focus.")
-    for source_id, n in Counter(row["source_id"] for row in picked).items():
-        if n > MAX_PER_SOURCE:
-            problems.append(f"{n} papers come from {source_id}; at most {MAX_PER_SOURCE} may share a source.")
-    for topic, n in Counter(main_topic(row) for row in picked).items():
-        if n > MAX_PER_TOPIC and topic != "other":
-            problems.append(f"{n} papers have the main topic '{topic}'; at most {MAX_PER_TOPIC} may share one.")
+    # Variety limits apply only when the pool can meet them and still fill the minimum number of picks
+    # (a thin month with papers from just two sources can't offer five papers at two per source).
+    if satisfiable(Counter(row["source_id"] for row in pool), MAX_PER_SOURCE, low):
+        for source_id, n in Counter(row["source_id"] for row in picked).items():
+            if n > MAX_PER_SOURCE:
+                problems.append(f"{n} papers come from {source_id}; at most {MAX_PER_SOURCE} may share a source.")
+    if satisfiable(Counter(main_topic(row) for row in pool), MAX_PER_TOPIC, low, unlimited="other"):
+        for topic, n in Counter(main_topic(row) for row in picked).items():
+            if n > MAX_PER_TOPIC and topic != "other":
+                problems.append(f"{n} papers have the main topic '{topic}'; at most {MAX_PER_TOPIC} may share one.")
     return problems
+
+
+def satisfiable(counts: Counter, cap: int, needed: int, unlimited: str | None = None) -> bool:
+    """Can `needed` papers be chosen with at most `cap` per group (the `unlimited` group has no cap)?"""
+    return sum(n if group == unlimited else min(n, cap) for group, n in counts.items()) >= needed
 
 
 def word_count(text: str) -> int:
@@ -238,7 +251,7 @@ def build_issue(conn: sqlite3.Connection, llm: LLM, model: str, month: str, sour
                 threshold: int) -> BuiltIssue:
     pool = candidate_pool(conn, month, threshold)
     if not pool:
-        raise LLMError(f"No screened papers for {month} with relevance >= {threshold}")
+        raise EmptyPoolError(f"no screened papers for {month} with relevance >= {threshold}")
     papers_screened = conn.execute(
         """SELECT COUNT(*) FROM papers p JOIN screenings s ON s.paper_id = p.id
            WHERE s.status = 'screened' AND substr(p.published_date, 1, 7) = ?""",
@@ -302,15 +315,17 @@ FILLER = "This placeholder text stands in for a summary written by the editor mo
 
 
 def fake_selection(prompt: str) -> Selection:
-    """One paper of each focus first, then fill up to six while respecting the per-source and balance rules."""
+    """One paper of each focus first, then fill up to six within the per-source and balance limits, then without."""
     candidates = CANDIDATE_RE.findall(prompt)
     picks: list[str] = []
     per_source, per_focus = Counter(), Counter()
-    for first_pass in (True, False):
+    for pass_number in (1, 2, 3):
         for paper_id, _, source, focus in candidates:
-            if len(picks) == 6 or paper_id in picks or per_source[source] >= MAX_PER_SOURCE or per_focus[focus] >= 3:
+            if len(picks) == 6 or paper_id in picks:
                 continue
-            if first_pass and per_focus[focus]:
+            if pass_number < 3 and (per_source[source] >= MAX_PER_SOURCE or per_focus[focus] >= 3):
+                continue
+            if pass_number == 1 and per_focus[focus]:
                 continue
             picks.append(paper_id)
             per_source[source] += 1

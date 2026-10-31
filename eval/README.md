@@ -1,6 +1,6 @@
 # Evaluation set
 
-`labels.csv` holds 25 October 2026 papers labelled by hand. `roundup eval` runs the current screening prompt on them and reports how often the model's market focus matches the label (with a confusion matrix and Cohen's kappa). The result goes in [docs/METHODOLOGY.md](../docs/METHODOLOGY.md).
+`labels.csv` holds 25 October 2026 papers labelled by hand. **Latest result:** 22/25 agreement (88%), Cohen's kappa 0.82, with prompt `screen-v3` (details in [docs/METHODOLOGY.md](../docs/METHODOLOGY.md#evaluation), per-paper results in `results.csv`). `roundup eval` runs the current screening prompt on them and reports how often the model's market focus matches the label (with a confusion matrix and Cohen's kappa). The result goes in [docs/METHODOLOGY.md](../docs/METHODOLOGY.md).
 
 ## How the papers were chosen
 

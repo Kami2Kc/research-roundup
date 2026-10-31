@@ -159,7 +159,21 @@ Version history: `editor-v1` chose 5–8 papers from the top 40 by score and che
 
 `eval/labels.csv` holds 25 October 2026 papers, labelled by hand for market focus (and optionally relevance) without seeing the model's answers. The papers are stratified across the model's earlier EM, DM and Transversal predictions and span six source types. `roundup eval` runs the current screening prompt on them and reports agreement, a confusion matrix and Cohen's kappa (agreement corrected for chance).
 
-**Result: pending.** The 25 papers are waiting for hand labels (see [eval/README.md](../eval/README.md)); the agreement figure goes here once `roundup eval` has run on them.
+**Result (prompt `screen-v3`, Claude Haiku 5.5, 1 November 2026): the model's market focus matched the human label on 22 of 25 papers (88%), with a Cohen's kappa of 0.82.** With 25 papers, the 95% confidence interval for agreement is roughly 70% to 96%.
+
+| Label \ model | EM | DM | Transversal |
+|---|---:|---:|---:|
+| **EM** | 7 | 0 | 0 |
+| **DM** | 0 | 8 | 1 |
+| **Transversal** | 1 | 1 | 7 |
+
+The model never confused EM with DM. All three disagreements sit on the boundary with Transversal:
+
+- *US monetary policy spillovers through global commercial real estate*: labelled DM, model said Transversal. A cross-country panel of property markets, which is a borderline call.
+- *Fiscal integration as a Pareto improvement*: labelled Transversal, model said EM. A theoretical model of a generic currency union with a "risky" and a "safe" member. Under our rules this is Transversal, and the model's own rationale admitted Transversal was defensible. This is a genuine error.
+- *Beyond valuations: long-term financial risks from the AI build-out*: labelled Transversal, model said DM. The model inferred a US focus that the abstract does not state.
+
+A future prompt version could say explicitly that theory about a generic economy is Transversal even when a region motivates it, and that the model should not infer countries the abstract doesn't name. We have not made that change: tuning the prompt on these 25 papers would inflate the figure, so it would need a fresh labelled set to measure honestly.
 
 To reproduce: `cd pipeline && uv run roundup eval` (under one cent). Per-paper results are written to `eval/results.csv`.
 
@@ -178,5 +192,5 @@ A full year of weekly screening and monthly issues costs under $5. Each run caps
 
 - **Abstract-only.** Summaries can't go beyond what the abstract says, and some papers (especially JPE) have no abstract we can use.
 - **Coverage gaps.** Eighteen smaller European central banks aren't covered, including BOFIT, Czechia and Poland, so EM research comes mostly from the IMF and BIS. EM papers were about 10% of October's screened papers.
-- **Model judgement.** Market focus and relevance are model outputs. The evaluation measures how well they match a human reader, and the rationale is always shown, so readers can judge for themselves.
+- **Model judgement.** Market focus and relevance are model outputs. The evaluation (88% agreement on market focus) uses one labeller and 25 papers, and relevance scores have not been evaluated against human judgement yet. The rationale is always shown, so readers can judge for themselves.
 - **No cross-source deduplication yet.** An NBER paper that later appears in a journal would be treated as two papers.

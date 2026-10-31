@@ -32,6 +32,28 @@ uv run roundup export                          # writes web/public/data/*.json
 cd ../web && npm install && npm run dev        # dashboard at http://localhost:3000
 ```
 
+## Automation
+
+Two GitHub Actions workflows run the pipeline and commit the results (the SQLite database and the dashboard's JSON and HTML), which redeploys the site:
+
+| Workflow | Schedule | Runs |
+|---|---|---|
+| [`weekly.yml`](.github/workflows/weekly.yml) | Mondays 06:00 UTC | `roundup run-weekly`: collect (14-day lookback), screen, export |
+| [`monthly.yml`](.github/workflows/monthly.yml) | 1st of the month, 07:00 UTC | `roundup run-monthly`: collect from the start of last month, screen, build last month's issue, export |
+
+Both can be started by hand from the Actions tab (**Run workflow**). The monthly workflow accepts an optional month. They share a concurrency group so they never overlap.
+
+Repository secrets (Settings → Secrets and variables → Actions):
+
+| Secret | Required | Purpose |
+|---|---|---|
+| `LLM_API_KEY` | Yes | Anthropic API key |
+| `CONTACT_EMAIL` | Yes | Contact address in the crawler's User-Agent and Crossref's `mailto` |
+| `SITE_URL` | Recommended | Dashboard URL, for links in the newsletter (can also be a repository variable) |
+| `VERCEL_DEPLOY_HOOK` | Optional | A Vercel deploy hook URL, if pushes from the Actions bot don't trigger a deployment |
+
+The model names default to Claude Haiku 5.5 and Claude Sonnet 5.5. They can be changed with the repository variables `LLM_SCREEN_MODEL` and `LLM_EDITOR_MODEL`.
+
 ## Deploying the dashboard
 
 The dashboard is a static Next.js export (`output: 'export'`) that reads the JSON and newsletter HTML committed under `web/public/`. On Vercel:

@@ -129,5 +129,267 @@
     "why_it_matters": "For bank credit and sovereign spread views in Europe, the paper indicates that stress in a home sovereign can still feed into bank CDS, with the effect depending on accounting treatment, capital, funding and fiscal space. Peripheral and wholesale-funded banks look most exposed in stress. The link is weaker than before reforms but remains a channel worth monitoring."
    }
   ]
+ },
+ {
+  "month": "2026-09",
+  "editor_note": "This month's papers share a concern with who is on the other side of the market and how that shapes prices. For developed markets, the Federal Reserve work on risk appetite and the Treasury demand system both show that transmission depends on investor behaviour as much as on policy rates or supply alone. The Bank of England and Bank for International Settlements papers extend the point to dealer pricing in dollar funding and to non-bank participation in government debt markets. A second thread concerns external linkages: tariffs and currency invoicing, capital inflows into emerging markets, and Chinese official lending. Together they suggest that aggregate or bilateral measures can hide the margins that move assets.",
+  "selection_rationale": "I led with the highest-scored papers on monetary transmission, Treasury market structure and dollar funding, since they bear most directly on rates and FX desks. The issue is split three DM, three Transversal and two EM, with no focus above half. No source appears more than twice and no first-listed topic more than twice. I chose the euro-area credit paper from Banque de France for home-market relevance and the Banco de España tariff paper for its trade-policy angle. I left out the IMF Demand for Dollars paper, the Bundesbank safe-haven paper and the NBER financial innovation paper because they overlap the funding and dollar question already covered by the BoE paper. I also left out the NY Fed dot plot, repo series and stablecoin papers, which are strong but narrower or overlap the Treasury demand paper, and the lower-scored EM papers on housing, trade and digital lending..",
+  "newsletter": "/newsletters/2026-09.html",
+  "pool_size": 40,
+  "papers_screened": 331,
+  "built_at": "2026-10-31T22:58:05+00:00",
+  "papers": [
+   {
+    "slug": "10-24148-wp2026-20",
+    "position": 1,
+    "headline": "Fed policy transmits mainly through risk appetite, not the rate path",
+    "selection_reason": "A top-scored FOMC study showing that risk appetite, not the expected rate path, drives most of US monetary transmission, which matters directly for rates and cross-asset desks.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper analyses US monetary policy and FOMC announcements and their effects on US risk appetite, asset prices, output and unemployment.",
+    "summary": "The paper asks how much of US monetary transmission runs through investors' appetite for risk rather than through the expected path of interest rates. The authors build a new high-frequency measure of risk appetite shifts around Federal Open Market Committee (FOMC) meetings, defined as the common component of changes in risk-sensitive indicators. They find that interest-rate surprises explain only about one-fifth of the variation in risk appetite, so most policy-induced moves in risk asset prices are unrelated to the expected rate path. Using both surprises as external instruments in a proxy structural vector autoregression (SVAR) with two separately identified shocks, they find that risk appetite shocks have large, persistent contractionary effects, lowering output and prices and raising unemployment. Risk-free rate shocks have small, imprecise effects, some with puzzling signs.",
+    "takeaways": [
+     "Interest-rate surprises explain only about one-fifth of the variation in risk appetite around FOMC meetings.",
+     "Risk appetite shocks lower output and prices and raise unemployment, with large and persistent effects.",
+     "Estimates using interest-rate surprises alone miss most transmission because the rate-to-risk-appetite link is state-dependent and Fed communication moves risk appetite independently."
+    ],
+    "why_it_matters": "For rates and equity strategists, the results suggest that reading Fed meetings through the policy-rate surprise alone understates the real-economy effect of FOMC decisions. Communication that shifts risk appetite may matter as much as the expected rate path, with the channel running through equity and other risk asset prices. It argues for tracking risk-asset reactions alongside rate repricing, though the findings are for the US."
+   },
+   {
+    "slug": "url-34ca0ea599abecaa",
+    "position": 2,
+    "headline": "Treasury demand is more price-sensitive as foreign official holders retreat",
+    "selection_reason": "It gives a usable estimate of about 3bp on 5-year yields per $100bn of Treasury supply, and shows the investor base is becoming more price-sensitive.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper studies US Treasury supply and demand and their effect on yields in the US market.",
+    "summary": "The authors ask how changes in the supply of and demand for US Treasuries move yields. They develop a demand system framework that captures time-varying holdings shares and estimates sectoral demand elasticities using instrumental variables. They find that the Treasury market has become increasingly price-sensitive over time, as less price-sensitive foreign official investors have reduced their participation and more price-sensitive hedge funds and other private investors have gained a larger role. A $100 billion increase in Treasury supply currently raises five-year yields by approximately 3 basis points. The authors validate the model by showing that shifts in the investor base explain a significant portion of historical yield changes. They present the framework as a flexible tool for counterfactuals, including foreign official sales and Federal Reserve balance sheet policies.",
+    "takeaways": [
+     "A $100 billion rise in Treasury supply currently lifts five-year yields by approximately 3 basis points.",
+     "Demand has become more price-sensitive as foreign official holders retreat and hedge funds and other private investors gain share.",
+     "Changes in the investor base explain a significant portion of historical yield changes, which supports the model."
+    ],
+    "why_it_matters": "For rates strategists, the estimate offers a benchmark for sizing the yield effect of issuance and for scenarios such as foreign official selling or changes in the Federal Reserve balance sheet. A more price-sensitive investor base implies, other things equal, a smaller yield response per unit of supply, though the abstract gives the effect only for five-year yields. It is a scenario tool, not a forecast."
+   },
+   {
+    "slug": "url-1b9f068fd07da847",
+    "position": 3,
+    "headline": "Synthetic dollar funding is priced differently by each dealer",
+    "selection_reason": "Dealer-specific pricing of synthetic dollar funding shows wide dispersion and asymmetry, with direct implications for FX forwards and funding desks.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The paper looks at dealer pricing of FX forwards in a dollar currency pair, a global market rather than a specific economy group.",
+    "summary": "The paper asks whether the price of synthetic dollar funding, obtained through FX forwards, depends on which dealer intermediates the trade. To isolate dealer-specific pricing, the authors compare FX forwards in the same dollar currency pair, half-hour and maturity bucket, which removes the common forward curve. They find that dealer-specific prices vary substantially, with a standard deviation of about 4 basis points per year, both across dealers at a point in time and over time for a given dealer. Dealers charge 2.5 basis points more for buying dollars forward than for selling them, and the gap widens to 11.8 basis points at maturities under one month. The asymmetry survives controls for client-dealer relationships and trade characteristics. Differences in funding costs explain little of the dispersion, pointing instead to dealer clientele and pricing power.",
+    "takeaways": [
+     "Dealer-specific prices have a standard deviation of about 4 basis points per year within the same pair, half-hour and maturity bucket.",
+     "Dealers charge 2.5 basis points more to buy dollars forward than to sell them, rising to 11.8 basis points under one month.",
+     "Dealer funding costs account for little of the dispersion, which reflects clientele and pricing power more than funding conditions."
+    ],
+    "why_it_matters": "For FX and rates desks, the findings suggest that a single forward-implied dollar rate can hide meaningful differences in what clients actually pay. Dispersion that reflects dealer pricing power rather than funding costs may matter for execution costs and for how dollar funding conditions are read from market-wide measures. The abstract does not quantify those wider implications."
+   },
+   {
+    "slug": "url-d3a2089b63daeb77",
+    "position": 4,
+    "headline": "US-China tariff incidence depends on production networks and dollar invoicing",
+    "selection_reason": "A Banco de España model of the US-China tariff war covering production networks, invoicing and euro-area spillovers adds the trade-policy angle for macro and sector teams.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The model covers the US, China, the euro area and third-country spillovers, so it is not confined to either emerging or advanced economies.",
+    "summary": "The paper studies how a US-China tariff war transmits through the economy in the short run. The authors use an open economy, multi-sector New Keynesian model with input-output linkages, sectoral nominal rigidities and heterogeneous currency invoicing. A reciprocal 10 percentage point tariff increase has asymmetric incidence: the tariff-imposing country bears more of the inflationary burden, while the targeted country suffers the larger output contraction. Production networks amplify the contraction, and dollar-denominated border prices weaken the expenditure-switching role of exchange rates, deepening China's downturn. The euro area response is small in aggregate only because trade-diversion gains are offset by weaker demand from China and multilateral adjustments. Imposing tariffs on one Chinese sector at a time shows that incidence is concentrated but aggregate effects cannot be inferred from the tariffed sector alone.",
+    "takeaways": [
+     "A reciprocal 10 percentage point tariff increase raises inflation more in the tariff imposer and cuts output more in the targeted country.",
+     "Dollar invoicing weakens exchange-rate expenditure switching, deepening China's contraction compared with producer-currency pricing.",
+     "The small euro area aggregate response masks offsetting trade-diversion gains and weaker Chinese demand."
+    ],
+    "why_it_matters": "For macro and FX strategists, the paper shows that bilateral trade shares alone can give a misleading read of tariff effects. Production networks and dollar invoicing shape both the output hit and the role of exchange rates in adjustment, while a muted euro area aggregate can hide opposing margins. It is a model-based short-run exercise, so results depend on its assumptions."
+   },
+   {
+    "slug": "url-a10a3c5a16f07292",
+    "position": 5,
+    "headline": "High public debt and non-banks raise government bond market dysfunction risk",
+    "selection_reason": "The BIS paper on record public debt and non-bank footprints in sovereign bond markets adds a cross-country view of market dysfunction risk for rates and credit.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The paper discusses government debt markets and non-banks in general terms without naming specific economies, implying a cross-country perspective.",
+    "summary": "This paper considers how high government debt and the growing role of non-bank financial institutions (NBFIs) affect the functioning of government debt markets. The abstract points to near record-high government debt levels and a larger non-bank presence as two developments that have reshaped these markets in recent years. It argues that high levels of government sector debt are expected to worsen future market liquidity conditions in general, including by raising the risk of market dysfunction. A large NBFI footprint adds to that risk of dysfunction, yet it also makes very favourable liquidity conditions more likely. The abstract gives no figures, country detail or description of methods, so the evidence behind these conclusions cannot be assessed from it. The message is one of two-sided effects from non-bank participation.",
+    "takeaways": [
+     "High government debt is expected to worsen future liquidity in government debt markets, including by raising the risk of market dysfunction.",
+     "A large non-bank footprint heightens the risk of market dysfunction.",
+     "The same non-bank footprint also makes very favourable liquidity conditions more likely."
+    ],
+    "why_it_matters": "For rates and sovereign credit strategists, the paper frames government bond market liquidity as conditional on both debt levels and the investor mix. Non-bank participation may support liquidity in calm periods while raising the risk of dysfunction under stress, which is relevant to how bond liquidity is assessed. The abstract is general and offers no quantification, so it is better read as a framing than as a forecast."
+   },
+   {
+    "slug": "10-3386-w35716",
+    "position": 6,
+    "headline": "Unexpected capital inflows lift output across 27 emerging economies",
+    "selection_reason": "The expectations-based measure of capital inflow shocks across 27 EMs shows sizable output effects, with equity inflows stronger than debt inflows, and anchors the issue's EM coverage.",
+    "market_focus": "EM",
+    "focus_rationale": "The paper estimates capital inflow shocks and their output effects across 27 emerging market economies.",
+    "summary": "Capital inflows respond to expectations about future economic conditions, which makes it hard to identify their effect on output. The authors develop a new measure of capital inflow shocks using an expectations-based framework that isolates the unexpected component of inflows by purging movements predicted by professional forecasters' expectations. Applying it to 27 emerging market economies, they find that capital inflows have sizable expansionary effects on output, working through stronger domestic consumption and investment and easier financing conditions. Equity-type inflows generate greater and more persistent effects than debt-type inflows, and large inflow reversals have more pronounced effects than comparable increases. The authors report that the results are robust to a wide range of alternative specifications.",
+    "takeaways": [
+     "Unexpected capital inflows have sizable expansionary effects on output across 27 emerging market economies.",
+     "The effects operate through stronger domestic consumption and investment and easier financing conditions.",
+     "Equity-type inflows have greater and more persistent effects than debt-type inflows, and large reversals bite harder than comparable increases."
+    ],
+    "why_it_matters": "For emerging market strategists, the paper links surprise portfolio flows to growth through consumption, investment and financing conditions, and indicates that composition matters, with equity-type flows mattering more than debt-type flows. The larger effect of reversals suggests that downside risks from sudden stops outweigh the upside from comparable inflows. The abstract reports output effects only."
+   },
+   {
+    "slug": "url-d7bb0048b53b1cc4",
+    "position": 7,
+    "headline": "Euro area stock-bond correlations have drifted toward neutral",
+    "selection_reason": "Euro-area stock-bond correlations drifting toward neutrality, with flight-to-quality failing in high-inflation regimes, is relevant to credit and multi-asset allocation in the bank's home market.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper studies euro area equity and corporate bond markets, which are advanced economy markets.",
+    "summary": "The paper examines how euro area corporate bond and stock returns have moved together from 2007 to 2025. Theory suggests correlations should be negative, or at least lower, in market stress and after negative demand shocks, but the evidence shows substantial instability. The authors build equity and corporate bond indices from a strictly matched issuer universe, so the same firms sit in both, and analyse correlation dynamics across major euro area markets using Dynamic Conditional Correlation models. Correlations, historically negative, have gradually trended toward neutrality since 2009 but can shift in either direction rapidly. The discount-rate channel is the dominant driver of co-movement in both low- and high-inflation environments. Financial stress lowers correlations, consistent with flight to quality, only in low-inflation regimes.",
+    "takeaways": [
+     "Stock-bond correlations in the euro area, historically negative, have trended toward neutrality since 2009 but can swing quickly either way.",
+     "The discount-rate channel is the dominant driver of co-movement in both low- and high-inflation environments.",
+     "Financial stress reduces correlations, consistent with flight to quality, only in low-inflation regimes and not in high-inflation ones."
+    ],
+    "why_it_matters": "For credit and multi-asset strategists, the results caution against assuming that euro area corporate bonds hedge equity risk. When inflation is high, stress does not reliably lower correlations, and falling discount rates cannot be counted on to favour bonds. Matching issuers across the two indices isolates firm-level co-movement, though the evidence covers only the euro area from 2007 to 2025."
+   },
+   {
+    "slug": "10-3386-w35767",
+    "position": 8,
+    "headline": "Chinese loans that cannot be defaulted on discipline sovereign bond borrowing",
+    "selection_reason": "China's rollover-prone, non-defaultable lending shapes EM sovereign borrowing and bond yields, adding a second EM paper on sovereign debt and geopolitics.",
+    "market_focus": "EM",
+    "focus_rationale": "The paper studies emerging-market sovereign borrowing from China and its effect on international bond markets and yields.",
+    "summary": "China has become a major lender to emerging economies since the early 2000s. The authors argue that its loans have a distinctive structure: borrowers cannot default on the subsidised loans, but can face sudden rollover demands outside their control. They argue this bilateral rollover risk without default risk disciplines borrowing on international markets. In a quantitative long-term sovereign debt model, rollover-prone nondefaultable Chinese loans expose market debt to dilution risk, so governments choose to deleverage from private markets when Chinese inflows arrive. Market debt and bond yield dynamics in the data are consistent with this disciplining effect. The model is then used for two geopolitical scenarios: bloc formation, in which China makes take-it-or-leave-it loans to induce exit from international debt markets, and optimal exposure to China under the risk of a permanent, sudden retrenchment of Chinese funding.",
+    "takeaways": [
+     "Nondefaultable but rollover-prone Chinese loans push governments to deleverage from international bond markets when Chinese inflows arrive.",
+     "Observed market debt and bond yield dynamics are consistent with this disciplining effect.",
+     "Official Chinese finance can improve market borrowing conditions yet become a destabilising force as geopolitical alliances shift."
+    ],
+    "why_it_matters": "For emerging market sovereign credit strategists, the paper offers a channel through which bilateral official lending shapes international bond issuance and yields, rather than simply adding to debt. It also highlights a tail risk: a sudden retrenchment of Chinese funding or bloc formation could change borrowers' access to international markets. The results come from a quantitative model and the abstract does not name countries."
+   }
+  ]
+ },
+ {
+  "month": "2026-08",
+  "editor_note": "This month's papers share a concern with who funds whom, and how shocks travel. Three studies look at the dollar and the global financial cycle: foreign demand for Treasuries, the effect of US uncertainty on credit spreads and currencies, and capital flows to low-income countries. Two examine sovereign borrowing, from changing creditor mixes to the risks of bilateral official lending. Two ask how monetary policy transmits, in the euro area and in Brazilian market expectations. The remaining pieces cover the 2025 US tariffs, where an investment boom masked their effect on imports, and what disclosures reveal about opaque private credit.",
+  "selection_rationale": "I prioritised the highest-relevance papers on rates, FX and global financial conditions, then balanced the issue at four DM, two Transversal and two EM picks, with no source or main topic appearing more than twice. The duplicated papers, the Kansas City and San Francisco versions of 'A Dual Mandate Can Support Price Stability' and the NBER version of the tariffs paper, were reduced to one slot each, and I kept the Minneapolis version of the tariffs paper for source variety. I left out several strong DM papers (the natural-rate studies from SF Fed and the IMF, the Banque de France 'Missing Surprise', the NBER asset-pricing papers, the BoJ JGB paper) because the DM cap, the two-per-topic limit and the monetary-policy slot already taken by the euro area transmission paper left no room. I also dropped the IMF dollar-exposure and CIP paper as a third FX-flows entry, and lower-scoring EM papers on Korea, India, Mexico and China's energy transition in favour of the Brazil and global-cycle papers, which are closer to the team's rates and FX focus.",
+  "newsletter": "/newsletters/2026-08.html",
+  "pool_size": 40,
+  "papers_screened": 239,
+  "built_at": "2026-10-31T22:39:23+00:00",
+  "papers": [
+   {
+    "slug": "10-3386-w35555",
+    "position": 1,
+    "headline": "Foreign official demand for Treasuries has fallen while private demand has risen",
+    "selection_reason": "The top-scoring paper dissects who is financing the US current account and why official demand for Treasuries is falling, which matters directly to rates and FX desks.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper analyses the United States as the only economy, focusing on demand for US Treasuries and other US assets.",
+    "summary": "The paper asks who finances the United States and how foreign demand for US assets, especially Treasury securities, has changed. The authors document shifts in US bilateral external positions across regions and asset classes, producing estimates of creditor positions closer to a nationality-based concept. They find that rising US equity prices explain a sizeable share of the deterioration in the net external position, but foreign purchases of Treasuries have been the largest source of current account financing. The foreign official share of Treasuries has fallen sharply over the past decade, while the private share, especially through financial centres, has risen. Lower reserve accumulation, larger Federal Reserve holdings and dollar appreciation explain the official decline. Geoeconomic fragmentation is negatively correlated with official demand, while private demand stays sensitive to safe-haven dynamics.",
+    "takeaways": [
+     "Foreign purchases of Treasuries have been the largest source of US current account financing, even as equity price gains drove much of the weaker net position.",
+     "The decline in official holdings is explained by lower reserve accumulation, higher Federal Reserve holdings and dollar appreciation against other reserve currencies.",
+     "Geoeconomic fragmentation is negatively correlated with official Treasury demand, whereas foreign private demand remains sensitive to safe-haven dynamics."
+    ],
+    "why_it_matters": "A marginal Treasury buyer that is increasingly private and routed through financial centres may respond more to risk sentiment than to reserve policy. That bears on how rates strategists think about term premia and on dollar views during geopolitical or fiscal stress. The findings describe structural shifts and do not by themselves forecast yields."
+   },
+   {
+    "slug": "url-cd24d7abc4ca30cf",
+    "position": 2,
+    "headline": "Higher US return uncertainty widens credit spreads and strengthens the dollar",
+    "selection_reason": "It ties US asset-return uncertainty to credit spreads, the dollar and currency risk premia in one model that matches the data, giving a cross-asset view of the global financial cycle.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The two-country model links US uncertainty to credit spreads and the dollar across both US and foreign economies, so it is cross-country rather than specific to one market group.",
+    "summary": "Akinci, Kalemli-Ozcan and Queralto ask how greater uncertainty about US asset returns affects global asset prices and exchange rates. They combine empirical evidence with a two-country model in which financial intermediaries face balance-sheet constraints. Empirically, uncertainty shocks widen global credit spreads, appreciate the dollar and raise currency risk premia. In the model, higher uncertainty tightens intermediary constraints and lowers asset prices, which reverses the counterfactual rise in asset prices that frictionless models produce. Because constraints make net worth especially valuable in bad times, risk premia respond strongly to uncertainty shocks. This interaction allows the model to match the observed responses of credit spreads, the currency premium and the dollar. The paper thus offers a mechanism linking US uncertainty to financial conditions abroad.",
+    "takeaways": [
+     "Empirically, uncertainty about US asset returns widens global credit spreads, appreciates the dollar and increases currency risk premia.",
+     "Intermediary balance-sheet constraints make higher uncertainty lower asset prices, whereas frictionless models predict the opposite.",
+     "Net worth is especially valuable in bad times under constraints, so risk premia respond strongly and the model fits the data."
+    ],
+    "why_it_matters": "The paper gives a structural channel for the familiar pattern in which US-centred uncertainty coincides with wider credit spreads and a stronger dollar. For credit and FX strategists, it supports treating dollar strength and spread widening as linked responses to intermediary constraints rather than separate events. It is a model-based result and does not forecast any specific episode."
+   },
+   {
+    "slug": "url-2992f241f688f6f0",
+    "position": 3,
+    "headline": "Euro area monetary policy transmission is broadly homogeneous, with crisis-driven divergences",
+    "selection_reason": "It finds euro area monetary transmission is more homogeneous than feared, apart from sovereign spreads and mortgage variables, which is core for European rates and periphery-spread views.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper studies monetary policy transmission across euro area member countries, all of which are advanced economies.",
+    "summary": "The paper reassesses whether monetary policy transmission differs across euro area countries and over time, covering 2000–2025. The authors use monthly local projections to estimate effects of monetary policy on many transmission variables at euro area and national levels, then check the results with a factor-augmented vector autoregression (FAVAR). They find limited heterogeneity in output and inflation responses, despite asymmetric responses in mortgage-market variables. Structural differences such as household indebtedness, debt maturity, interest rate rigidity and sectoral composition shape national responses, but they partly offset one another. Asymmetry is greater for sovereign spreads, food prices, credit variables and a consumption proxy. Rolling-window estimates show divergences are temporary and crisis-driven, reverting to a low baseline. Unconventional monetary policies tend to reduce divergences in crises, acting more strongly on the hardest-hit countries.",
+    "takeaways": [
+     "Output and inflation responses to monetary policy shocks show limited heterogeneity across euro area countries, although mortgage-market variables respond asymmetrically.",
+     "Household debt, debt maturity, rate rigidity and sectoral composition each matter for national transmission, but they partly offset one another.",
+     "Time-varying divergences are temporary and crisis-driven, and unconventional policies tend to narrow them, most strongly in the countries most affected."
+    ],
+    "why_it_matters": "For euro area rates and macro views, the results suggest a single ECB policy stance transmits to output and inflation fairly evenly across members. Differences appear more in sovereign spreads, credit variables and mortgage channels, which matter for periphery spread and bank-credit views. Divergences look crisis-related rather than structural, though the evidence rests on estimated models."
+   },
+   {
+    "slug": "10-5089-9798229059572-001",
+    "position": 4,
+    "headline": "Stronger dollar linked to weaker private capital inflows to low-income countries",
+    "selection_reason": "This is the best EM paper in the pool: it links dollar strength to weaker capital inflows into low-income countries and gives the EM and frontier side of the global cycle.",
+    "market_focus": "EM",
+    "focus_rationale": "The paper studies private capital flows and government external borrowing in low-income countries, which are developing economies exposed to US dollar cycles.",
+    "summary": "As low-income countries gain access to international capital markets, financing opportunities grow but so does exposure to external shocks. The paper asks how far the global financial cycle drives capital flows to these countries and whether government borrowing responds to it. The authors present empirical results for the period after the global financial crisis. They find that the global financial cycle has been a significant driver of private capital flows to low-income countries, with a stronger US dollar against advanced economy currencies associated with weaker net inflows. External government borrowing had a statistically significant but relatively small counter-cyclical component, moving inversely to global financial and economic cycles, which complements policy responses to shocks. The abstract does not give further detail on the data or estimation approach.",
+    "takeaways": [
+     "Since the global financial crisis, the global financial cycle has significantly driven private capital flows to low-income countries.",
+     "A stronger US dollar against advanced economy currencies was associated with weaker net private inflows to these countries.",
+     "External government borrowing had a small but statistically significant counter-cyclical component, moving inversely to global financial and economic cycles."
+    ],
+    "why_it_matters": "The paper reinforces that dollar strength is a key external driver of funding conditions for frontier and low-income borrowers. For emerging market strategists, it supports watching the dollar when assessing private inflows and external financing risks. The counter-cyclical element in government borrowing is small, so it should not be read as a strong buffer against shocks."
+   },
+   {
+    "slug": "10-21034-sr-686",
+    "position": 5,
+    "headline": "AI-driven investment boom masked tariff effects on US imports in 2025",
+    "selection_reason": "It explains why imports rose despite the 2025 tariffs and how the tariff mix amplified inflation, which is useful for macro and for the industrials, autos and retail sector teams.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper models the US economy's response to the 2025 tariffs and an AI-driven investment boom, so it concerns an advanced economy.",
+    "summary": "US tariff rates in 2025 reached levels not seen since the Great Depression, yet imports increased. The authors build an open-economy New Keynesian model with tariff heterogeneity, inventories and shocks to investment that capture the boom driven by artificial intelligence (AI). The model matches the untargeted paths of imports, output and inflation, and is used to separate the effects of tariffs from those of the investment boom. Without the boom, imports would have fallen by 10 percent and activity would have contracted by 0.7 percent. The effects of tariffs depend on which goods are tariffed: tariffs on consumption goods and intermediates act like supply shocks, while tariffs on capital goods act like demand shocks. Because the 2025 increases were concentrated on consumption goods, output damage was limited but the inflationary impulse was amplified.",
+    "takeaways": [
+     "Absent the investment boom, imports would have fallen by 10 percent and activity would have contracted by 0.7 percent.",
+     "Tariffs on consumption goods and intermediates behave like supply shocks, while tariffs on capital goods behave like demand shocks.",
+     "Concentrating tariffs on consumption goods and sparing capital goods limited the output damage but amplified the inflationary impulse."
+    ],
+    "why_it_matters": "The paper helps explain why trade data did not collapse and why tariffs show up more in prices than in output. For US macro and rates views, the composition of tariffs and the strength of AI-related investment matter for the growth and inflation mix. The conclusions depend on a calibrated model, so they are a decomposition rather than a forecast."
+   },
+   {
+    "slug": "url-0780f4dcb4e0fa61",
+    "position": 6,
+    "headline": "Business development company filings offer a window into opaque US private credit",
+    "selection_reason": "It uses BDC filings to give credit analysts a rare view into pricing and borrower quality in opaque US private credit.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper studies US business development companies and US private credit, which are lending markets in an advanced economy.",
+    "summary": "Private credit, meaning lending by nonbank financial institutions, has grown to over $1 trillion in the United States, yet most of it is opaque because private credit funds need not publish their holdings. Business development companies (BDCs) are an exception: they are publicly registered investment vehicles that must file quarterly and annual reports with the Securities and Exchange Commission. The authors use these disclosures as a window into the wider segment. They analyse trends in the pricing of BDC loans, the creditworthiness of borrowers and the industry composition of BDC loan portfolios, with the aim of detecting emerging risks. The abstract does not report the specific findings, so readers should consult the paper for the results and for how representative BDCs are of private credit as a whole.",
+    "takeaways": [
+     "US private credit has grown to over $1 trillion, yet most of it remains opaque to investors and policymakers.",
+     "BDCs file periodic reports with the Securities and Exchange Commission, which makes them an exception among private credit vehicles.",
+     "The analysis covers loan pricing, borrower creditworthiness and the industry composition of BDC loan portfolios to look for early warning signals."
+    ],
+    "why_it_matters": "Public BDC filings are one of few observable data sources on private credit, which matters for credit strategists tracking risk outside banks and public bond markets. Trends in loan pricing and borrower quality could inform views on the wider credit cycle. The abstract states no results, and BDCs may not represent the whole segment."
+   },
+   {
+    "slug": "10-3386-w35590",
+    "position": 7,
+    "headline": "Bilateral official lending can erode market discipline and amplify debt dilution",
+    "selection_reason": "It adds a sovereign-credit angle that the DM-heavy pool otherwise lacks, showing how senior bilateral lenders such as new official creditors weaken spread discipline and dilute market debt.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The paper presents a theoretical sovereign default model that is not calibrated to any specific country, so its lessons apply across borrowers.",
+    "summary": "Motivated by the rise of official creditors outside the Paris Club framework, the paper studies how senior official lending interacts with market debt. The authors develop a quantitative sovereign default model with a large senior lender with whom borrowing terms are negotiated. Raising more net financing from the market strengthens the government's bargaining position and improves its bilateral terms. This endogenous cross-elasticity erodes the discipline normally imposed by spreads and amplifies debt dilution, producing welfare losses even though bilateral borrowing helps avert some defaults after the fact. With pre-specified rules, rewarding market issuance can be enough to generate such losses, whereas an optimal rule raises bilateral rates as net market financing rises. The direction of the cross-elasticity could therefore guide assessment of new forms of bilateral sovereign debt.",
+    "takeaways": [
+     "Borrowing more from markets improves a government's bargaining position and its bilateral terms, creating a cross-elasticity between market and official debt.",
+     "This cross-elasticity weakens the disciplining role of spreads and amplifies debt dilution, causing welfare losses despite some defaults being averted.",
+     "An optimal rule raises bilateral rates with net market financing, while rules that reward market issuance can be enough to generate losses."
+    ],
+    "why_it_matters": "As official creditors outside the Paris Club grow, the design of bilateral loans may change how sovereign spreads signal risk and how dilution affects existing bondholders. This is relevant to emerging and frontier sovereign credit analysis and restructuring expectations. The model is theoretical and not calibrated to a specific country, so it informs assessment rather than pricing."
+   },
+   {
+    "slug": "10-5089-9798229056199-001",
+    "position": 8,
+    "headline": "Brazilian market forecasts imply weak monetary transmission and fiscal unresponsiveness to debt",
+    "selection_reason": "It infers Brazilian market beliefs about monetary rules, transmission and fiscal responsiveness, giving EM rates and macro teams a second EM view.",
+    "market_focus": "EM",
+    "focus_rationale": "The paper studies market beliefs about monetary and fiscal policy in Brazil, an emerging market.",
+    "summary": "The paper analyses multi-horizon market forecasts for Brazilian macroeconomic variables from 2010 to 2026. A structural macroeconomic model interprets the stated forecasts as the outcome of a coherent belief system, yielding time-varying beliefs about policy rules, transmission mechanisms and structural shocks. Beliefs about the monetary policy rule vary in two distinct dimensions, with the perceived target and the Taylor response coefficients moving independently. Markets see monetary transmission as weak, with very flat perceived Phillips and investment-saving (IS) curves, and see fiscal policy as increasingly unresponsive to higher debt. After an unexpected monetary tightening, the perceived inflation target is unchanged but the perceived response to inflation increases, with larger effects for monetary surprises and smaller for news shocks.",
+    "takeaways": [
+     "Perceived inflation targets and Taylor response coefficients vary independently, so beliefs about the monetary policy rule have two distinct dimensions.",
+     "Markets see monetary transmission as weak, with very flat perceived Phillips and IS curves in Brazil.",
+     "Markets increasingly see fiscal policy as unresponsive to higher debt, and monetary surprises raise the perceived response to inflation more than news shocks."
+    ],
+    "why_it_matters": "The paper offers a way to read survey and market forecasts as beliefs about policy behaviour, relevant to Brazilian rates and inflation expectations. Perceived weak transmission and fiscal unresponsiveness bear on views of the policy rate path and sovereign risk. The findings are model-dependent interpretations of forecasts, not direct measures of policy effectiveness."
+   }
+  ]
  }
 ]

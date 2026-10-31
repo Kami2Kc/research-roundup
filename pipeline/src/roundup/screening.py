@@ -105,11 +105,17 @@ class ScreeningStats:
 
 
 def screen_papers(conn: sqlite3.Connection, llm: LLM, model: str, sources: dict[str, Source],
-                  limit: int, since: date | None = None) -> ScreeningStats:
-    """Screen unscreened papers, newest first, making at most `limit` LLM calls. Screened papers are never redone."""
+                  limit: int, since: date | None = None, until: date | None = None) -> ScreeningStats:
+    """Screen unscreened papers, newest first, making at most `limit` LLM calls. Screened papers are never redone.
+
+    `since`/`until` restrict screening to papers published in that period (used by backfills).
+    """
     stats = ScreeningStats()
     for row in db.papers_to_screen(conn):
-        if since and (row["published_date"] is None or row["published_date"] < since.isoformat()):
+        published = row["published_date"]
+        if (since or until) and published is None:
+            continue
+        if (since and published < since.isoformat()) or (until and published > until.isoformat()):
             continue
         abstract = row["abstract"] or ""
         if len(abstract) < MIN_ABSTRACT_CHARS:
