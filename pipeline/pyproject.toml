@@ -1,0 +1,31 @@
+[project]
+name = "roundup"
+version = "0.1.0"
+description = "The Research Roundup: collect, screen and summarise economics research into a monthly newsletter."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic",
+    "beautifulsoup4",
+    "css-inline",
+    "feedparser",
+    "httpx",
+    "jinja2",
+    "pydantic>=2",
+    "python-dotenv",
+    "pyyaml",
+    "typer",
+]
+
+[project.scripts]
+roundup = "roundup.cli:app"
+
+[dependency-groups]
+dev = ["pytest"]
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

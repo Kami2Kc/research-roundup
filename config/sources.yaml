@@ -1,0 +1,521 @@
+# Every source the pipeline monitors. Adding a source should only need a new entry here.
+#
+# Fields: see pipeline/src/roundup/models.py (Source). Methods, in order of preference:
+#   crossref / openalex  ->  rss  ->  html  ->  none (listed for coverage, not collected)
+# Disabled entries are documented gaps or collectors still to be built; docs/SOURCES.md
+# explains each one. Endpoints were checked on 2026-10-31.
+
+sources:
+
+  # ── Journals (paywalled: titles and abstracts only) ──────────────────────────
+  - id: aer
+    name: American Economic Review
+    group: journal
+    country_or_region: United States
+    method: crossref
+    issns: ["0002-8282", "1944-7981"]
+    fallback: openalex
+    paywalled: true
+    notes: "Crossref has abstracts for most articles. Records carry the issue date only."
+
+  - id: econometrica
+    name: Econometrica
+    group: journal
+    country_or_region: International
+    method: crossref
+    issns: ["0012-9682", "1468-0262"]
+    fallback: openalex
+    paywalled: true
+    notes: "Crossref records carry the year only, so collection filters on DOI registration date."
+
+  - id: jpe
+    name: Journal of Political Economy
+    group: journal
+    country_or_region: United States
+    method: crossref
+    issns: ["0022-3808", "1537-534X"]
+    fallback: openalex
+    paywalled: true
+    notes: "Crossref has no abstracts; OpenAlex fills about a third. Papers without one are logged and skipped."
+
+  - id: qje
+    name: Quarterly Journal of Economics
+    group: journal
+    country_or_region: International
+    method: crossref
+    issns: ["0033-5533", "1531-4650"]
+    fallback: openalex
+    paywalled: true
+
+  - id: restud
+    name: Review of Economic Studies
+    group: journal
+    country_or_region: International
+    method: crossref
+    issns: ["0034-6527", "1467-937X"]
+    fallback: openalex
+    paywalled: true
+
+  # ── NBER, BPEA, IMF, BIS ────────────────────────────────────────────────────
+  - id: nber
+    name: NBER Working Papers
+    group: nber
+    country_or_region: United States
+    method: crossref
+    doi_prefix: "10.3386"
+    fallback: openalex
+    feed_urls: ["https://back.nber.org/rss/new.xml"]
+    paywalled: true
+    notes: "Crossref has dates and authors but no abstracts; OpenAlex supplies them. The RSS feed has abstracts but no dates and only about a week of papers."
+
+  - id: bpea
+    name: Brookings Papers on Economic Activity
+    group: bpea
+    country_or_region: United States
+    method: html
+    url: https://www.brookings.edu/projects/brookings-papers-on-economic-activity/all-bpea-research/
+    enabled: false
+    notes: "Unresolved. Crossref only has the JSTOR archive; the paper list is loaded by JavaScript and Brookings' WordPress feeds return no items."
+
+  - id: imf
+    name: IMF Working Papers
+    group: intl_org
+    country_or_region: Global
+    method: crossref
+    issns: ["1018-5941"]
+    fallback: openalex
+    notes: "Crossref has abstracts for nearly all papers. The old IMF RSS endpoint now returns 404."
+
+  - id: bis
+    name: Bank for International Settlements
+    group: intl_org
+    country_or_region: Global
+    method: rss
+    feed_urls: ["https://www.bis.org/doclist/bis_fsi_publs.rss"]
+    notes: "'Research papers' feed: working papers, BIS Bulletins and BIS Papers, with summaries."
+
+  # ── G10 central banks ───────────────────────────────────────────────────────
+  - id: fed_board
+    name: Federal Reserve Board
+    group: g10_cb
+    country_or_region: United States
+    method: rss
+    feed_urls:
+      - https://www.federalreserve.gov/feeds/feds.xml
+      - https://www.federalreserve.gov/feeds/ifdp.xml
+      - https://www.federalreserve.gov/feeds/feds_notes.xml
+    notes: "FEDS, IFDP and FEDS Notes, all with abstracts."
+
+  - id: boc
+    name: Bank of Canada
+    group: g10_cb
+    country_or_region: Canada
+    method: rss
+    feed_urls:
+      - https://www.bankofcanada.ca/content_type/working-papers/feed/
+      - https://www.bankofcanada.ca/content_type/discussion-papers/feed/
+      - https://www.bankofcanada.ca/content_type/staff-analytical-notes/feed/
+
+  - id: boe
+    name: Bank of England
+    group: g10_cb
+    country_or_region: United Kingdom
+    method: rss
+    feed_urls: ["https://www.bankofengland.co.uk/rss/publications"]
+    link_pattern: "/(working-paper|macro-technical-paper)/"
+    notes: "General publications feed, filtered to staff working papers. Summaries are short."
+
+  - id: boj
+    name: Bank of Japan
+    group: g10_cb
+    country_or_region: Japan
+    method: rss
+    feed_urls: ["https://www.boj.or.jp/en/rss/whatsnew.xml"]
+    link_pattern: "/en/research/"
+    notes: "'What's new' feed filtered to research. No summaries, and many links go straight to PDFs."
+
+  - id: snb
+    name: Swiss National Bank
+    group: g10_cb
+    country_or_region: Switzerland
+    method: rss
+    feed_urls: ["https://www.snb.ch/public/rss/en/papers"]
+    notes: "Working Papers, Economic Studies and Economic Notes, with summaries."
+
+  - id: riksbank
+    name: Sveriges Riksbank
+    group: g10_cb
+    country_or_region: Sweden
+    method: html
+    url: https://www.riksbank.se/en-gb/press-and-published/publications/working-paper-series/
+    enabled: false
+    notes: "No research feed (only press releases, notices, speeches, minutes, calendar). HTML collector planned."
+
+  - id: bundesbank
+    name: Deutsche Bundesbank
+    group: g10_cb
+    country_or_region: Germany
+    method: rss
+    feed_urls: ["https://www.bundesbank.de/service/rss/en/633292/feed.rss"]
+    notes: "Discussion Papers feed. No summaries, so abstracts must come from each paper's page."
+
+  - id: bdf
+    name: Banque de France
+    group: g10_cb
+    country_or_region: France
+    method: html
+    url: https://www.banque-france.fr/en/publications-and-research/research-publications
+    enabled: false
+    notes: "No feed found. The listing page has no paper links in its HTML (likely rendered by JavaScript)."
+
+  - id: bancaditalia
+    name: Banca d'Italia
+    group: g10_cb
+    country_or_region: Italy
+    method: html
+    url: https://www.bancaditalia.it/pubblicazioni/temi-discussione/index.html?com.dotmarketing.htmlpage.language=1
+    enabled: false
+    notes: "RSS exists under /util/, which robots.txt disallows. The working-paper listing is allowed (crawl delay 5s). HTML collector planned."
+
+  - id: dnb
+    name: De Nederlandsche Bank
+    group: g10_cb
+    country_or_region: Netherlands
+    method: rss
+    feed_urls:
+      - https://www.dnb.nl/en/rss/16455/4614/Working%20Papers
+      - https://www.dnb.nl/en/rss/16455/4614/Occasional%20Studies
+    notes: "No summaries, so abstracts must come from each paper's page."
+
+  - id: nbb
+    name: National Bank of Belgium
+    group: g10_cb
+    country_or_region: Belgium
+    method: rss
+    feed_urls: ["https://www.nbb.be/en/publication_rss.xml"]
+    notes: "All-publications feed (working papers, Economic Review, projections). Short summaries."
+
+  - id: ecb
+    name: European Central Bank
+    group: g10_cb
+    country_or_region: Euro area
+    method: rss
+    feed_urls:
+      - https://www.ecb.europa.eu/rss/wppub.html
+      - https://www.ecb.europa.eu/rss/rbu.html
+    notes: "Working Papers (with abstracts) and the Research Bulletin."
+
+  # ── Federal Reserve regional banks (via Fed in Print) ───────────────────────
+  # Fed in Print is the Federal Reserve System's own research database. It has one
+  # feed per bank, with abstracts, so every regional bank uses the same collector.
+  - id: boston_fed
+    name: Federal Reserve Bank of Boston
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.bostonfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/boston.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print. The bank's own research feed stopped in 2020."
+
+  - id: ny_fed
+    name: Federal Reserve Bank of New York
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.newyorkfed.org/research
+    feed_urls: ["https://www.fedinprint.org/rss/newyork.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print (Staff Reports, Liberty Street Economics)."
+
+  - id: philly_fed
+    name: Federal Reserve Bank of Philadelphia
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.philadelphiafed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/philadelphia.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: cleveland_fed
+    name: Federal Reserve Bank of Cleveland
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.clevelandfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/cleveland.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: richmond_fed
+    name: Federal Reserve Bank of Richmond
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.richmondfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/richmond.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: atlanta_fed
+    name: Federal Reserve Bank of Atlanta
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.atlantafed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/atlanta.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print. The bank's own working-paper feed (atlantafed.org/rss/wps) also works."
+
+  - id: chicago_fed
+    name: Federal Reserve Bank of Chicago
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.chicagofed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/chicago.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: stlouis_fed
+    name: Federal Reserve Bank of St. Louis
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.stlouisfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/stlouis.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: minneapolis_fed
+    name: Federal Reserve Bank of Minneapolis
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.minneapolisfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/minneapolis.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: kc_fed
+    name: Federal Reserve Bank of Kansas City
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.kansascityfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/kansascity.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: dallas_fed
+    name: Federal Reserve Bank of Dallas
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.dallasfed.org/
+    feed_urls: ["https://www.fedinprint.org/rss/dallas.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  - id: sf_fed
+    name: Federal Reserve Bank of San Francisco
+    group: fed_regional
+    country_or_region: United States
+    method: rss
+    url: https://www.frbsf.org/
+    feed_urls: ["https://www.fedinprint.org/rss/sanfrancisco.rss"]
+    exclude_pattern: "(?i)speech|remarks|testimony"
+    notes: "Via Fed in Print."
+
+  # ── European national central banks: first priority ─────────────────────────
+  - id: bde
+    name: Banco de España
+    group: european_ncb
+    country_or_region: Spain
+    method: rss
+    feed_urls: ["https://www.bde.es/wbe/en/inicio/rss/rss-estudios-publicaciones/"]
+    link_pattern: "/(documentos-trabajo|documentos-ocasionales)/"
+    notes: "Publications feed filtered to Working and Occasional Papers. Short summaries; papers also have Crossref DOIs (prefix 10.53479) with abstracts for about 60%."
+
+  - id: bof
+    name: Bank of Finland
+    group: european_ncb
+    country_or_region: Finland
+    method: html
+    url: https://www.suomenpankki.fi/en/publications/research-publications/discussion-papers/
+    enabled: false
+    notes: "No feed for Research Discussion Papers (the BoF Bulletin has one, but carries policy articles). HTML collector planned."
+
+  - id: bofit
+    name: Bank of Finland Institute for Emerging Economies (BOFIT)
+    group: european_ncb
+    country_or_region: Finland (covers emerging economies)
+    method: html
+    url: https://www.bofit.fi/en/publications/discussion-papers/
+    enabled: false
+    notes: "No feed. The listing page has no paper links in its HTML; needs a closer look. A good EM source."
+
+  - id: oenb
+    name: Oesterreichische Nationalbank
+    group: european_ncb
+    country_or_region: Austria
+    method: none
+    enabled: false
+    notes: "No feed found and the working-paper listing URL is not yet located."
+
+  - id: cbi
+    name: Central Bank of Ireland
+    group: european_ncb
+    country_or_region: Ireland
+    method: html
+    url: https://www.centralbank.ie/publication/research-publications/research-technical-papers
+    enabled: false
+    notes: "No feed. Listing page loads (robots.txt allows it); selectors to be written."
+
+  - id: bportugal
+    name: Banco de Portugal
+    group: european_ncb
+    country_or_region: Portugal
+    method: none
+    enabled: false
+    notes: "Site returns 403 to our identified crawler. Not bypassed."
+
+  - id: norges_bank
+    name: Norges Bank
+    group: european_ncb
+    country_or_region: Norway
+    method: rss
+    feed_urls:
+      - https://www.norges-bank.no/en/rss-feeds/Working-papers---Norges-Bank/
+      - https://www.norges-bank.no/en/rss-feeds/Staff-Memo---Norges-Bank/
+    notes: "No summaries, so abstracts must come from each paper's page."
+
+  - id: nationalbanken
+    name: Danmarks Nationalbank
+    group: european_ncb
+    country_or_region: Denmark
+    method: none
+    enabled: false
+    notes: "No feed found; the site appears to render with JavaScript."
+
+  - id: nbp
+    name: Narodowy Bank Polski
+    group: european_ncb
+    country_or_region: Poland
+    method: none
+    enabled: false
+    notes: "Site returns 403 to our identified crawler. Not bypassed."
+
+  - id: cnb
+    name: Czech National Bank
+    group: european_ncb
+    country_or_region: Czechia
+    method: html
+    url: https://www.cnb.cz/en/economic-research/research-publications/
+    enabled: false
+    notes: "Feeds cover only press releases and the cnBlog. The research page has no paper links in its HTML; needs a closer look."
+
+  - id: mnb
+    name: Magyar Nemzeti Bank
+    group: european_ncb
+    country_or_region: Hungary
+    method: none
+    enabled: false
+    notes: "No feed found and the working-paper listing URL is not yet located."
+
+  # ── European national central banks: rest of the euro area ──────────────────
+  - id: bank_of_greece
+    name: Bank of Greece
+    group: european_ncb
+    country_or_region: Greece
+    method: none
+    enabled: false
+    notes: "Site returns 403 to our identified crawler. Not bypassed."
+
+  - id: nbs
+    name: Národná banka Slovenska
+    group: european_ncb
+    country_or_region: Slovakia
+    method: html
+    url: https://nbs.sk/en/publications/research-papers-working-and-occasional-papers-wp-op/
+    enabled: false
+    notes: "No feed. Listing page found; selectors to be written."
+
+  - id: bsi
+    name: Banka Slovenije
+    group: european_ncb
+    country_or_region: Slovenia
+    method: html
+    url: https://www.bsi.si/en/blog-and-research-publications
+    enabled: false
+    notes: "No feed. Listing page links to posts in its HTML; selectors to be written."
+
+  - id: lb
+    name: Lietuvos bankas
+    group: european_ncb
+    country_or_region: Lithuania
+    method: none
+    enabled: false
+    notes: "Site returns 403 to our identified crawler. Not bypassed."
+
+  - id: latvijas_banka
+    name: Latvijas Banka
+    group: european_ncb
+    country_or_region: Latvia
+    method: html
+    url: https://www.bank.lv/en/news-and-events/working-papers/2026
+    enabled: false
+    notes: "No feed. Yearly listing pages; no paper links in the HTML we fetched."
+
+  - id: eesti_pank
+    name: Eesti Pank
+    group: european_ncb
+    country_or_region: Estonia
+    method: html
+    url: https://www.eestipank.ee/en/publications/working-papers
+    enabled: false
+    notes: "No feed. The homepage links recent working papers in its HTML; selectors to be written."
+
+  - id: bcl
+    name: Banque centrale du Luxembourg
+    group: european_ncb
+    country_or_region: Luxembourg
+    method: html
+    url: https://www.bcl.lu/en/publications/Working-papers/index.html
+    enabled: false
+    notes: "Only a general news feed (press releases). Working-paper listing found; selectors to be written."
+
+  - id: cbm
+    name: Central Bank of Malta
+    group: european_ncb
+    country_or_region: Malta
+    method: html
+    url: https://www.centralbankmalta.org/en/all-pubs-res
+    enabled: false
+    notes: "Listing is in the HTML, but items link straight to PDFs with no abstract."
+
+  - id: cbc
+    name: Central Bank of Cyprus
+    group: european_ncb
+    country_or_region: Cyprus
+    method: none
+    enabled: false
+    notes: "No feed and no paper links found on the publications page."
+
+  - id: hnb
+    name: Hrvatska narodna banka
+    group: european_ncb
+    country_or_region: Croatia
+    method: html
+    url: https://www.hnb.hr/en/analyses-and-publications/occasional-publications/working-papers
+    enabled: false
+    notes: "No feed. The listing page has no paper links in its HTML."
+
+  - id: bnb
+    name: Bulgarian National Bank
+    group: european_ncb
+    country_or_region: Bulgaria
+    method: none
+    enabled: false
+    notes: "RSS covers press-office categories in Bulgarian only; no research listing found in the HTML."
