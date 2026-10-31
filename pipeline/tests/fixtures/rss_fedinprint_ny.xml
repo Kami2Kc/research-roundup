@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdau="http://rdaregistry.info/Elements/u/#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:swpo="http://sw-portal.deri.org/ontologies/swportal#" xmlns:identifiers="http://id.loc.gov/vocabulary/identifiers/" xmlns:ebucore="http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#">
+<channel>
+<title>Federal Reserve Bank of New York publications</title>
+<description>Economic research and commentary from Federal Reserve Bank of New York</description>
+<link>https://fedinprint.org/search?facets[]=provider_literal_array:Federal+Reserve+Bank+of+New+York</link>
+<atom:link href="https://fedinprint.org/search?facets[]=provider_literal_array:Federal+Reserve+Bank+of+New+York" rel="self" type="application/rss+xml"/>
+<pubDate>Sat, 31 Oct 2026 18:51:50 +0000</pubDate>
+<item>
+<title>Revenue per Worker Is Up. Are Firms Getting a Larger Share?</title>
+<link>https://fedinprint.org/item/fednls/103947</link>
+<description>
+<![CDATA[From the Great Recession until 2019, U.S. labor productivity growth disappointed. Nonfarm-business output per hour grew about 1 percent a year from 2010 to 2019, down from 3 percent in the late 1990s. This slowdown was especially pronounced in manufacturing, and it coincided with a slowdown in the growth of revenue per worker among public firms. However, since 2019, growth has picked up to twice the 2010s rate, around 2 percent. In this post, I use data from firms’ 10-K filings to unpack this recent acceleration. I first show that the acceleration appears in public firms’ revenue per worker, then document how the gains went into profit margins, and finally, what firm characteristics predicted significant profit margin increases. The increase in profit margins is consistent with ongoing declines in the labor share of output.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103947</guid>
+<dc:creator>Pearce, Jeremy</dc:creator>
+<dc:date>2026-10-15</dc:date>
+<dc:subject>productivity; markups; innovation</dc:subject>
+<swpo:hasNumber>20261015</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261015</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Remote Work from the Office</title>
+<link>https://fedinprint.org/item/fednsr/103946</link>
+<description>
+<![CDATA[Roughly half of in-office days are spent entirely on Zoom calls or doing solo work according to a new survey of college-educated Americans. These workers commute in just to work remotely from the office. Existing measures of remote work that focus solely on working from home miss up to three quarters of its true prevalence. We use a collage of data to unpack the drivers of working remotely from the office. The biggest driver is geographic distance, which causes teammates to work in different offices or fully remotely. Other contributors include non-compliance with in-office policies, poor coordination on in-office days, and a tendency to take Zoom calls rather than booking meeting rooms even when everyone is in the office.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103946</guid>
+<dc:creator>Harrington, Emma; Emanuel, Natalia</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<rdau:hasExtent>29</rdau:hasExtent>
+<dc:subject>remote work; collaboration; organizational sprawl</dc:subject>
+<swpo:hasNumber>1211</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1211</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>Has the AI Boom Impacted the U.S. Current Account?</title>
+<link>https://fedinprint.org/item/fednls/103936</link>
+<description>
+<![CDATA[The AI boom is showing up in different corners of the U.S. economy, including international trade. Imports of semiconductors, servers, and computing equipment have climbed sharply yet the U.S. current account deficit has been largely unchanged. To better understand how the AI boom has not substantially affected the trade balance, consider that the current account is dictated by the gap between domestic saving and investment spending. It turns out that aggregate saving and investment spending have not changed much during the AI boom. Aggregate investment has not risen due to weakness outside the AI sector and business saving has remained robust.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103936</guid>
+<dc:creator>di Giovanni, Julian</dc:creator>
+<dc:date>2026-10-14</dc:date>
+<dc:subject>artificial intelligence (AI); current account; saving; investment</dc:subject>
+<swpo:hasNumber>20261014</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261014</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Fleeting Forbearance in a World of Persistent Financial Distress</title>
+<link>https://fedinprint.org/item/fednsr/103868</link>
+<description>
+<![CDATA[CORRECT ORDER OF AUTHORS: Mustre-del-Río, Sánchez, Athreya. Relative to the persistent delinquency typically observed in consumer credit, mortgage forbearance during the COVID-19 pandemic was surprisingly short-lived. To understand why, we develop a rich structural model and estimate it on credit panel microdata. Next, using the model and survey data, we identify key roles for both selection into mortgages by relatively patient households and the failure of anticipated income losses to materialize. Even taking selection in account, had losses occurred, forbearance participation would have been persistent. Thus, the power of forbearance, a frequent macroeconomic policy, hinges on borrower selection, shock realizations, and revisions to expectations following those realizations.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103868</guid>
+<dc:creator>Athreya, Kartik B.; Mustre-del-Río, José; Sánchez, Juan M.</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<rdau:hasExtent>55</rdau:hasExtent>
+<dc:subject>delinquency; bankruptcy; forbearance; heterogeneity; impatience</dc:subject>
+<swpo:hasNumber>1207</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1207</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>The Investment Channel of Monetary Policy: Disentangling Firm Heterogeneity</title>
+<link>https://fedinprint.org/item/fednsr/103901</link>
+<description>
+<![CDATA[To study monetary policy transmission at the firm level, researchers typically consider heterogeneity along a small number of firm characteristics, such as size or leverage. We instead estimate the full distribution of firms’ investment responses to monetary policy, using a clustering regression framework. Our novel approach captures multidimensional and unobservable heterogeneity across firms and time. We find that investment by most firms in most time periods responds little to monetary policy. Only about 5 percent of firm-time observations are associated with a strong response. We then investigate the sources of heterogeneity ex post. We find that most of the variation in investment sensitivity arises within firms over time. Although several firm characteristics predict responsiveness to monetary policy, the majority of heterogeneity remains unexplained by firm observables. We demonstrate that our empirical estimates provide new targets for disciplining structural models of firm heterogeneity.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103901</guid>
+<dc:creator>Pilossoph, Laura; Lewis, Daniel J.; Drechsel, Thomas; Melcangi, Davide</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<rdau:hasExtent>50</rdau:hasExtent>
+<dc:subject>monetary policy; investment; firm heterogeneity; panel local projections; clustering</dc:subject>
+<swpo:hasNumber>1210</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1210</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>AI Adoption and Employment Expectations: Evidence from a Survey of Small Business Owners</title>
+<link>https://fedinprint.org/item/fednls/103899</link>
+<description>
+<![CDATA[There is little consensus on the effect of AI adoption on employment. Economy-wide measures of pay and headcount have moved little even as AI adoption has spread rapidly, yet narrower measures document declining hiring for workers at the start of their careers or in AI-exposed occupations. In this post, we revisit this topic for U.S. small businesses. We use data from the 2025 Small Business Credit Survey (SBCS) to examine the twelve-month-forward employment and revenue expectations of AI users. We find that firms currently using AI are significantly more likely than non-users to expect increased employment and revenues over the next year, even after accounting for firm and owner characteristics and location. Revenue expectations are most optimistic for AI users that report facing operational challenges in utilizing technology.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103899</guid>
+<dc:creator>Aarons, Will; Sarkar, Asani</dc:creator>
+<dc:date>2026-10-08</dc:date>
+<dc:subject>artificial intelligence (AI); small business; employment; revenues</dc:subject>
+<swpo:hasNumber>20261008</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261008</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Firm Heterogeneity and the Response of Investment to Monetary Policy</title>
+<link>https://fedinprint.org/item/fednls/103898</link>
+<description>
+<![CDATA[It is well known that monetary policy affects firms’ investment decisions. But which firms are the most responsive to changes in interest rates? And does this responsiveness vary over time? The literature has given diverse answers to this question, focusing on characteristics such as firm size, age, and financial position, and mostly studying these traits in isolation. In this post based on a recent Staff Report, we explore how investment responsiveness to monetary policy changes across firms and over time. We find that investment by most firms in most time periods responds little to monetary policy. For some firms in some periods, however, investment is very responsive to changes in interest rates. While these instances of strong sensitivity correlate with several firm traits, there is substantial variation that cannot easily be linked to specific characteristics of firms. Our findings therefore underscore the importance of considering the entire distribution of investment responses rather than focusing on the average effect.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103898</guid>
+<dc:creator>Melcangi, Davide; Drechsel, Thomas; Pilossoph, Laura; Lewis, Daniel J.</dc:creator>
+<dc:date>2026-10-07</dc:date>
+<dc:subject>monetary policy; investment; firms</dc:subject>
+<swpo:hasNumber>20261007</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261007</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>How Fast Do Tariffs Pass Through into Consumer Prices?</title>
+<link>https://fedinprint.org/item/fednls/103890</link>
+<description>
+<![CDATA[There has been a lot of interest in how tariffs affect consumer prices (for example, Cavallo et al. 2021, 2025). In this post, we present results from our new research paper that estimates the effects of the 2025-26 tariffs on retail consumer prices. We find that for every percentage point increase in average tariffs, consumer goods prices increase by about a quarter of a percent after one year. Roughly two-thirds of the effect arises because tariffs raise the prices of imported consumer goods. The remaining third arises indirectly: tariffs increase the prices of goods made in the U.S. because producers pay more for imported parts and materials, and because producers raise their markups when competing imports cost more. The effects differ in their timing. Prices of imported goods respond quickly to tariffs, while prices of U.S.-made goods adjust over six to twelve months as higher costs move through the supply chain.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103890</guid>
+<dc:creator>Amiti, Mary; Heise, Sebastian; Weinstein, David E.</dc:creator>
+<dc:date>2026-10-06</dc:date>
+<dc:subject>tariffs; pass-through; inflation; consumer prices; import prices</dc:subject>
+<swpo:hasNumber>20261006</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261006</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Unwavering Dedication</title>
+<link>https://fedinprint.org/item/fednsp/103887</link>
+<description>
+<![CDATA[Remarks at the University at Buffalo, Buffalo, New York.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsp/103887</guid>
+<dc:creator>Williams, John C.</dc:creator>
+<dc:date>2026-09-29</dc:date>
+<dc:subject>inflation; monetary policy; labor market; GDP growth; productivity; artificial intelligence (AI)</dc:subject>
+<bibo:series>Speech</bibo:series>
+</item>
+<item>
+<title>Consumption, Savings, and Earnings Responses to Financial Windfalls</title>
+<link>https://fedinprint.org/item/fednsr/103885</link>
+<description>
+<![CDATA[We estimate the causal effects of a financial windfall on consumption, savings, and wage earnings using linked administrative data on a large sample of Canadian lottery winners. Using separate linkages of lottery winners to income tax records and credit bureau data, we estimate how lottery winnings affect consumption measured through credit card spending, savings through financial asset accumulation and debt repayment, and wage earnings from tax records. We then examine how these responses vary across the income distribution. We find that high-income individuals allocated a larger share of lottery winnings to savings and leisure, while low-income individuals spent a larger share on consumption. We illustrate the policy relevance of these heterogeneous responses through three applications: designing fiscal stimulus programs, evaluating a Universal Basic Income (UBI), and determining optimal top tax rates on wage earnings and savings.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103885</guid>
+<dc:creator>Mikhed, Vyacheslav; Raina, Sahil; Kroft, Kory; Chakrabarti, Rajashri; Notowidigdo, Matthew J.; Scholnick, Barry; d'Astous, Philippe; Kulkarni, Sheisha</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<rdau:hasExtent>97</rdau:hasExtent>
+<dc:subject>Lottery; marginal propensity to consume; marginal propensity to save; marginal propensity to earn; consumption; saving</dc:subject>
+<swpo:hasNumber>1208</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1208</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>From Moore’s Law to Eroom’s Law: Power Constraints and the Productivity Slowdown</title>
+<link>https://fedinprint.org/item/fednsr/103886</link>
+<description>
+<![CDATA[Economic growth depends on combining existing inputs into new inventions. However, these combinations are not always physically feasible. One important example is dark silicon, where power and cooling limits prevent all the transistors on a chip from operating at once. I develop a growth model motivated by these limitations and establish conditions for a unique balanced growth path where electronic miniaturization and power efficiency grow at the same rate. When power-efficiency research becomes harder, both total research employment and productivity growth fall on the new balanced growth path. With gradual adjustment of research employment, I construct a local equilibrium transition in which more researchers temporarily coexist with slower productivity growth. This Eroom’s law result holds for small shocks in a two-dimensional design space with sufficiently similar industry constraints.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103886</guid>
+<dc:creator>Azar, Pablo D.</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<rdau:hasExtent>43</rdau:hasExtent>
+<dc:subject>miniaturization; power efficiency; directed innovation; economic growth</dc:subject>
+<swpo:hasNumber>1209</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1209</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>Insured, but Still on the Hook: Who Bears the Most Risk in Homeowner’s Insurance?</title>
+<link>https://fedinprint.org/item/fednls/103873</link>
+<description>
+<![CDATA[In an April post, using millions of homeowners’ insurance contracts matched with property-level exposure and disaster risk, we showed that although households are insured, they are still “on the hook” because deductibles and coverage limits leave homeowners responsible for part of a loss. Because insurers cannot perfectly observe how well homeowners maintain or protect their properties (a problem known as “moral hazard”), contract terms such as deductibles can play an important role in balancing risk sharing and incentives. By requiring homeowners to bear part of a loss, insurers can preserve incentives for policyholders to take actions that reduce damage risk. In this post, we quantify the cost of keeping homeowners on the hook. How costly is moral hazard in homeowner’s insurance? How much risk must households retain to preserve these incentives? And, importantly, who ultimately bears that residual risk? The short answer is that keeping homeowners on the hook costs insurers relatively little, but it leaves households with substantial risk, especially those least able to absorb a large loss.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103873</guid>
+<dc:creator>Jung, Hyeyoon; Jung, Jaehoon (Kyle)</dc:creator>
+<dc:date>2026-10-05</dc:date>
+<dc:subject>insurance; financial constraints; household finance; moral hazard; contracting</dc:subject>
+<swpo:hasNumber>20261005</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261005</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Economic Conditions in New York State</title>
+<link>https://fedinprint.org/item/fednsp/103869</link>
+<description>
+<![CDATA[Presentation for the NYBA Business of Banking Conference, delivered by Jaison Abel, Head of Microeconomics, Federal Reserve Bank of New York.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsp/103869</guid>
+<dc:creator>Abel, Jaison R.</dc:creator>
+<dc:date>2026-09-25</dc:date>
+<dc:subject>economic growth; unemployment; inflation; housing market; household finance; New York (State); Economic conditions - New York (State)</dc:subject>
+<bibo:series>Speech</bibo:series>
+</item>
+<item>
+<title>Navigating Geoeconomic Risk in the U.S. Stock Market</title>
+<link>https://fedinprint.org/item/fednls/103863</link>
+<description>
+<![CDATA[Geoeconomic risk—the risk that firms incur valuation losses when countries deploy economic, trade, or financial leverage for geopolitical aims—has become a first-order concern for investors. In this post, based on our recent Staff Report, we document that domestic U.S. stocks expose investors to substantial geoeconomic risk through firms’ global supply-chain relationships, affecting investors’ returns and portfolio allocation. We also find that investors are compensated for bearing geoeconomic risk through higher risk premia.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103863</guid>
+<dc:creator>Han, Lina; Macchiavelli, Marco; Crosignani, Matteo</dc:creator>
+<dc:date>2026-10-01</dc:date>
+<dc:subject>mutual funds; Asset allocation; geoeconomic risk; export controls</dc:subject>
+<swpo:hasNumber>20261001</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20261001</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>The Role of Repos in Monetary Policy Implementation</title>
+<link>https://fedinprint.org/item/fednls/103858</link>
+<description>
+<![CDATA[In the first two posts of this three-part series, we discussed private market participants that are active in repo markets for profit-making motives. Central banks are also active repo market participants, but their reasons often differ from those of private participants. In today’s post, we discuss how central banks use repos to manage liquidity in the financial system and implement monetary policy.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103858</guid>
+<dc:creator>Choi, Jun-Davinci; Afonso, Gara; Cisternas, Gonzalo; Riordan, Will</dc:creator>
+<dc:date>2026-09-30</dc:date>
+<dc:subject>central bank repos; Federal Reserve; standing repo operations (SRPs); overnight reverse repo (ON RRP)</dc:subject>
+<swpo:hasNumber>20260930</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20260930</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Follow the Cash! Microstructure of Repo Markets</title>
+<link>https://fedinprint.org/item/fednls/103827</link>
+<description>
+<![CDATA[The repo market in the U.S. is a mosaic of segments with distinct participants and various settlement and clearing practices. Why do large cash lenders typically settle their trades through a third-party agent? Why does the interdealer market clear through a central counterparty? Why do levered investors favor bilateral trades? In the second post of this series, we follow the cash as it navigates through repo markets to better understand the costs and benefits that shape the existing market structures.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103827</guid>
+<dc:creator>Cisternas, Gonzalo; Afonso, Gara; Choi, Jun-Davinci; Riordan, Will</dc:creator>
+<dc:date>2026-09-29</dc:date>
+<dc:subject>repo markets; intermediation; dealers; money markets</dc:subject>
+<swpo:hasNumber>20260929</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20260929</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Cyclical Earnings, Career and Employment Transitions</title>
+<link>https://fedinprint.org/item/fednsr/103822</link>
+<description>
+<![CDATA[Career changes across occupations are central to the cyclical behavior of workers’ earnings growth. Using SIPP data, we show that workers who switch both employers and occupations account for 58 percent of the increase in the left-skewness of earnings growth during recessions. This is driven mainly by cyclical variation in the earnings changes upon a transition, rather than in transition flows. In a business cycle model with on-the-job search over employer and occupation ladders, cyclical shifts in the quality of worker-occupation matches are the main source of cyclical earnings risk, but they generate procyclical skewness only through workers’ optimal mobility decisions: without these, procyclical skewness becomes countercyclical variance. Our results give a structural foundation to reduced-form income processes with higher-order risk, and point to policies that target occupational reallocation directly.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103822</guid>
+<dc:creator>Visschers, Ludo; Wiczer, David; Carrillo-Tudela, Carlos</dc:creator>
+<dc:date>2026-09-01</dc:date>
+<rdau:hasExtent>87</rdau:hasExtent>
+<dc:subject>earnings; unemployment; business cycle; search; occupational mobility</dc:subject>
+<swpo:hasNumber>1206</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1206</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>Who’s Borrowing and Lending in Repo Markets?</title>
+<link>https://fedinprint.org/item/fednls/103821</link>
+<description>
+<![CDATA[Repo markets play a vital role in the U.S. financial system. In this three-part series, we examine who participates in these markets, what trade-offs influence how different repo segments are structured, and why repos matter for monetary policy. Today’s post introduces repo transactions, focusing on the major private-sector participants and why they engage in these markets.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103821</guid>
+<dc:creator>Riordan, Will; Cisternas, Gonzalo; Choi, Jun-Davinci; Afonso, Gara</dc:creator>
+<dc:date>2026-09-28</dc:date>
+<dc:subject>repo market</dc:subject>
+<swpo:hasNumber>20260928</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20260928</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>Forging A Resilient Path</title>
+<link>https://fedinprint.org/item/fednsp/103817</link>
+<description>
+<![CDATA[Remarks at the Risk Live North America Conference, New York City.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsp/103817</guid>
+<dc:creator>Nistor, Mihaela</dc:creator>
+<dc:date>2026-09-24</dc:date>
+<dc:subject>operational risk; artificial intelligence (AI); Human Capital Risk; resilience</dc:subject>
+<bibo:series>Speech</bibo:series>
+</item>
+<item>
+<title>How Do Banks Build Equity Capital?</title>
+<link>https://fedinprint.org/item/fednep/103813</link>
+<description>
+<![CDATA[This article examines the evolution of equity capital in the U.S. banking industry over the past thirty-five years. Earnings are the major driver of increases in equity capital in the banking industry. While common stock issuance is frequent, amounts issued are generally small and do not contribute meaningfully to equity capital growth in most cases. Common stock dividends and repurchases are significant drains on equity capital. It is not uncommon for banks to pay out more than they earn, reflecting both capital planning motivations and negative shocks to earnings. It is also common for banks to both issue new common stock and make repurchases in the same year, with these offsetting actions related to employee stock-based compensation.]]>
+</description>
+<guid>https://fedinprint.org/item/fednep/103813</guid>
+<dc:creator>Gordon, Lily; Hirtle, Beverly</dc:creator>
+<dc:date>2026-09-01</dc:date>
+<rdau:hasExtent>1-48</rdau:hasExtent>
+<dc:subject>bank capital; equity capital; bank payouts; dividends and repurchases</dc:subject>
+<bibo:volume>32</bibo:volume>
+<bibo:issue>1</bibo:issue>
+<identifiers:doi>10.59576/epr.32.1.1-48</identifiers:doi>
+<bibo:series>Economic Policy Review</bibo:series>
+</item>
+<item>
+<title>Supplying Ample Reserves</title>
+<link>https://fedinprint.org/item/fednsp/103806</link>
+<description>
+<![CDATA[Remarks at 2026 U.S. Treasury Market Conference, Federal Reserve Bank of New York, New York City.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsp/103806</guid>
+<dc:creator>Perli, Roberto</dc:creator>
+<dc:date>2026-09-22</dc:date>
+<dc:subject>reserve management purchases (RMPs); ample reserves; money market conditions; Treasury bills</dc:subject>
+<bibo:series>Speech</bibo:series>
+</item>
+<item>
+<title>Do You Remember?</title>
+<link>https://fedinprint.org/item/fednsp/103804</link>
+<description>
+<![CDATA[Remarks at the 2026 U.S. Treasury Market Conference, Federal Reserve Bank of New York, New York City.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsp/103804</guid>
+<dc:creator>Williams, John C.</dc:creator>
+<dc:date>2026-09-22</dc:date>
+<dc:subject>monetary policy implementation; ample reserves; market structure; interest rate control; Central clearing; repo markets</dc:subject>
+<bibo:series>Speech</bibo:series>
+</item>
+<item>
+<title>When Higher Stakes Weaken Security</title>
+<link>https://fedinprint.org/item/fednsr/103803</link>
+<description>
+<![CDATA[A central design goal of settlement systems is that security should not degrade when transaction values are high. Using Ethereum’s Proof-of-Work era, we show that Proof-of-Work can fail this test: higher transaction fees—the reward for a successful attack—cause miners to deviate from honest behavior and fork the chain, undermining settlement finality when it is most needed. We exploit a unique feature of Ethereum’s Proof-of-Work era that records, for each fork, both the winning block and its displaced competitor’s timestamp. We jointly instrument hourly mean log fees, hashrate, and block size using a crypto shock indicator constructed from Ethereum hacks, market crises, and regulatory events, together with one-hour lags of hashrate and block size. Higher fees significantly increase canonical blocks arriving exactly one second later than the siblings they displace, which is consistent with deviation from honest behavior. The converse event showing honest behavior—a canonical block arriving before its siblings—is not driven by high fees. This contrast indicates that fees affect equilibrium behavior and settlement finality in Proof-of-Work blockchains.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103803</guid>
+<dc:creator>Azar, Pablo D.; Farboodi, Maryam</dc:creator>
+<dc:date>2026-09-01</dc:date>
+<rdau:hasExtent>28</rdau:hasExtent>
+<dc:subject>blockchain; payment; settlement</dc:subject>
+<swpo:hasNumber>1205</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1205</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+<item>
+<title>Treasury Trading at the Close</title>
+<link>https://fedinprint.org/item/fednls/103802</link>
+<description>
+<![CDATA[In past work, we showed that trading in U.S. Treasury securities is becoming increasingly concentrated on the last trading day of each month. In this post, we show that trading is also becoming more concentrated around the designated pricing, or “strike,” times for fixed-income indexes. The concentration is especially pronounced on month-end trading days. We also document a marked shift in trading activity from around 3 p.m. (ET) to around 4 p.m. after a major fixed-income index provider moved its strike time from 3 p.m. to 4 p.m. in January 2021.]]>
+</description>
+<guid>https://fedinprint.org/item/fednls/103802</guid>
+<dc:creator>Dyer, Henry; Fleming, Michael J.; Shachar, Or</dc:creator>
+<dc:date>2026-09-22</dc:date>
+<dc:subject>Treasury securities; trading; index; close; month-end</dc:subject>
+<swpo:hasNumber>20260922</swpo:hasNumber>
+<identifiers:doi>10.59576/lse.20260922</identifiers:doi>
+<bibo:series>Liberty Street Economics</bibo:series>
+</item>
+<item>
+<title>How Do Market Expectations React to the FOMC Dot Plot?</title>
+<link>https://fedinprint.org/item/fednsr/103737</link>
+<description>
+<![CDATA[The public pays close attention to Federal Reserve communications about future monetary policy, but it remains an open question how those communications shape the public’s expectations for the path of policy rates. We explore how market expectations adjust to the information provided in the “dot plot” of the Summary of Economic Projections, which contains the Federal Open Market Committee’s assessment of the appropriate future path of the federal funds rate. The results shed light on the market interpretation of forward guidance and its efficacy as a communication tool. We find that financial markets respond to the Federal Reserve’s “dot plot” projections by adjusting their expectations for future interest rates, but only partially and gradually, reflecting the understanding that these projections are conditional forecasts rather than firm commitments. Over time, both market expectations and FOMC projections for interest rates tend to converge, showing that the dot plot is informative to market participants. This gradual adjustment highlights the dot plot’s role as a communication tool that shapes, but does not dictate, market expectations.]]>
+</description>
+<guid>https://fedinprint.org/item/fednsr/103737</guid>
+<dc:creator>King, Thomas B.; Torralba, Francisco; D'Amico, Stefania</dc:creator>
+<dc:date>2026-09-01</dc:date>
+<rdau:hasExtent>13</rdau:hasExtent>
+<dc:subject>Summary of Economic Projections (SEP); SEP federal funds rate projections; interest rate expectations; market reaction; forward guidance</dc:subject>
+<swpo:hasNumber>1204</swpo:hasNumber>
+<identifiers:doi>10.59576/sr.1204</identifiers:doi>
+<bibo:series>Staff Reports</bibo:series>
+</item>
+</channel>
+</rss>

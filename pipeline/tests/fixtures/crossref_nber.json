@@ -1,0 +1,320 @@
+{
+ "status": "ok",
+ "message-type": "work-list",
+ "message-version": "1.0.0",
+ "message": {
+  "facets": {},
+  "total-results": 46,
+  "items": [
+   {
+    "DOI": "10.3386/w35838",
+    "type": "report",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       6
+      ]
+     ],
+     "date-time": "2026-10-06T00:01:21Z",
+     "timestamp": 1791244881000
+    },
+    "title": [
+     "When Does Bad News Stick? Topic-Level Asymmetry in Narrative Dynamics"
+    ],
+    "author": [
+     {
+      "given": "Isha",
+      "family": "Agarwal",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Wentong",
+      "family": "Chen",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Eswar",
+      "family": "Prasad",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3386/w35838"
+   },
+   {
+    "DOI": "10.3386/w35864",
+    "type": "report",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       6
+      ]
+     ],
+     "date-time": "2026-10-06T00:01:21Z",
+     "timestamp": 1791244881000
+    },
+    "title": [
+     "From Importer to Exporter: Oil Shocks and the U.S. Economy"
+    ],
+    "author": [
+     {
+      "given": "Diego",
+      "family": "K\u00e4nzig",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "James",
+      "family": "Stock",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Luca",
+      "family": "Zanotti",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3386/w35864"
+   },
+   {
+    "DOI": "10.3386/w35868",
+    "type": "report",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       6
+      ]
+     ],
+     "date-time": "2026-10-06T00:01:21Z",
+     "timestamp": 1791244881000
+    },
+    "title": [
+     "Optimal Line-Drawing for Legal Rules"
+    ],
+    "author": [
+     {
+      "given": "Jacob",
+      "family": "Goldin",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "David",
+      "family": "Weisbach",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3386/w35868"
+   },
+   {
+    "DOI": "10.3386/w35870",
+    "type": "report",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       10,
+       6
+      ]
+     ],
+     "date-time": "2026-10-06T00:01:21Z",
+     "timestamp": 1791244881000
+    },
+    "title": [
+     "Aligning Platform and User Incentives in Social Media Age Restrictions"
+    ],
+    "author": [
+     {
+      "given": "Leonardo",
+      "family": "Bursztyn",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Rafael",
+      "family": "Jim\u00e9nez-Dur\u00e1n",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Aaron",
+      "family": "Leonard",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Filip",
+      "family": "Milojevi\u0107",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Christopher",
+      "family": "Roth",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "issued": {
+     "date-parts": [
+      [
+       2026,
+       10
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3386/w35870"
+   }
+  ],
+  "items-per-page": 4,
+  "query": {
+   "start-index": 0,
+   "search-terms": null
+  }
+ }
+}

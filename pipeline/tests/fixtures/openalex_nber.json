@@ -1,0 +1,1417 @@
+{
+ "meta": {
+  "notice": "No API key, so this request shares one free daily budget ($0.10) with everyone on your network's IP address. Get a free key with its own $1/day at https://openalex.org/settings/api and add api_key=YOUR_KEY to your requests. An AI agent can get one for its user in one call: POST https://api.openalex.org/api-keys with {\"email\": \"<your user's email>\"}; we email them a link, and the key works once they click it. Docs for agents: https://help.openalex.org/llms.txt",
+  "count": 4,
+  "db_response_time_ms": 10,
+  "page": 1,
+  "per_page": 50,
+  "groups_count": null,
+  "x_query": {
+   "oql": "get works where DOI is (10.3386/w35838 or 10.3386/w35864 or 10.3386/w35868 or 10.3386/w35870)",
+   "x_new_oql": "get works where DOI is (10.3386/w35838 or 10.3386/w35864 or 10.3386/w35868 or 10.3386/w35870)",
+   "oqo": {
+    "get_rows": "works",
+    "filter_rows": [
+     {
+      "join": "or",
+      "filters": [
+       {
+        "column_id": "doi",
+        "value": "10.3386/w35838"
+       },
+       {
+        "column_id": "doi",
+        "value": "10.3386/w35864"
+       },
+       {
+        "column_id": "doi",
+        "value": "10.3386/w35868"
+       },
+       {
+        "column_id": "doi",
+        "value": "10.3386/w35870"
+       }
+      ]
+     }
+    ]
+   },
+   "url": "/works?filter=doi:10.3386%2Fw35838|10.3386%2Fw35864|10.3386%2Fw35868|10.3386%2Fw35870&per_page=50",
+   "order": "most cited (age-adjusted) first",
+   "order_default": true
+  },
+  "cost_usd": 0.0001
+ },
+ "results": [
+  {
+   "doi": "https://doi.org/10.3386/w35838",
+   "abstract_inverted_index": {
+    "When": [
+     0
+    ],
+    "does": [
+     1,
+     134
+    ],
+    "bad": [
+     2
+    ],
+    "news": [
+     3,
+     18,
+     28
+    ],
+    "stick?This": [
+     4
+    ],
+    "paper": [
+     5
+    ],
+    "shows": [
+     6
+    ],
+    "that": [
+     7,
+     70,
+     130,
+     144
+    ],
+    "the": [
+     8,
+     27,
+     31,
+     80,
+     153
+    ],
+    "persistence": [
+     9,
+     90,
+     113
+    ],
+    "of": [
+     10,
+     77,
+     82,
+     156
+    ],
+    "media": [
+     11,
+     78
+    ],
+    "sentiment": [
+     12,
+     47,
+     56,
+     146,
+     165
+    ],
+    "depends": [
+     13
+    ],
+    "not": [
+     14,
+     135
+    ],
+    "only": [
+     15
+    ],
+    "on": [
+     16,
+     25
+    ],
+    "whether": [
+     17
+    ],
+    "is": [
+     19,
+     29,
+     73,
+     92,
+     114
+    ],
+    "good": [
+     20
+    ],
+    "or": [
+     21
+    ],
+    "bad,": [
+     22
+    ],
+    "but": [
+     23
+    ],
+    "also": [
+     24,
+     115
+    ],
+    "what": [
+     26
+    ],
+    "about.Using": [
+     30
+    ],
+    "complete": [
+     32
+    ],
+    "Wall": [
+     33
+    ],
+    "Street": [
+     34
+    ],
+    "Journal": [
+     35
+    ],
+    "archive": [
+     36
+    ],
+    "from": [
+     37
+    ],
+    "1990": [
+     38
+    ],
+    "to": [
+     39,
+     139
+    ],
+    "2025,": [
+     40
+    ],
+    "we": [
+     41
+    ],
+    "construct": [
+     42
+    ],
+    "monthly": [
+     43
+    ],
+    "positive": [
+     44
+    ],
+    "and": [
+     45,
+     53,
+     96,
+     100,
+     104,
+     107,
+     110,
+     126,
+     170
+    ],
+    "negative": [
+     46,
+     164
+    ],
+    "indices": [
+     48,
+     147
+    ],
+    "for": [
+     49,
+     161
+    ],
+    "twelve": [
+     50
+    ],
+    "economic": [
+     51,
+     172
+    ],
+    "topics": [
+     52,
+     119
+    ],
+    "estimate": [
+     54
+    ],
+    "topic-specific": [
+     55
+    ],
+    "dynamics.Bad-news": [
+     57
+    ],
+    "innovations": [
+     58,
+     65
+    ],
+    "generate": [
+     59
+    ],
+    "larger": [
+     60
+    ],
+    "cumulative": [
+     61
+    ],
+    "responses": [
+     62
+    ],
+    "than": [
+     63
+    ],
+    "positive-sentiment": [
+     64
+    ],
+    "in": [
+     66,
+     94,
+     117,
+     152
+    ],
+    "every": [
+     67
+    ],
+    "topic,": [
+     68
+    ],
+    "indicating": [
+     69
+    ],
+    "negativity": [
+     71
+    ],
+    "asymmetry": [
+     72,
+     84
+    ],
+    "a": [
+     74
+    ],
+    "broad": [
+     75
+    ],
+    "feature": [
+     76
+    ],
+    "sentiment.But": [
+     79
+    ],
+    "size": [
+     81
+    ],
+    "this": [
+     83
+    ],
+    "varies": [
+     85
+    ],
+    "sharply": [
+     86
+    ],
+    "across": [
+     87
+    ],
+    "topics.The": [
+     88
+    ],
+    "bad-minus-positive": [
+     89
+    ],
+    "gap": [
+     91
+    ],
+    "largest": [
+     93
+    ],
+    "security": [
+     95
+    ],
+    "human": [
+     97
+    ],
+    "rights,": [
+     98
+    ],
+    "firms": [
+     99
+    ],
+    "corporate": [
+     101,
+     127
+    ],
+    "strategy,": [
+     102
+    ],
+    "health": [
+     103
+    ],
+    "public": [
+     105
+    ],
+    "safety,": [
+     106
+    ],
+    "real": [
+     108,
+     124,
+     171
+    ],
+    "estate": [
+     109
+    ],
+    "financial": [
+     111,
+     122
+    ],
+    "stability.Bad-news": [
+     112
+    ],
+    "sizable": [
+     116
+    ],
+    "data-rich": [
+     118
+    ],
+    "such": [
+     120
+    ],
+    "as": [
+     121
+    ],
+    "markets,": [
+     123
+    ],
+    "estate,": [
+     125
+    ],
+    "news,": [
+     128
+    ],
+    "suggesting": [
+     129
+    ],
+    "frequent": [
+     131
+    ],
+    "information": [
+     132
+    ],
+    "arrival": [
+     133
+    ],
+    "necessarily": [
+     136
+    ],
+    "lead": [
+     137
+    ],
+    "narratives": [
+     138
+    ],
+    "revert": [
+     140
+    ],
+    "quickly.These": [
+     141
+    ],
+    "findings": [
+     142
+    ],
+    "show": [
+     143
+    ],
+    "aggregate": [
+     145
+    ],
+    "mask": [
+     148
+    ],
+    "substantial": [
+     149
+    ],
+    "topic-level": [
+     150
+    ],
+    "heterogeneity": [
+     151
+    ],
+    "asymmetric": [
+     154
+    ],
+    "dynamics": [
+     155
+    ],
+    "narratives,": [
+     157
+    ],
+    "with": [
+     158
+    ],
+    "potential": [
+     159
+    ],
+    "implications": [
+     160
+    ],
+    "how": [
+     162
+    ],
+    "persistent": [
+     163
+    ],
+    "shapes": [
+     166
+    ],
+    "expectations,": [
+     167
+    ],
+    "asset": [
+     168
+    ],
+    "prices,": [
+     169
+    ],
+    "outcomes.": [
+     173
+    ]
+   }
+  },
+  {
+   "doi": "https://doi.org/10.3386/w35864",
+   "abstract_inverted_index": {
+    "We": [
+     0
+    ],
+    "study": [
+     1
+    ],
+    "how": [
+     2
+    ],
+    "the": [
+     3,
+     7,
+     18,
+     36,
+     41,
+     57,
+     70,
+     97,
+     114,
+     119,
+     123
+    ],
+    "shale": [
+     4,
+     120
+    ],
+    "revolution": [
+     5
+    ],
+    "and": [
+     6,
+     47,
+     79,
+     85,
+     91,
+     110
+    ],
+    "U.S.": [
+     8,
+     37,
+     58,
+     107
+    ],
+    "transition": [
+     9
+    ],
+    "from": [
+     10,
+     29
+    ],
+    "petroleum": [
+     11,
+     59
+    ],
+    "importer": [
+     12
+    ],
+    "to": [
+     13,
+     56,
+     88
+    ],
+    "net": [
+     14,
+     66
+    ],
+    "exporter": [
+     15
+    ],
+    "have": [
+     16
+    ],
+    "changed": [
+     17
+    ],
+    "macroeconomic": [
+     19
+    ],
+    "effects": [
+     20,
+     43
+    ],
+    "of": [
+     21,
+     35,
+     96
+    ],
+    "oil": [
+     22,
+     24,
+     99
+    ],
+    "shocks.Using": [
+     23
+    ],
+    "supply": [
+     25
+    ],
+    "news": [
+     26
+    ],
+    "shocks": [
+     27
+    ],
+    "identified": [
+     28
+    ],
+    "OPEC": [
+     30
+    ],
+    "announcements,": [
+     31
+    ],
+    "a": [
+     32
+    ],
+    "time-varying": [
+     33
+    ],
+    "model": [
+     34
+    ],
+    "macroeconomy": [
+     38
+    ],
+    "shows": [
+     39
+    ],
+    "that": [
+     40
+    ],
+    "contractionary": [
+     42
+    ],
+    "weakened": [
+     44
+    ],
+    "over": [
+     45
+    ],
+    "time": [
+     46
+    ],
+    "eventually": [
+     48
+    ],
+    "became": [
+     49
+    ],
+    "expansionary.State-dependent": [
+     50
+    ],
+    "local": [
+     51
+    ],
+    "projections": [
+     52
+    ],
+    "link": [
+     53
+    ],
+    "this": [
+     54
+    ],
+    "change": [
+     55
+    ],
+    "trade": [
+     60
+    ],
+    "balance.The": [
+     61
+    ],
+    "improvement": [
+     62
+    ],
+    "goes": [
+     63
+    ],
+    "beyond": [
+     64
+    ],
+    "mechanical": [
+     65
+    ],
+    "export": [
+     67
+    ],
+    "effects:": [
+     68
+    ],
+    "as": [
+     69
+    ],
+    "terms-of-trade": [
+     71
+    ],
+    "response": [
+     72
+    ],
+    "turns": [
+     73
+    ],
+    "more": [
+     74
+    ],
+    "favorable,": [
+     75
+    ],
+    "consumption,": [
+     76
+    ],
+    "equity": [
+     77
+    ],
+    "valuations,": [
+     78
+    ],
+    "activity": [
+     80
+    ],
+    "strengthen": [
+     81
+    ],
+    "broadly": [
+     82
+    ],
+    "across": [
+     83
+    ],
+    "sectors": [
+     84
+    ],
+    "regions,": [
+     86
+    ],
+    "pointing": [
+     87
+    ],
+    "general-equilibrium": [
+     89
+    ],
+    "income": [
+     90
+    ],
+    "wealth": [
+     92
+    ],
+    "effects.A": [
+     93
+    ],
+    "counterfactual": [
+     94
+    ],
+    "analysis": [
+     95
+    ],
+    "2022": [
+     98
+    ],
+    "price": [
+     100
+    ],
+    "surge": [
+     101
+    ],
+    "implies": [
+     102
+    ],
+    "sharply": [
+     103
+    ],
+    "different": [
+     104
+    ],
+    "paths": [
+     105
+    ],
+    "for": [
+     106
+    ],
+    "activity,": [
+     108
+    ],
+    "prices,": [
+     109
+    ],
+    "monetary": [
+     111
+    ],
+    "policy": [
+     112
+    ],
+    "under": [
+     113
+    ],
+    "propagation": [
+     115
+    ],
+    "mechanisms": [
+     116
+    ],
+    "prevailing": [
+     117
+    ],
+    "before": [
+     118
+    ],
+    "boom": [
+     121
+    ],
+    "vs.": [
+     122
+    ],
+    "early": [
+     124
+    ],
+    "2020s.": [
+     125
+    ]
+   }
+  },
+  {
+   "doi": "https://doi.org/10.3386/w35868",
+   "abstract_inverted_index": {
+    "Line": [
+     0
+    ],
+    "drawing": [
+     1
+    ],
+    "is": [
+     2
+    ],
+    "a": [
+     3,
+     77,
+     93
+    ],
+    "pervasive": [
+     4
+    ],
+    "feature": [
+     5
+    ],
+    "of": [
+     6,
+     35,
+     92
+    ],
+    "legal": [
+     7,
+     13,
+     43
+    ],
+    "systems.Across": [
+     8
+    ],
+    "many": [
+     9
+    ],
+    "domains,": [
+     10
+    ],
+    "the": [
+     11,
+     27,
+     32,
+     64,
+     72,
+     86,
+     90,
+     99,
+     106,
+     110
+    ],
+    "applicable": [
+     12
+    ],
+    "treatment": [
+     14
+    ],
+    "turns": [
+     15
+    ],
+    "on": [
+     16
+    ],
+    "whether": [
+     17,
+     76
+    ],
+    "an": [
+     18
+    ],
+    "activity": [
+     19
+    ],
+    "falls": [
+     20
+    ],
+    "above": [
+     21
+    ],
+    "or": [
+     22
+    ],
+    "below": [
+     23
+    ],
+    "some": [
+     24
+    ],
+    "threshold.We": [
+     25
+    ],
+    "characterize": [
+     26
+    ],
+    "economic": [
+     28
+    ],
+    "forces": [
+     29
+    ],
+    "that": [
+     30
+    ],
+    "determine": [
+     31
+    ],
+    "optimal": [
+     33,
+     65,
+     73,
+     87
+    ],
+    "placement": [
+     34
+    ],
+    "such": [
+     36
+    ],
+    "thresholds,": [
+     37
+    ],
+    "both": [
+     38,
+     84
+    ],
+    "generally": [
+     39
+    ],
+    "and": [
+     40,
+     47,
+     51,
+     71,
+     102
+    ],
+    "in": [
+     41,
+     61,
+     79
+    ],
+    "specific": [
+     42
+    ],
+    "settings": [
+     44
+    ],
+    "involving": [
+     45
+    ],
+    "monetary": [
+     46
+    ],
+    "non-monetary": [
+     48
+    ],
+    "sanctions,": [
+     49
+    ],
+    "prohibitions,": [
+     50
+    ],
+    "mandates.We": [
+     52
+    ],
+    "apply": [
+     53
+    ],
+    "our": [
+     54
+    ],
+    "results": [
+     55
+    ],
+    "to": [
+     56,
+     113
+    ],
+    "two": [
+     57
+    ],
+    "important": [
+     58
+    ],
+    "line-drawing": [
+     59
+    ],
+    "questions": [
+     60
+    ],
+    "private": [
+     62
+    ],
+    "law:": [
+     63
+    ],
+    "due-care": [
+     66
+    ],
+    "threshold": [
+     67,
+     74
+    ],
+    "for": [
+     68,
+     75
+    ],
+    "negligence": [
+     69
+    ],
+    "liability": [
+     70
+    ],
+    "shortfall": [
+     78
+    ],
+    "contract": [
+     80
+    ],
+    "performance": [
+     81
+    ],
+    "constitutes": [
+     82
+    ],
+    "breach.In": [
+     83
+    ],
+    "applications,": [
+     85
+    ],
+    "line": [
+     88,
+     111
+    ],
+    "takes": [
+     89
+    ],
+    "form": [
+     91
+    ],
+    "population-level": [
+     94
+    ],
+    "marginal": [
+     95
+    ],
+    "cost-benefit": [
+     96
+    ],
+    "rule,": [
+     97
+    ],
+    "with": [
+     98
+    ],
+    "relevant": [
+     100
+    ],
+    "costs": [
+     101
+    ],
+    "benefits": [
+     103
+    ],
+    "weighted": [
+     104
+    ],
+    "over": [
+     105
+    ],
+    "actors": [
+     107
+    ],
+    "whose": [
+     108
+    ],
+    "behavior": [
+     109
+    ],
+    "induces": [
+     112
+    ],
+    "change.": [
+     114
+    ]
+   }
+  },
+  {
+   "doi": "https://doi.org/10.3386/w35870",
+   "abstract_inverted_index": {
+    "Several": [
+     0
+    ],
+    "countries": [
+     1
+    ],
+    "are": [
+     2,
+     83
+    ],
+    "adopting": [
+     3
+    ],
+    "social": [
+     4,
+     36
+    ],
+    "media": [
+     5
+    ],
+    "bans": [
+     6,
+     20
+    ],
+    "for": [
+     7,
+     49,
+     126
+    ],
+    "teenagers,": [
+     8
+    ],
+    "yet": [
+     9
+    ],
+    "early": [
+     10
+    ],
+    "evidence": [
+     11
+    ],
+    "suggests": [
+     12
+    ],
+    "limited": [
+     13
+    ],
+    "adherence": [
+     14
+    ],
+    "to": [
+     15,
+     23,
+     29,
+     33,
+     92,
+     112
+    ],
+    "the": [
+     16,
+     52,
+     78,
+     109,
+     114
+    ],
+    "age-based": [
+     17
+    ],
+    "restrictions.": [
+     18
+    ],
+    "Such": [
+     19
+    ],
+    "ask": [
+     21
+    ],
+    "platforms": [
+     22,
+     46,
+     96
+    ],
+    "remove": [
+     24
+    ],
+    "profitable": [
+     25
+    ],
+    "customers": [
+     26
+    ],
+    "and": [
+     27,
+     81,
+     95,
+     122
+    ],
+    "teens": [
+     28,
+     50,
+     85
+    ],
+    "give": [
+     30
+    ],
+    "up": [
+     31,
+     90
+    ],
+    "access": [
+     32,
+     91
+    ],
+    "their": [
+     34,
+     73,
+     93
+    ],
+    "online": [
+     35
+    ],
+    "networks.": [
+     37
+    ],
+    "We": [
+     38
+    ],
+    "study": [
+     39
+    ],
+    "an": [
+     40
+    ],
+    "alternative": [
+     41
+    ],
+    "regulatory": [
+     42,
+     131
+    ],
+    "regime": [
+     43
+    ],
+    "in": [
+     44
+    ],
+    "which": [
+     45
+    ],
+    "remain": [
+     47
+    ],
+    "liable": [
+     48
+    ],
+    "on": [
+     51,
+     119
+    ],
+    "adult": [
+     53,
+     115
+    ],
+    "tier": [
+     54,
+     60,
+     80,
+     116
+    ],
+    "but": [
+     55
+    ],
+    "may": [
+     56
+    ],
+    "offer": [
+     57
+    ],
+    "a": [
+     58,
+     127
+    ],
+    "safe": [
+     59,
+     79
+    ],
+    "that": [
+     61
+    ],
+    "removes": [
+     62
+    ],
+    "restricted": [
+     63
+    ],
+    "features,": [
+     64
+    ],
+    "such": [
+     65
+    ],
+    "as": [
+     66,
+     102
+    ],
+    "algorithmic": [
+     67
+    ],
+    "feeds,": [
+     68
+    ],
+    "while": [
+     69
+    ],
+    "preserving": [
+     70
+    ],
+    "interactions": [
+     71
+    ],
+    "with": [
+     72
+    ],
+    "relevant": [
+     74,
+     128
+    ],
+    "network.": [
+     75
+    ],
+    "Provision": [
+     76
+    ],
+    "of": [
+     77,
+     130
+    ],
+    "enforcement": [
+     82
+    ],
+    "complementary:": [
+     84
+    ],
+    "can": [
+     86,
+     97
+    ],
+    "adhere": [
+     87
+    ],
+    "without": [
+     88
+    ],
+    "giving": [
+     89
+    ],
+    "network,": [
+     94
+    ],
+    "retain": [
+     98
+    ],
+    "displaced": [
+     99
+    ],
+    "adult-tier": [
+     100
+    ],
+    "users": [
+     101
+    ],
+    "lower-margin": [
+     103
+    ],
+    "customers.": [
+     104
+    ],
+    "This": [
+     105
+    ],
+    "policy": [
+     106
+    ],
+    "design": [
+     107
+    ],
+    "makes": [
+     108
+    ],
+    "teen": [
+     110,
+     124
+    ],
+    "decision": [
+     111
+    ],
+    "avoid": [
+     113
+    ],
+    "less": [
+     117
+    ],
+    "dependent": [
+     118
+    ],
+    "peer": [
+     120
+    ],
+    "dynamics": [
+     121
+    ],
+    "increases": [
+     123
+    ],
+    "welfare": [
+     125
+    ],
+    "range": [
+     129
+    ],
+    "penalties.": [
+     132
+    ]
+   }
+  }
+ ],
+ "group_by": []
+}

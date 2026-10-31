@@ -23,17 +23,21 @@ class Settings:
     llm_screen_model: str | None
     llm_editor_model: str | None
     contact_email: str | None
+    screen_limit: int  # cost guard: maximum LLM screening calls per run
+    relevance_threshold: int  # minimum relevance score for the editor's candidate pool
 
 
 def load_settings() -> Settings:
-    """Read settings from the environment, loading a local .env file if there is one."""
+    """Read settings from the environment, loading a local .env file if there is one (real env vars win)."""
     load_dotenv(REPO_ROOT / ".env")
     return Settings(
         llm_provider=os.getenv("LLM_PROVIDER", "anthropic"),
-        llm_api_key=os.getenv("LLM_API_KEY"),
-        llm_screen_model=os.getenv("LLM_SCREEN_MODEL"),
-        llm_editor_model=os.getenv("LLM_EDITOR_MODEL"),
-        contact_email=os.getenv("CONTACT_EMAIL"),
+        llm_api_key=os.getenv("LLM_API_KEY") or None,
+        llm_screen_model=os.getenv("LLM_SCREEN_MODEL") or None,
+        llm_editor_model=os.getenv("LLM_EDITOR_MODEL") or None,
+        contact_email=os.getenv("CONTACT_EMAIL") or None,
+        screen_limit=int(os.getenv("SCREEN_LIMIT", "300")),
+        relevance_threshold=int(os.getenv("RELEVANCE_THRESHOLD", "6")),
     )
 
 

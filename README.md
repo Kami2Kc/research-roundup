@@ -20,7 +20,12 @@ docs/                 plan, sources, methodology
 cp .env.example .env          # add LLM_API_KEY and CONTACT_EMAIL
 cd pipeline
 uv sync
-uv run roundup --help
-uv run roundup sources-report
-uv run pytest
+uv run pytest                 # offline: saved responses and FakeLLM
+
+uv run roundup collect --since 2026-10-01      # fetch new papers into data/roundup.db
+uv run roundup screen --limit 20               # classify with the screening model (set LLM_PROVIDER=fake for a free dry run)
+uv run roundup build-issue --month 2026-10     # editor picks 5-8 papers; writes web/public/newsletters/2026-10.html
+uv run roundup export                          # writes web/public/data/*.json
+
+cd ../web && npm install && npm run dev        # dashboard at http://localhost:3000
 ```

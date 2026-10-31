@@ -162,7 +162,7 @@ Each source entry has these fields:
 ### 4.4 Editor (monthly)
 
 - **Candidate pool:** papers published in the target month with a relevance score of at least the configured threshold.
-  - "Published" means the earliest online date (for journals, Crossref's `published-online`, falling back to `published-print` or `issued`). Document this in `METHODOLOGY.md`.
+  - "Published" means the earliest full date Crossref gives among `published-online`, `published-print`, `issued` and `created` (DOI registration, which is when a paper goes online; needed because Econometrica deposits year-only dates). For feeds, the item's publication date. Document this in `METHODOLOGY.md`.
 - A **stronger model** chooses **5–8** papers. It should:
   - prefer high relevance;
   - balance EM, DM and Transversal where the pool allows;

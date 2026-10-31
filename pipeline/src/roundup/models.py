@@ -1,6 +1,10 @@
 """Data models shared across the pipeline."""
 
+import hashlib
+from datetime import date, datetime
 from enum import StrEnum
+from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
 from pydantic import BaseModel, model_validator
 
@@ -56,3 +60,31 @@ class Source(BaseModel):
         if self.method == Method.HTML and not (self.url and self.selectors):
             raise ValueError(f"{self.id}: method 'html' needs a url and selectors")
         return self
+
+
+class Paper(BaseModel):
+    """One publication, as collected from any source."""
+
+    id: str  # the DOI if there is one, otherwise a hash of the normalised URL
+    source_id: str
+    title: str
+    authors: list[str] = []
+    abstract: str | None = None
+    url: str
+    published_date: date | None = None
+    paywalled: bool = False
+    fetched_at: datetime
+    raw_meta: dict[str, Any] = {}
+
+
+def normalise_url(url: str) -> str:
+    """Lower-case scheme and host, drop fragments, duplicate slashes and trailing slashes."""
+    parts = urlsplit(url.strip())
+    path = "/" + "/".join(p for p in parts.path.split("/") if p)
+    return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, parts.query, ""))
+
+
+def make_paper_id(doi: str | None, url: str) -> str:
+    if doi:
+        return doi.strip().lower()
+    return "url:" + hashlib.sha1(normalise_url(url).encode()).hexdigest()[:16]

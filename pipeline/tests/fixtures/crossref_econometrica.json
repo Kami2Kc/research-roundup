@@ -1,0 +1,503 @@
+{
+ "status": "ok",
+ "message-type": "work-list",
+ "message-version": "1.0.0",
+ "message": {
+  "facets": {},
+  "total-results": 14,
+  "items": [
+   {
+    "abstract": "<jats:p>We propose a framework for making Bayesian parametric models robust to local misspecification. Suppose in a baseline parametric model, a parameter of interest has an interpretation in an encompassing semiparametric model. Bayesian and maximum likelihood estimators are generally biased under local misspecification. We propose to augment the baseline likelihood by a multiplicative factor that involves scores for the baseline model, the efficient scores for the encompassing semiparametric model, and an auxiliary parameter that has the same dimension as the parameter of interest. We show that the marginal posterior for the parameter of interest in the augmented model is asymptotically normal with mean equal to the semiparametrically efficient estimator and variance equal to the semiparametric efficiency bound. The suggested augmentation robustifies the baseline parametric model to local misspecification, while preserving the appeal of Bayesian inference. We develop an MCMC algorithm for the augmented model and illustrate the approach in applications.</jats:p>",
+    "DOI": "10.3982/ecta23242",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "Locally Robust Semiparametrically Efficient Bayesian Inference"
+    ],
+    "author": [
+     {
+      "given": "Ulrich",
+      "family": "M\u00fcller",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "Economics Department, Princeton University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Andriy",
+      "family": "Norets",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Economics Department, Brown University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta23242"
+   },
+   {
+    "abstract": "<jats:p>How costly is inflation to workers? Answers to this question have focused on the path of real wages during inflationary periods. We argue that workers must take costly actions (\u201cconflict\u201d) to have nominal wages catch up with inflation, meaning there are welfare costs even if real wages do not fall as inflation rises. We study a menu\u2010cost style model, where workers choose whether to engage in conflict with employers to secure a wage increase. We show that, following a rise in inflation, wage catch\u2010up resulting from more frequent conflict does not raise welfare. Instead, the impact of inflation on worker welfare is determined by what we call \u201cwage erosion\u201d\u2014how inflation would lower real wages if workers' conflict decisions did not respond to inflation. As a result, using observed wage growth to measure worker welfare understates the costs of inflation. We conduct a survey showing that workers are willing to sacrifice around 1.75% of their wages to avoid conflict. Calibrating the model to survey data, we find that incorporating conflict significantly raises the costs of inflation for workers.</jats:p>",
+    "DOI": "10.3982/ecta23874",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "Why Do Workers Dislike Inflation? Wage Erosion and Conflict Costs"
+    ],
+    "author": [
+     {
+      "given": "Joao",
+      "family": "Guerreiro",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "Department of Economics, UCLA"
+       },
+       {
+        "name": "NBER"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Jonathon",
+      "family": "Hazell",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Department of Economics, London School of Economics"
+       },
+       {
+        "name": "CEPR"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Chen",
+      "family": "Lian",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Department of Economics, UC Berkeley"
+       },
+       {
+        "name": "NBER"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Christina",
+      "family": "Patterson",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Booth School of Business, University of Chicago"
+       },
+       {
+        "name": "NBER"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta23874"
+   },
+   {
+    "abstract": "<jats:p>Recent advances have substantially improved our ability to predict disease risk with genetic data. In response, many countries have banned insurers from using genetic data, despite concerns about adverse selection. This paper measures adverse selection in a market where insurers can underwrite only on nongenetic information while consumers also have access to genetic information. We do so by combining methods from quantitative genetics, selection measures from economic theory, and genetic and electronic health record data on nearly 500,000 individuals in the UK Biobank. We focus on the critical illness insurance market and consider scenarios in which consumers have access to current or expected future genetic prediction technology. We find noticeable levels of selection with current prediction technology, and potentially crippling selection with expected future technology.</jats:p>",
+    "DOI": "10.3982/ecta24284",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "Genetic Prediction and Adverse Selection"
+    ],
+    "author": [
+     {
+      "given": "Eduardo",
+      "family": "Azevedo",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "The Wharton School, University of Pennsylvania"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Jonathan P.",
+      "family": "Beauchamp",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Interdisciplinary Center for Economic Science and Department of Economics, George Mason University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Richard",
+      "family": "Karlsson Linn\u00e9r",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Department of Economics, Leiden University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta24284"
+   },
+   {
+    "abstract": "<jats:p>We document two key patterns of structural change: premature deindustrialization and rising industry polarization. Using a dynamic open\u2010economy model with sector\u2010biased technological change (SBTC), we evaluate the role of trade in these shifts. Trade alone does not cause premature deindustrialization, but its interaction with SBTC\u2014transmitting global technological change, amplifying the decline in manufacturing's relative price over time, and generating manufacturing trade imbalances across countries\u2014deepens premature deindustrialization over time. Industry polarization, by contrast, emerges only through trade\u2010driven specialization, as countries diverge along lines of comparative advantage.</jats:p>",
+    "DOI": "10.3982/ecta20428",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "The Role of Trade in Premature Deindustrialization and Industry Polarization"
+    ],
+    "author": [
+     {
+      "given": "Michael",
+      "family": "Sposi",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "Department of Economics, Southern Methodist University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Kei-Mu",
+      "family": "Yi",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "University of Houston, Federal Reserve Bank of Dallas, and NBER"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Jing",
+      "family": "Zhang",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Research Department, Federal Reserve Bank of Chicago"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta20428"
+   },
+   {
+    "abstract": "<jats:p>We study causal inference with high\u2010dimensional covariates, observed with various types of heteroscedastic noise. Our main assumption is that the true covariates are low rank, which we empirically evaluate with plots and interpret as approximate repeated measurements. This assumption delivers semiparametric inference on the causal parameter, as precisely as if the true covariates were available. A methodological contribution is to introduce an error\u2010in\u2010variable balancing weight for estimation and inference on cross\u2010sectional causal parameters with heterogeneous effects.</jats:p>",
+    "DOI": "10.3982/ecta23897",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "Causal Inference With Noisy Covariates: Heteroscedastic Measurement Error and Differential Privacy"
+    ],
+    "author": [
+     {
+      "given": "Anish",
+      "family": "Agarwal",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "Department of Industrial Engineering and Operations Research, Columbia University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     },
+     {
+      "given": "Rahul",
+      "family": "Singh",
+      "sequence": "additional",
+      "affiliation": [
+       {
+        "name": "Society of Fellows and Department of Economics, Harvard University"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta23897"
+   },
+   {
+    "abstract": "<jats:p>This paper studies security design by bidders with dispersed information about a common\u2010value investment opportunity. Among a broad set of securities, bidders offer debt financing\u2014the flattest securities. A first reason is that debt mitigates bidders' exposure to the winner's curse when there are two bidders. Second, the entrepreneur either has an informational advantage initially or gains one by inferring from the bids, and is more likely to select debt offers when optimistic about the project. While a bidder's choice of security also has a signaling effect, this effect is dominated by the winner's curse and informed\u2010selection effects, and does not affect the equilibrium outcome. These results contrast sharply with security design by a monopolistic investor, as well as with DeMarzo, Kremer, and Skrzypacz's (2005) results under private\u2010value competition. The entrepreneur's ability to commit to an ordered set of securities does not improve revenue.</jats:p>",
+    "DOI": "10.3982/ecta21366",
+    "type": "journal-article",
+    "created": {
+     "date-parts": [
+      [
+       2026,
+       9,
+       14
+      ]
+     ],
+     "date-time": "2026-09-14T11:53:17Z",
+     "timestamp": 1789386797000
+    },
+    "title": [
+     "Security Design Under Common\u2010Value Competition"
+    ],
+    "author": [
+     {
+      "given": "Yue",
+      "family": "Yuan",
+      "sequence": "first",
+      "affiliation": [
+       {
+        "name": "School of Management and Department of Economics, University College London"
+       }
+      ],
+      "role": [
+       {
+        "vocabulary": "crossref",
+        "role": "author"
+       }
+      ]
+     }
+    ],
+    "published-online": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "container-title": [
+     "Econometrica"
+    ],
+    "issued": {
+     "date-parts": [
+      [
+       2026
+      ]
+     ]
+    },
+    "URL": "https://doi.org/10.3982/ecta21366"
+   }
+  ],
+  "items-per-page": 6,
+  "query": {
+   "start-index": 0,
+   "search-terms": null
+  },
+  "next-cursor": null
+ }
+}
