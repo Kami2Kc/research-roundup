@@ -5,6 +5,7 @@ import re
 import sqlite3
 from pathlib import Path
 
+from roundup import db
 from roundup.config import WEB_PUBLIC
 from roundup.health import source_health
 from roundup.models import Source
@@ -21,7 +22,14 @@ def export_all(conn: sqlite3.Connection, sources: list[Source], out_dir: Path = 
     issues = export_issues(conn)
     papers = export_papers(conn, by_id)
     source_rows = export_sources(conn, sources)
-    for name, data in (("issues", issues), ("papers", papers), ("sources", source_rows)):
+    meta = {
+        "generated_at": db.now_utc(),
+        "papers_collected": conn.execute("SELECT COUNT(*) FROM papers").fetchone()[0],
+        "papers_screened": len(papers),
+        "sources_enabled": sum(s.enabled for s in sources),
+        "sources_total": len(sources),
+    }
+    for name, data in (("issues", issues), ("papers", papers), ("sources", source_rows), ("meta", meta)):
         (out_dir / f"{name}.json").write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
     return {"issues": len(issues), "papers": len(papers), "sources": len(source_rows)}
 
@@ -47,6 +55,10 @@ def export_issues(conn: sqlite3.Connection) -> list[dict]:
                     "headline": e["headline"],
                     "selection_reason": e["selection_reason"],
                     "market_focus": e["market_focus"],
+                    "focus_rationale": e["focus_rationale"],
+                    "summary": e["summary"],
+                    "takeaways": json.loads(e["takeaways"]),
+                    "why_it_matters": e["why_it_matters"],
                 }
                 for e in entries
             ],

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Issue, Paper } from "@/lib/data";
 import { formatDate } from "@/lib/data";
 import { FocusBadge } from "./focus-badge";
@@ -18,10 +19,12 @@ export function IssuePaperList({ issue, papers }: { issue: Issue; papers: Map<st
                 </span>
               )}
             </div>
-            <p className="font-semibold leading-snug">{ref.headline}</p>
+            <Link href={`/papers/${ref.slug}/`} className="font-semibold leading-snug hover:underline">
+              {ref.headline}
+            </Link>
             {paper && (
               <a href={paper.url} className="mt-1 block text-sm text-muted-foreground hover:underline">
-                {paper.title}
+                {paper.title} ↗
               </a>
             )}
             <p className="mt-2 text-sm">

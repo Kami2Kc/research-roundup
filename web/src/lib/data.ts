@@ -3,6 +3,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+export { SOURCE_GROUPS, formatDate, formatMonth } from "./labels";
+
 export type MarketFocus = "EM" | "DM" | "Transversal";
 
 export interface IssuePaperRef {
@@ -11,6 +13,10 @@ export interface IssuePaperRef {
   headline: string;
   selection_reason: string;
   market_focus: MarketFocus;
+  focus_rationale: string;
+  summary: string;
+  takeaways: string[];
+  why_it_matters: string;
 }
 
 export interface Issue {
@@ -46,6 +52,41 @@ export interface Paper {
   issues: string[];
 }
 
+export type SourceStatus = "working" | "partial" | "failing" | "not run" | "not covered";
+
+export interface SourceRow {
+  id: string;
+  name: string;
+  group: string;
+  country_or_region: string;
+  method: string;
+  fallback: string | null;
+  paywalled: boolean;
+  enabled: boolean;
+  url: string | null;
+  notes: string;
+  status: SourceStatus;
+  paper_count: number;
+  papers_with_abstract: number;
+  last_success: string | null;
+  last_run: {
+    started_at: string;
+    status: string;
+    items_found: number;
+    items_new: number;
+    error: string | null;
+    duration_s: number;
+  } | null;
+}
+
+export interface Meta {
+  generated_at: string;
+  papers_collected: number;
+  papers_screened: number;
+  sources_enabled: number;
+  sources_total: number;
+}
+
 function readJson<T>(name: string, fallback: T): T {
   const file = path.join(process.cwd(), "public", "data", `${name}.json`);
   return fs.existsSync(file) ? (JSON.parse(fs.readFileSync(file, "utf-8")) as T) : fallback;
@@ -63,11 +104,17 @@ export function getPapersBySlug(): Map<string, Paper> {
   return new Map(getPapers().map((p) => [p.slug, p]));
 }
 
-export function formatMonth(month: string): string {
-  const [year, m] = month.split("-").map(Number);
-  return new Date(Date.UTC(year, m - 1, 1)).toLocaleDateString("en-GB", { month: "long", year: "numeric", timeZone: "UTC" });
+export function getSources(): SourceRow[] {
+  return readJson<SourceRow[]>("sources", []);
 }
 
-export function formatDate(isoDate: string): string {
-  return new Date(`${isoDate}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+export function getMeta(): Meta | null {
+  return readJson<Meta | null>("meta", null);
+}
+
+/** The issue write-ups that featured a paper, newest issue first. */
+export function getFeatures(slug: string): { issue: Issue; entry: IssuePaperRef }[] {
+  return getIssues().flatMap((issue) =>
+    issue.papers.filter((entry) => entry.slug === slug).map((entry) => ({ issue, entry })),
+  );
 }

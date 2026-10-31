@@ -29,3 +29,13 @@ uv run roundup export                          # writes web/public/data/*.json
 
 cd ../web && npm install && npm run dev        # dashboard at http://localhost:3000
 ```
+
+## Deploying the dashboard
+
+The dashboard is a static Next.js export (`output: 'export'`) that reads the JSON and newsletter HTML committed under `web/public/`. On Vercel:
+
+1. **Add New → Project**, and import this GitHub repository (private repositories work once the Vercel GitHub app has access).
+2. Set **Root Directory** to `web`. The framework (Next.js), build command and output are detected automatically.
+3. Deploy. Every push to `main`, including the data commits from GitHub Actions, rebuilds the site.
+
+Then set `SITE_URL` to the deployment URL (in `.env` locally, and as a repository secret for Actions) so newsletters link back to the dashboard. To refresh links in an existing issue, run `uv run roundup build-issue --month YYYY-MM --render-only`.

@@ -36,7 +36,7 @@ sources:
     issns: ["0022-3808", "1537-534X"]
     fallback: openalex
     paywalled: true
-    notes: "Crossref has no abstracts; OpenAlex fills about a third. Papers without one are logged and skipped."
+    notes: "Partial. Crossref has no JPE abstracts and OpenAlex has few for recent papers, so most are logged and skipped (and re-checked later)."
 
   - id: qje
     name: Quarterly Journal of Economics

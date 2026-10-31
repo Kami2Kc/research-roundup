@@ -57,7 +57,7 @@
   "paywalled": true,
   "enabled": true,
   "url": null,
-  "notes": "Crossref has no abstracts; OpenAlex fills about a third. Papers without one are logged and skipped.",
+  "notes": "Partial. Crossref has no JPE abstracts and OpenAlex has few for recent papers, so most are logged and skipped (and re-checked later).",
   "status": "partial",
   "paper_count": 25,
   "papers_with_abstract": 4,

@@ -24,12 +24,17 @@ export default function Home() {
           {latest.papers.length} papers chosen from {latest.pool_size} candidates; {latest.papers_screened} papers
           screened this month.
         </p>
-        <Link
-          href={`/issues/${latest.month}/`}
-          className="mt-4 inline-block rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background"
-        >
-          Read the newsletter
-        </Link>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          <Link
+            href={`/issues/${latest.month}/`}
+            className="inline-block rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background"
+          >
+            Read the newsletter
+          </Link>
+          <Link href="/papers/" className="text-sm font-medium hover:underline">
+            Explore every screened paper →
+          </Link>
+        </div>
       </section>
 
       <section>
