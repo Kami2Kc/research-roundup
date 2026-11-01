@@ -30,9 +30,10 @@ jobs:
       SITE_URL: ${{ vars.SITE_URL || secrets.SITE_URL }}
       MONTH: ${{ inputs.month }}
     steps:
-      - uses: actions/checkout@v7
+      # Actions are pinned to a commit (tags can be moved); the comment gives the version.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           working-directory: pipeline
 
