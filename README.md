@@ -1,6 +1,6 @@
 # The Research Roundup
 
-An automated Python pipeline that collects new economics research every week from 37 sources (the top five journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, Brookings, the IMF and the BIS). It screens and classifies every paper for a Global Markets Research audience, and publishes a monthly email-ready newsletter alongside a web dashboard for exploring every paper behind it.
+An automated Python pipeline that collects new economics research every week from 37 active sources: the top five journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, Brookings, the IMF and the BIS. Another 18 of the 55 sources tracked are documented gaps. It screens and classifies every paper for a Global Markets Research audience, and publishes a monthly email-ready newsletter alongside a web dashboard for exploring every paper behind it.
 
 **Live**
 
@@ -26,7 +26,7 @@ An automated Python pipeline that collects new economics research every week fro
 
 ```mermaid
 flowchart LR
-    subgraph sources["37 sources"]
+    subgraph sources["37 active sources"]
         api["Journals, NBER, IMF<br/>(Crossref + OpenAlex APIs)"]
         rss["Central banks, Fed in Print, BIS, ECB<br/>(RSS feeds)"]
         web["Banca d'Italia, Banque de France, BoJ, ...<br/>(HTML listings)"]
@@ -178,7 +178,7 @@ Measured on the three published months (prices checked 31 October 2026: Claude H
 | Editor | **$0.17–0.29 an issue**, including any revision rounds |
 | Running total | **About $0.30 a month, under $5 a year** |
 | Hosting | Free: GitHub Actions (a few minutes a week) and Vercel's Hobby plan |
-| Development | All LLM calls while building this, including two full re-screens during prompt development: about $1.60 |
+| Development | All LLM calls while building this, including two full re-screens during prompt development and the October rebuild: about $1.85 |
 
 Each run prints its token use and estimated cost, and `SCREEN_LIMIT` caps how many papers one run can send to the model.
 
@@ -216,6 +216,7 @@ This prototype is built to be easy to move. Ideally it would run as an extension
 - **Abstract-only.** Summaries can't go beyond what an abstract says. Most JPE papers have no abstract we can use, so JPE is only partly covered.
 - **Coverage gaps.** Eighteen smaller European central banks aren't covered: their research lists are rendered by JavaScript, they have no listing at all, or they block our crawler. This includes BOFIT, the Czech National Bank and the National Bank of Poland, so EM research comes mostly from the IMF and BIS (about 10% of screened papers are EM).
 - **Feed history.** Feeds only hold recent items. Several feed-based sources reach back to September but not August, so the August issue relies more on the API-backed sources.
+- **Missing authors for the ECB.** The ECB feeds carry no author names and link straight to PDFs, so ECB papers show no authors.
 - **Undated listings.** MNB and the BPEA page show no dates, so their papers are dated when first seen. BPEA's Fall 2026 papers predate our first run and are not in any issue.
 - **Evaluation size.** The 88% agreement figure comes from one labeller and 25 papers (95% interval of roughly 70–96%), and relevance scores haven't been evaluated against human judgement.
 - **No cross-source deduplication.** The same paper published by two sources, such as an NBER working paper later printed in a journal, counts twice in the statistics. The editor spots these within an issue: August's rationale notes a Fed paper published by two banks.

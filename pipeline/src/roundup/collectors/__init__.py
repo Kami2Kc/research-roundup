@@ -50,7 +50,7 @@ def collect_source(conn: sqlite3.Connection, source: Source, http: HttpClient, s
             stored = db.stored_abstract_lengths(conn, [p.id for p in papers])
             needs_page = [p for p in papers
                           if p.published_date and stored.get(p.id, 0) < html.FULL_ABSTRACT_CHARS]
-            html.fill_abstracts(needs_page, http, source.selectors["abstract"])
+            html.fill_abstracts(needs_page, http, source.selectors["abstract"], source.selectors.get("abstract_end"))
         if source.fallback == Method.OPENALEX:
             openalex.fill_abstracts(papers, http)
         new = db.upsert_papers(conn, papers)
@@ -82,6 +82,9 @@ def apply_filters(source: Source, papers: list[Paper], since: date) -> list[Pape
     kept = []
     for p in papers:
         if source.title_strip:
+            match = re.search(source.title_strip, p.title)
+            if match and "authors" in match.re.groupindex and not p.authors:
+                p.authors = html.split_authors(match["authors"])
             p.title = re.sub(source.title_strip, "", p.title).strip() or p.title
         if source.link_pattern and not re.search(source.link_pattern, p.url):
             continue

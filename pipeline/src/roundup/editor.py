@@ -23,7 +23,8 @@ from roundup.screening import FOCUSES
 log = logging.getLogger(__name__)
 
 # v2: balanced candidate pool; checks for focus balance, source and topic variety, and write-up length
-PROMPT_VERSION = "editor-v2"
+# v3: skip papers whose abstract reports no findings
+PROMPT_VERSION = "editor-v3"
 POOL_CAP = 40  # candidates shown to the editor
 MIN_PER_FOCUS = 8  # pool places reserved for each market focus, so a DM-heavy month still offers EM papers
 MIN_POOL_ABSTRACT_CHARS = 400  # a thinner abstract can't support a 120-word summary without padding
@@ -93,6 +94,8 @@ and no more than half the issue from any one focus.
 - Variety: at most {MAX_PER_SOURCE} papers from the same source, and at most {MAX_PER_TOPIC} papers whose main \
 (first-listed) topic is the same. Never pick two papers on essentially the same question.
 - When quality is similar, prefer a mix of source types (journals, central banks, international organisations).
+- Only pick papers whose abstract reports findings. Skip any whose abstract only sets out the question, the \
+data or the method, however relevant the topic: readers need a result they can use.
 
 Order the picks from most to least important and give a one-sentence reason for each. Then write a rationale \
 of three to five sentences for the issue as a whole: what you prioritised, and which notable candidates you \

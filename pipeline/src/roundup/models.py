@@ -41,7 +41,11 @@ class Source(BaseModel):
     doi_prefix: str | None = None  # crossref: query by DOI prefix instead (e.g. NBER)
     link_pattern: str | None = None  # regex: keep only feed items whose link matches
     exclude_pattern: str | None = None  # regex: drop items whose title or series matches
-    title_strip: str | None = None  # regex: remove this from titles (e.g. a series prefix like "FEDS Paper: ")
+    # regex: remove this from titles (e.g. a series prefix like "FEDS Paper: "); a group named "authors"
+    # fills in the paper's authors from the removed text
+    title_strip: str | None = None
+    # CSS selectors: item/title/link/date/authors for listing pages, abstract for each paper's page, and
+    # abstract_end for where the abstract stops when the page continues with the article body
     selectors: dict[str, str] | None = None
     fallback: Method | None = None
     paywalled: bool = False

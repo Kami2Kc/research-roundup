@@ -11,6 +11,7 @@ import {
   SOURCE_GROUPS,
   formatDate,
   getSources,
+  type SourceRow,
   type SourceStatus,
 } from "@/lib/data";
 
@@ -44,6 +45,14 @@ function StatusBadge({ status }: { status: SourceStatus }) {
   );
 }
 
+// Why a collected source has nothing to screen, so it doesn't look broken (the Notes column is hidden on small screens).
+function papersNote(s: SourceRow): string | null {
+  if (s.status === "working" && s.paper_count === 0) return "no new papers yet";
+  if (s.paper_count > 0 && s.papers_with_abstract === 0)
+    return s.papers_undated > 0 ? "undated, so skipped" : "no abstracts, so skipped";
+  return null;
+}
+
 export default function SourcesPage() {
   const sources = getSources();
   const counts = sources.reduce<Record<string, number>>(
@@ -59,10 +68,11 @@ export default function SourcesPage() {
         </h1>
         <p className="mt-2 max-w-3xl text-muted-foreground">
           Every source the pipeline monitors, how it is collected and how the
-          latest run went. A source is <em>partial</em> when most of its papers
-          have no usable abstract (they are logged and skipped) or it cannot be
-          dated reliably; <em>not covered</em> sources are explained in the
-          notes.
+          latest run went. <em>Papers</em> counts everything collected since 1
+          August and how many of those had a usable abstract: only those are
+          screened. A source is <em>partial</em> when most of its papers have no
+          usable abstract (they are logged and skipped) or it cannot be dated
+          reliably; <em>not covered</em> sources are explained in the notes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
           {(["working", "partial", "failing", "not covered"] as SourceStatus[])
@@ -90,7 +100,12 @@ export default function SourcesPage() {
                     <TableHead className="hidden w-44 md:table-cell">
                       Method
                     </TableHead>
-                    <TableHead className="w-20 text-right">Papers</TableHead>
+                    <TableHead className="w-28 text-right">
+                      Papers
+                      <span className="block text-xs font-normal text-muted-foreground">
+                        with abstract / all
+                      </span>
+                    </TableHead>
                     <TableHead className="hidden w-28 sm:table-cell">
                       Last run
                     </TableHead>
@@ -135,7 +150,12 @@ export default function SourcesPage() {
                             {s.papers_with_abstract}/{s.paper_count}
                           </span>
                         ) : (
-                          "–"
+                          s.status !== "working" && "–"
+                        )}
+                        {papersNote(s) && (
+                          <span className="block text-xs text-muted-foreground">
+                            {papersNote(s)}
+                          </span>
                         )}
                       </TableCell>
                       <TableCell className="hidden align-top text-sm sm:table-cell">

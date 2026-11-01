@@ -52,6 +52,11 @@ def test_rebuild_abstract_from_inverted_index():
     assert openalex.rebuild_abstract({"rates": [2], "Higher": [0], "interest": [1]}) == "Higher interest rates"
 
 
+def test_run_together_sentences_are_spaced_but_abbreviations_are_not():
+    text = "We study U.S. firms.Using a survey, we test effects?Then (in 2026).We conclude."
+    assert openalex.space_sentences(text) == "We study U.S. firms. Using a survey, we test effects? Then (in 2026). We conclude."
+
+
 def test_rss_parses_ecb_working_papers(http):
     papers = rss.collect(ECB, http, SINCE)
     assert len(papers) == 15

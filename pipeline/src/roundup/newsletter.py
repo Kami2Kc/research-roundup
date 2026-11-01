@@ -26,7 +26,8 @@ _env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoesc
 _inliner = css_inline.CSSInliner(keep_at_rules=True, load_remote_stylesheets=False)
 
 
-def render(issue: BuiltIssue, issue_number: int, sources_monitored: int, site_url: str | None = None) -> str:
+def render(issue: BuiltIssue, issue_number: int, sources_monitored: int, site_url: str | None = None,
+           sources_tracked: int | None = None) -> str:
     papers = []
     for p in issue.papers:
         authors = p["authors"]
@@ -47,6 +48,7 @@ def render(issue: BuiltIssue, issue_number: int, sources_monitored: int, site_ur
         papers=papers,
         tag_colours=TAG_COLOURS,
         sources_monitored=sources_monitored,
+        sources_tracked=sources_tracked,
         papers_screened=issue.papers_screened,
         pool_size=issue.pool_size,
         site_url=(site_url or "").rstrip("/"),
@@ -55,11 +57,11 @@ def render(issue: BuiltIssue, issue_number: int, sources_monitored: int, site_ur
 
 
 def write(conn: sqlite3.Connection, issue: BuiltIssue, sources_monitored: int, site_url: str | None = None,
-          out_dir: Path = WEB_PUBLIC / "newsletters") -> Path:
+          out_dir: Path = WEB_PUBLIC / "newsletters", sources_tracked: int | None = None) -> Path:
     issue_number = conn.execute("SELECT COUNT(*) FROM issues WHERE month <= ?", (issue.month,)).fetchone()[0]
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / f"{issue.month}.html"
-    path.write_text(render(issue, issue_number, sources_monitored, site_url), encoding="utf-8")
+    path.write_text(render(issue, issue_number, sources_monitored, site_url, sources_tracked), encoding="utf-8")
     return path
 
 

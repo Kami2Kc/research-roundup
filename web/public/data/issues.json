@@ -1,117 +1,132 @@
 [
  {
   "month": "2026-10",
-  "editor_note": "October's papers share a concern with what makes an asset a safe haven and how US conditions travel abroad. Two studies examine the dollar and the Treasury market, one around the April 2025 tariffs and one on bond supply spillovers, while a model of the global financial cycle offers a balance-sheet explanation for how US monetary policy spreads. A Federal Reserve Bank of Chicago paper prices monetary-policy uncertainty, and an ECB paper uses inflation options to read risks across horizons. The issue closes with two papers on alternative stores of value: stablecoins in emerging markets, and gold under geopolitical stress, the latter with an abstract that sets out the question only.",
-  "selection_rationale": "I prioritised the 10/10 papers on how U.S. rates, Treasury markets and the dollar drive global asset prices, since these matter most to a team covering rates, FX and EM. The issue has three DM, three Transversal and one EM paper, so no focus exceeds half, and it draws on the Bundesbank, the ECB, the IMF, NBER, a regional Fed and the BIS. I left out the IMF paper on U.S. long-term rates and EM local bonds (EM, 10/10) because it covers much the same question as the IMF bond supply spillovers paper, which has the broader scope; it is a close call and the strongest runner-up for an EM slot. I also left out the Banco de España inflation options paper because it overlaps with the ECB inflation-risk paper, and the Morocco, Brazil stress-test and other EM papers because the IMF source limit and weaker relevance kept them out. Strong DM central bank papers on banks and monetary transmission were dropped to protect topic and source variety.",
+  "editor_note": "This month's papers circle one theme: how the US dollar, US Treasuries and US policy set the tone for everyone else. Two papers examine the dollar's safe-haven status, one through the April 2025 tariff episode and one through a model in which US tightening raises the global price of risk. A further study shows US bond supply spilling over into foreign yields and output. A second group asks how uncertainty is priced, covering monetary-policy risk, euro area inflation risks and multiple equilibria in sovereign debt, while the European sovereign-bank evidence shows that fiscal stress still reaches balance sheets. Finally, stablecoin flows suggest that dollarisation in emerging markets may be taking a new form.",
+  "selection_rationale": "I prioritised high-relevance work on cross-border rates, dollar and risk-premium transmission, plus euro-area inflation and Fed policy risk, and kept a balance of DM (4), Transversal (3) and EM (1) with no more than two papers from any source or main topic. The EM pool is the weakest part of the issue, so the one EM slot went to the stablecoin paper, which brings a theme the issue otherwise lacks. I left out the IMF paper on US rate transmission to EM local bonds because it asks nearly the same question as the bond supply paper, and the IMF Morocco and Fear and Shortages papers because of the two-per-source cap. The Banco de España inflation options paper, the ECB geopolitical sovereign holders paper, the Fed Board private credit note, the Fed Board safe-haven note and the BIS gold paper were skipped because their abstracts set out the question or method without reporting findings.",
   "newsletter": "/newsletters/2026-10.html",
   "pool_size": 40,
   "papers_screened": 349,
-  "built_at": "2026-11-01T10:40:47+00:00",
+  "built_at": "2026-11-01T17:02:36+00:00",
   "papers": [
    {
     "slug": "url-1e24a7627c54f070",
     "position": 1,
-    "headline": "Dollar weakness after April 2025 tariffs reflects a US institutional credibility shock",
-    "selection_reason": "A top-scoring Bundesbank paper that explains why the dollar fell and long Treasury yields rose after the April 2025 tariff announcement, which bears directly on FX and rates positioning.",
+    "headline": "Tariff-era dollar weakness reflected several forces, not a single tariff shock",
+    "selection_reason": "Top-scored and directly on point: high-frequency evidence that the dollar fell and long Treasury yields rose after the April 2025 tariffs reflects safe-haven demand, institutional confidence and Treasury intermediation rather than a single tariff shock.",
     "market_focus": "DM",
-    "focus_rationale": "The paper analyses the US dollar, US Treasuries and equities, mainly the dollar against the euro, so it concerns advanced-economy markets.",
-    "summary": "Why did the US dollar weaken against the euro and long-term US Treasury yields rise after the 2 April 2025 tariff announcement, even though markets moved into risk-off mode? The authors use high-frequency asset price data and a heteroskedastic vector autoregression, a model that uses changes in volatility to identify structural shocks without imposing strong assumptions. They isolate a safe haven shock, which lowers equity prices and yields and lifts the dollar, and a US Institutional Credibility shock, which raises long-term yields and weakens the dollar. Historical decompositions show the safe haven shock explains most of the initial equity fall and volatility spike, while the credibility shock dominates the later dollar depreciation and wider term spread. The August 2019 tariff escalation, by contrast, was largely a safe haven episode.",
+    "focus_rationale": "The paper studies the US dollar and US Treasury market, so it is centred on an advanced economy.",
+    "summary": "After the April 2025 US tariff announcements, the US dollar fell and long-term US Treasury yields rose, even though markets were clearly in risk-off mode. That combination is puzzling, because it runs against a standard safe-haven pattern. The authors use high-frequency asset price data and a flexible econometric approach that exploits changes in volatility, allowing the data to reveal the mechanisms at work rather than imposing assumptions in advance. They conclude that the episode cannot be explained as the effect of a single tariff shock. Instead, it reflects the interaction of safe-haven demand, confidence in US institutions, Treasury-market intermediation and changes in the convenience value of dollar-denominated safe assets. Together, these forces help explain why the dollar weakened despite an initial flight to safety.",
     "takeaways": [
-     "The April 2025 market reaction cannot be explained by a single tariff shock; several distinct financial shocks interacted.",
-     "The safe haven shock explains most of the equity fall and volatility spike; the credibility shock drives later dollar weakness and the wider term spread.",
-     "August 2019 was largely a safe haven episode, so April 2025 was not simply a bigger version of it."
+     "The episode cannot be understood as the effect of a single tariff shock.",
+     "Safe-haven demand, confidence in US institutions, Treasury-market intermediation and the convenience value of dollar safe assets interacted.",
+     "The analysis uses high-frequency asset price data and changes in volatility to identify mechanisms without imposing a rigid structure."
     ],
-    "why_it_matters": "For rates and FX strategists, the paper offers a way to separate flight-to-safety flows from a rise in Treasury risk premia. When the dollar and long-term yields move against the usual risk-off pattern, it may signal changing confidence in the safe asset rather than a conventional tariff effect. The evidence rests on two episodes, so it informs EUR/USD and term premium views rather than settling them."
+    "why_it_matters": "The paper cautions against reading the dollar and Treasury moves after the tariff announcements as a simple response to one shock. It points to safe-haven demand, confidence in US institutions, Treasury-market intermediation and the convenience value of dollar safe assets as separate drivers that can pull in different directions. For FX and rates strategists, the dollar's safe-haven behaviour in risk-off episodes may be less reliable than usually assumed."
    },
    {
     "slug": "10-5089-9798229064385-001",
     "position": 2,
-    "headline": "US bond supply shocks lift global long-term yields and weigh on activity",
-    "selection_reason": "It shows that U.S. Treasury supply shocks pass through to foreign long rates, FX and activity in both advanced and emerging economies, a direct read-across for rates and EM desks.",
+    "headline": "US bond supply shocks lift foreign yields and weigh on global output",
+    "selection_reason": "Quantifies how US bond supply shocks pass through to global yields (about 7 bp per 10 bp) and to real activity, with foreign investor participation amplifying the effect, which makes it central for rates and EM desks.",
     "market_focus": "Transversal",
-    "focus_rationale": "The paper examines spillovers from US bond supply to both advanced and emerging economies, so it spans both groups.",
-    "summary": "The paper asks how shocks to the supply of US Treasury bonds spill over to other economies. The author identifies the shocks from yield moves around US Treasury auction announcements and uses them as instruments in daily and monthly local projections, a regression method that traces responses over time, for advanced economies and emerging markets. A debt expansion shock that raises the US 10-year yield by 10 basis points lifts foreign 10-year yields by roughly 7 basis points within a few business days. Monthly results show contractionary effects: US industrial production falls by up to 0.4 percent after eight months, and foreign industrial production by a comparable amount, with a more persistent profile. The foreign contraction reflects financial tightening, exchange-rate depreciation and weaker US demand. Effects are larger where foreign investor participation is higher.",
+    "focus_rationale": "The paper traces US bond supply spillovers to advanced and emerging economies together, so it spans both groups.",
+    "summary": "The author studies how shocks to the supply of US government bonds spill over to the rest of the world. The shocks are identified from yield moves around US Treasury auction announcements and then used as instruments in daily and monthly local projections (a regression technique that traces effects over time) for advanced and emerging economies. A debt expansion shock that raises the US 10-year yield by 10 basis points lifts foreign 10-year yields by roughly 7 basis points within a few business days. Monthly results show contractionary real effects: US industrial production falls by up to 0.4 percent after eight months, and foreign industrial production falls by a comparable amount, with a more persistent profile. The foreign contraction reflects financial tightening, exchange-rate depreciation and weaker US demand. Spillovers are amplified by foreign investor participation and weak domestic fundamentals.",
     "takeaways": [
-     "A bond supply shock that raises the US 10-year yield by 10 basis points lifts foreign 10-year yields by roughly 7 basis points within days.",
-     "US industrial production falls up to 0.4 percent after eight months; foreign output falls by a comparable amount with a more persistent profile.",
+     "A shock lifting the US 10-year yield by 10 basis points raises foreign 10-year yields by roughly 7 basis points within days.",
+     "US and foreign industrial production both fall by around 0.4 percent, with a more persistent decline abroad.",
      "Moving from the 25th to the 75th percentile of foreign investor participation deepens the industrial production decline by 0.5 percentage points."
     ],
-    "why_it_matters": "The results link US Treasury issuance to global term premia, so heavy supply could tighten financial conditions abroad as well as at home. For rates, it points to a transmission channel to non-US yield curves; for FX and emerging markets, to depreciation pressure, especially where foreign investor participation is high or domestic fundamentals are weak. Magnitudes depend on the auction-announcement identification and should be read with care."
+    "why_it_matters": "Treasury supply emerges as a channel through which US fiscal financing needs can tighten global financial conditions, with pass-through to long-term rates in both advanced and emerging economies. For rates strategists, auction announcements are a source of foreign-yield risk. For FX and emerging-market views, the results point to depreciation pressure and larger real effects where foreign investor participation is higher."
    },
    {
     "slug": "10-3386-w35902",
     "position": 3,
-    "headline": "US monetary tightening raises global risk premia by eroding arbitrageur wealth",
-    "selection_reason": "This general equilibrium model links U.S. monetary policy to the global financial cycle through dollar funding and risk premia, giving the issue a core framework for cross-asset spillovers.",
+    "headline": "US tightening raises global risk premia by hitting dollar-short arbitrageurs",
+    "selection_reason": "Offers a general equilibrium account of why US tightening raises the global price of risk through dollar-short arbitrageurs, giving the issue its core framework for the global financial cycle.",
     "market_focus": "Transversal",
-    "focus_rationale": "The model is a cross-country framework about global risk premia and dollar funding, with no single economy as its focus.",
-    "summary": "The paper asks why US monetary policy moves risk premia and asset prices around the world. The authors build a general equilibrium model in which currency-mismatched arbitrageurs hold mean-variance efficient portfolios and therefore must be short the dollar. A US tightening revalues their wealth, eroding net worth and raising the global price of risk. The authors discipline the mechanism so that it rationalises the effects of US monetary policy on international asset prices, and they quantify the associated macroeconomic spillovers and the role of policy responses abroad. They also consider a potential future with higher dollar interest rates, in which arbitrageurs' dollar funding and US monetary policy spillovers are dampened.",
+    "focus_rationale": "The paper is a theoretical general equilibrium model of global spillovers with no single economy as its focus.",
+    "summary": "The authors ask why US monetary policy moves global asset prices, and build a general equilibrium model to answer. In it, US policy affects global risk premia by revaluing the wealth of arbitrageurs whose assets and liabilities are in different currencies. If their portfolios are mean-variance efficient (optimally balancing expected return against risk), these arbitrageurs must be short the dollar. A US tightening therefore erodes their net worth and raises the global price of risk. The authors discipline the mechanism so that it rationalises the effects of US monetary policy on international asset prices, and they quantify the macroeconomic spillovers and the role of policy responses abroad. They also consider a possible future with higher dollar interest rates, in which arbitrageurs' dollar funding and US monetary policy spillovers are dampened.",
     "takeaways": [
-     "Mean-variance efficiency implies currency-mismatched arbitrageurs are short the dollar, so a US tightening reduces their net worth.",
-     "Lower arbitrageur net worth raises the global price of risk, which transmits US policy to international asset prices.",
+     "Currency-mismatched arbitrageurs must be short the dollar if their portfolios are mean-variance efficient, which makes their net worth sensitive to US policy.",
+     "The model rationalises effects of US monetary policy on international asset prices and quantifies macroeconomic spillovers and the role of policy responses abroad.",
      "With higher dollar interest rates in future, arbitrageurs' dollar funding and US monetary policy spillovers would be dampened."
     ],
-    "why_it_matters": "The model offers a balance-sheet channel for the global financial cycle, linking US tightening to global risk premia through dollar funding. For FX, credit and emerging markets, it suggests spillovers depend on the dollar positions of leveraged investors and on policy responses abroad. The result that higher dollar rates dampen spillovers is a conditional model outcome, not a forecast."
+    "why_it_matters": "The paper offers a balance-sheet explanation for the global financial cycle, in which US rate changes transmit through the global price of risk and the dollar rather than only through local rates. That is relevant to how FX, credit and emerging-market assets react to US monetary tightening. The result that higher dollar rates could dampen spillovers suggests the sensitivity may change over time."
    },
    {
     "slug": "url-c91c1879e340660e",
     "position": 4,
-    "headline": "Euro area inflation risks differ across horizons and carry information on persistence",
-    "selection_reason": "It uses inflation caps and floors to extract the euro-area term structure of inflation risks, a market-based tool for inflation and ECB analysis.",
+    "headline": "Euro area inflation risks have different drivers at short and long horizons",
+    "selection_reason": "Uses euro-area inflation caps and floors to show that short-, medium- and long-horizon inflation risks are driven by different factors, which is directly usable for inflation and rates positioning.",
     "market_focus": "DM",
-    "focus_rationale": "The paper estimates inflation risk densities for the euro area, an advanced economy, from traded inflation caps and floors.",
-    "summary": "The paper asks what the term structure of inflation risks, meaning risks at short, medium and long horizons, reveals about inflation dynamics. Using prices of traded zero-coupon inflation caps and floors, the authors develop a non-parametric method combined with a Student's t-copula to estimate spot and forward risk-neutral densities at daily frequency. Long-horizon risks are identified from liquid instruments alone, without forward-starting contracts. Focusing on the euro area over 2009-2026, they find the term structure carries information on the persistence of inflation shocks and on how far changes in the outlook become embedded at longer horizons. Short- and medium-term risks relate mainly to current inflation, confidence indicators, commodity prices and near-term macroeconomic risks, while long-term risks relate more strongly to monetary and financial conditions.",
+    "focus_rationale": "The paper analyses euro area inflation options, so it is centred on an advanced economy.",
+    "summary": "The paper asks what the term structure of inflation risks reveals about inflation dynamics. Using prices of traded zero-coupon inflation caps and floors, the authors develop a non-parametric method, combined with a Student's t-copula (a statistical tool linking distributions across horizons), to estimate risk-neutral densities, which are market-implied probability distributions for inflation, at short, medium and long horizons. Long-horizon risks are identified from liquid instruments alone, at daily frequency, without forward-starting contracts. Focusing on the euro area over 2009-2026, they find that the term structure of risks carries information on how persistent inflation shocks are and how far changes in the outlook become embedded at longer horizons. Short- and medium-term risks relate mainly to current inflation, confidence indicators, commodity prices and near-term macroeconomic risks, while long-term risks are more closely tied to monetary and financial conditions.",
     "takeaways": [
-     "A non-parametric method with a Student's t-copula recovers long-horizon inflation risk from liquid caps and floors at daily frequency.",
-     "The term structure of inflation risks informs on how persistent inflation shocks are and how far they become embedded at longer horizons.",
-     "Short- and medium-term risks track current inflation and commodity prices, while long-term risks are more strongly tied to monetary and financial conditions."
+     "The term structure of inflation risks shows how persistent inflation shocks are and how far outlook changes become embedded at longer horizons.",
+     "Short- and medium-term risks are mainly associated with current inflation, confidence indicators, commodity prices and near-term macroeconomic risks.",
+     "Long-term risks are more strongly related to monetary and financial conditions, so relying on a single maturity gives an incomplete picture."
     ],
-    "why_it_matters": "For euro area rates and inflation strategists, the paper supports looking beyond a single maturity when judging whether inflation shocks are becoming embedded. Option-based densities may add information on risks to the inflation outlook alongside swap-based measures, with the caveat that they are risk-neutral and so mix expectations and risk compensation. It is also relevant to debates on the ECB's reaction to inflation shocks."
-   },
-   {
-    "slug": "10-21033-wp-2026-20",
-    "position": 5,
-    "headline": "Priced monetary-policy risk explains much of the inflation-indexed bond risk premium",
-    "selection_reason": "It quantifies how FOMC communication risk is priced across nominal and real yields and equities, and assesses the rise in policy risk after 2022.",
-    "market_focus": "DM",
-    "focus_rationale": "The paper studies US monetary policy communication and its effects on US yields, stocks and implied volatilities, so it concerns an advanced economy.",
-    "summary": "The paper asks how uncertainty about the conduct of monetary policy is priced in assets. Nominal yields, real yields, stock returns and implied volatilities all move more on days with Federal Open Market Committee (FOMC) communication than on blackout days, and respond significantly to changes in interest-rate uncertainty around announcements. A New Keynesian model with stochastic variation in the policy rule quantitatively matches this evidence. In the model, monetary-policy risk adds to excess returns on equities and nominal bonds and accounts for much of the risk premium on inflation-indexed bonds. Transitory increases lower stock and bond prices and weaken the economy, much like aggregate-demand shocks. The effective lower bound on interest rates shrinks the risk but magnifies its asset-pricing effects.",
-    "takeaways": [
-     "Asset prices vary more on FOMC communication days than on blackout days and respond to interest-rate uncertainty, consistent with policy risk being priced.",
-     "In the model, monetary-policy risk contributes to excess returns on equities and nominal bonds, and transitory increases lower stock and bond prices.",
-     "The effective lower bound reduces the size of monetary-policy risk but magnifies its asset-pricing consequences, consistent with the data."
-    ],
-    "why_it_matters": "The paper treats central bank communication as a priced source of risk, relevant to term premia in nominal and real yields and to equity risk premia around FOMC meetings. The authors also use the model to assess the rise in policy risk after the 2022 tightening, and it suggests effects could be larger near the lower bound. Results are specific to US data and the model calibration."
+    "why_it_matters": "Densities from inflation caps and floors give a market-based read on how inflation risks vary across horizons. For euro rates and inflation-linked strategists, the findings suggest that looking at the whole term structure of risks, rather than one maturity, helps in judging whether shocks are becoming embedded. Long-horizon risks tied to monetary and financial conditions link inflation pricing to policy and funding backdrops."
    },
    {
     "slug": "10-5089-9798229061612-001",
-    "position": 6,
-    "headline": "Stablecoin use rises after capital outflow restrictions and currency crises",
-    "selection_reason": "Stablecoin flows across 188 countries respond to capital controls and currency crises, and the paper adds an EM and FX angle that the rest of the issue lacks.",
+    "position": 5,
+    "headline": "Stablecoin use rises after capital controls and currency crises and persists",
+    "selection_reason": "The issue's EM pick: stablecoin holdings rise about 30% after capital controls and about 75% after currency crises, evidence that dollarization is now working through stablecoins.",
     "market_focus": "EM",
-    "focus_rationale": "Stablecoin activity is concentrated in emerging markets and developing economies, where capital controls and currency crises are the central mechanisms.",
-    "summary": "The paper builds a country-level panel of estimated international stablecoin flows covering 188 countries, totalling $21.4 trillion in gross flows between 2018 and 2025. Activity is disproportionately concentrated in emerging markets and developing economies, which hold three quarters of stablecoins. The author then examines how stablecoin activity responds to capital controls and currency crises. When countries restrict capital outflows, stablecoin activity rises by roughly 30 percent over the following six months, then plateaus, and does not fall back when restrictions are removed. When currency crises hit, stablecoin holdings increase by roughly 75 percent within a year, and the new holdings persist. Both findings suggest that dollarisation may now also operate through stablecoins.",
+    "focus_rationale": "Stablecoin holdings are concentrated in emerging and developing economies, and capital controls and currency crises are the central mechanisms.",
+    "summary": "The paper builds a country-level panel of estimated international stablecoin flows covering 188 countries, totalling $21.4 trillion in gross flows between 2018 and 2025. Activity is disproportionately concentrated in emerging markets and developing economies, which hold three quarters of stablecoins. The authors then examine how flows respond to policy and crisis events. When countries restrict capital outflows, stablecoin activity rises by roughly 30 percent over the following six months, then plateaus, and does not fall back when restrictions are removed. When currency crises hit, stablecoin holdings increase by roughly 75 percent within a year, and the new holdings persist. Both findings suggest that dollarisation may now also operate through stablecoins.",
     "takeaways": [
-     "Estimated gross stablecoin flows total $21.4 trillion over 2018 to 2025, and emerging markets and developing economies hold three quarters of stablecoins.",
-     "Restricting capital outflows is followed by roughly 30 percent higher stablecoin activity within six months, which does not reverse when restrictions are lifted.",
-     "Currency crises are followed by roughly 75 percent higher stablecoin holdings within a year, and the new holdings persist."
+     "Estimated gross international stablecoin flows across 188 countries total $21.4 trillion between 2018 and 2025, with emerging and developing economies holding three quarters.",
+     "Stablecoin activity rises by roughly 30 percent within six months of capital outflow restrictions and does not fall back when they are removed.",
+     "Stablecoin holdings increase by roughly 75 percent within a year of a currency crisis, and the new holdings persist."
     ],
-    "why_it_matters": "For emerging market strategists, stablecoins look like a channel that may weaken capital controls and add to dollarisation pressure in stressed currencies. This matters for reading capital-flow data and for judging how durable crisis-driven demand for dollar assets may be. The flows are estimates constructed by the author, so the results should be read as empirical patterns."
+    "why_it_matters": "The findings suggest stablecoins may add a channel for dollarisation that persists after controls are lifted or crises pass. For emerging-market FX and sovereign strategists, this raises the question of how well capital controls and conventional flow data capture pressure on local currencies. It also points to a possible source of persistent dollar demand in countries under stress."
    },
    {
-    "slug": "url-446217aa6de1df23",
-    "position": 7,
-    "headline": "Study asks how financial conditions shape gold's response to geopolitical risk",
-    "selection_reason": "A BIS paper on how gold's safe-haven role shifts with geopolitical risk and financial conditions, adding a commodities perspective and a different source type.",
-    "market_focus": "Transversal",
-    "focus_rationale": "The paper studies the global gold price and its response to geopolitical risk without a specific country focus.",
-    "summary": "This Bank for International Settlements paper examines the safe-haven role of gold, asking how geopolitical risks affect gold prices and whether the effect depends on financial conditions. It analyses state-dependent effects, meaning that the response of gold returns is allowed to differ with the macro-financial environment. The motivation is that geopolitical risks have often been associated with tighter financial conditions, but recent data show a decoupling between such shocks and more restrictive financial conditions. That raises the question of how gold returns are affected by geopolitical shocks in this setting. The abstract available for this issue sets out the question and framing but does not report the estimated results, so we cannot say here how large or consistent gold's response is.",
+    "slug": "10-21033-wp-2026-20",
+    "position": 6,
+    "headline": "Monetary-policy risk is priced across US bonds and equities",
+    "selection_reason": "Shows that FOMC communication risk is priced across nominal and real yields, equities and implied volatility, and uses the result to assess the policy-risk increase after 2022.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper studies US FOMC communication and US asset prices using a model calibrated to US data.",
+    "summary": "The paper quantifies how uncertainty about the conduct of monetary policy affects asset prices. Nominal yields, real yields, stock returns and implied volatilities all vary more on days with Federal Open Market Committee (FOMC) communication than on FOMC blackout days, consistent with policy communication being a source of risk, and they respond significantly to changes in interest-rate uncertainty around announcements. A New Keynesian model with stochastic variation in the policy rule quantitatively matches this evidence. In the model, monetary-policy risk contributes to excess returns on equities and nominal bonds and accounts for much of the risk premium on inflation-indexed bonds. Transitory increases lower stock and bond prices, reduce inflation-risk premia and generate macroeconomic weakness similar to aggregate-demand shocks. The effective lower bound reduces the size of the risk but magnifies its asset-pricing consequences.",
     "takeaways": [
-     "The analysis conditions gold's reaction to geopolitical risk on the prevailing macro-financial environment rather than assuming a single average response.",
-     "Geopolitical risks are often associated with tighter financial conditions, but recent data show a decoupling between such shocks and more restrictive conditions.",
-     "The abstract frames the central question as how gold returns respond to geopolitical shocks given that decoupling; it does not report numerical results."
+     "Asset prices vary more on FOMC communication days than on blackout days, consistent with policy communication being a source of risk.",
+     "In the model, monetary-policy risk contributes to excess returns on equities and nominal bonds and accounts for much of the inflation-indexed bond risk premium.",
+     "The effective lower bound reduces the size of monetary-policy risk but magnifies its asset-pricing consequences, consistent with the data."
     ],
-    "why_it_matters": "Gold features in safe-haven narratives alongside Treasuries and the dollar, so conditioning its response on financial conditions is relevant to commodity, rates and FX strategists. Because the abstract reports no findings, implications for hedging or positioning should wait for the full paper. The decoupling of geopolitical shocks from tighter financial conditions is itself worth watching."
+    "why_it_matters": "The results frame uncertainty about the policy rule, not just the expected rate path, as a priced risk for US nominal and real yields, equities and implied volatility. Transitory rises in this risk lower stock and bond prices and mimic aggregate-demand weakness, which is useful context for reading announcement-day moves. The authors also use the model to assess the increase in risk after the rapid tightening of 2022."
+   },
+   {
+    "slug": "url-7d7189cdf1f3d46e",
+    "position": 7,
+    "headline": "European sovereign-bank link persists but depends on holdings, accounting and fiscal capacity",
+    "selection_reason": "Adds banking and credit coverage by showing that the sovereign-bank link in Europe is still material but depends on accounting treatment, bank capitalisation and fiscal space, which matters for peripheral spreads and bank credit.",
+    "market_focus": "DM",
+    "focus_rationale": "The paper covers European banks and their home sovereigns across euro area core and peripheral economies, which are advanced economies.",
+    "summary": "The paper asks whether sovereign risk still affects banks a decade after Europe began reshaping its financial architecture. The authors combine daily bank and sovereign credit default swap (CDS) spreads with supervisory data on banks' domestic sovereign portfolios. They find that the sovereign-bank relationship remains economically meaningful but is highly conditional. Banks with larger sovereign holdings respond more sharply to home-sovereign risk, and this amplification is substantially stronger for mark-to-market than for amortised-cost exposures, consistent with more immediate recognition of valuation losses. Transmission from sovereign to bank is stronger for less-capitalised, wholesale-funded and peripheral banks, in periods of elevated market uncertainty, and when the home sovereign has less fiscal capacity. The policy reforms aimed at weakening the link reduced its extent but did not eliminate it.",
+    "takeaways": [
+     "Banks with larger domestic sovereign holdings respond more sharply to home-sovereign risk, especially for mark-to-market rather than amortised-cost exposures.",
+     "Transmission is stronger for less-capitalised, wholesale-funded and peripheral banks, in uncertain markets, and when the sovereign has less fiscal capacity.",
+     "Post-crisis policy reforms reduced the extent of the sovereign-bank link but did not eliminate it."
+    ],
+    "why_it_matters": "For European credit and sovereign strategists, the paper shows that sovereign stress can still feed into bank CDS spreads, most strongly for weaker, wholesale-funded and peripheral banks. The conditionality suggests bank spreads may be most sensitive to sovereign spreads when markets are uncertain and fiscal space is thin. Accounting treatment of sovereign holdings is a further variable to track when assessing bank exposure."
+   },
+   {
+    "slug": "10-3386-w35850",
+    "position": 8,
+    "headline": "Greater uncertainty shrinks and can remove multiple equilibria in sovereign debt markets",
+    "selection_reason": "Adds a fiscal and sovereign debt angle: multiple equilibria in sovereign debt markets shrink and then vanish as uncertainty rises, with a clear implication for central bank intervention.",
+    "market_focus": "Transversal",
+    "focus_rationale": "The paper is a theoretical study of sovereign debt equilibria with no particular country focus.",
+    "summary": "The paper studies how large the range of multiple equilibria is in sovereign debt markets. The authors show that the nature of the equilibrium depends crucially on uncertainty, modelled first as uncertainty about primary balances and later about the fiscal feedback rule. When uncertainty is low, the range can be large, but it shrinks as uncertainty grows. If uncertainty is large enough, multiplicity disappears and the interest rate is unique and a continuous function of the debt level. The reason is that larger uncertainty weakens the effect of the perceived probability of default on the actual probability of default, reducing and eventually eliminating the scope for multiplicity. In practice, interpreting the source of an interest rate increase is difficult, which complicates central bank intervention.",
+    "takeaways": [
+     "With low uncertainty the range of multiple equilibria can be large, but it narrows as uncertainty rises.",
+     "When uncertainty is large enough, the interest rate is unique and varies continuously with the debt level.",
+     "Larger uncertainty weakens the link between perceived and actual default probabilities, removing the scope for multiplicity."
+    ],
+    "why_it_matters": "The paper gives a way to think about when sovereign yields can sit at different levels for the same debt, which is relevant to sovereign credit and rates. The finding that large uncertainty removes multiplicity is a theoretical result, not an empirical forecast. The authors note that it is hard to interpret the source of a rate rise, which complicates central bank intervention in sovereign debt markets."
    }
   ]
  },

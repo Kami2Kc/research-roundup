@@ -69,6 +69,7 @@ def build_and_render(ctx: Context, month: str) -> editor.BuiltIssue:
     issue = editor.build_issue(ctx.conn, ctx.llm, ctx.settings.llm_editor_model, month, ctx.by_id,
                                ctx.settings.relevance_threshold)
     newsletter.write(ctx.conn, issue, sources_monitored=len(ctx.enabled), site_url=ctx.settings.site_url,
+                     sources_tracked=len(ctx.sources),
                      out_dir=ctx.web_public / "newsletters")
     return issue
 

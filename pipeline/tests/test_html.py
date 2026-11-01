@@ -5,7 +5,7 @@ import pytest
 
 from roundup.collectors import apply_filters, collect_source, html
 from roundup.collectors.base import HttpClient
-from roundup.models import Source
+from roundup.models import Paper, Source
 from tests.conftest import FIXTURES
 
 BOJ = Source(id="boj", name="Bank of Japan", group="g10_cb", country_or_region="Japan", method="html",
@@ -93,6 +93,28 @@ def test_abstract_from_the_paper_page_and_title_cleanup(conn, http):
 def test_abstract_prefixes_are_removed():
     text = "doi.org/10.71734/DP-2026-34 Why did the US dollar depreciate?"
     assert html.ABSTRACT_PREFIX.sub("", text) == "Why did the US dollar depreciate?"
+
+
+def test_page_abstract_stops_where_the_article_body_starts():
+    end = "h2, p:nth-of-type(3)"
+    page = ('<main><div class="richtext"><p>doi.org/10.71734/DP-2026-34</p><p>Why did the dollar fall?</p>'
+            "<h2>A tariff shock</h2><p>We study the announcement.</p><p>References</p></div></main>")
+    assert html.page_abstract(page, "main div.richtext", end) == "Why did the dollar fall?"
+    assert html.page_abstract(page, "main div.richtext").endswith("References")
+    no_heading = page.replace("<h2>A tariff shock</h2>", "")  # the summary can start straight after the abstract
+    assert html.page_abstract(no_heading, "main div.richtext", end) == "Why did the dollar fall?"
+
+
+def test_authors_are_taken_from_the_title_suffix():
+    bundesbank = Source(id="bundesbank", name="Bundesbank", group="g10_cb", country_or_region="Germany",
+                        method="rss", feed_urls=["https://example.org/feed"],
+                        title_strip=r"\s*\|\s*(?P<authors>.*)$")
+    paper = Paper(id="url:1", source_id="bundesbank", url="https://example.org/p",
+                       title="What volatility reveals | Lucas ter Steege, Sofia Velasco",
+                       fetched_at="2026-11-01T00:00:00Z")
+    [kept] = apply_filters(bundesbank, [paper], date(2026, 8, 1))
+    assert kept.title == "What volatility reveals"
+    assert kept.authors == ["Lucas ter Steege", "Sofia Velasco"]
 
 
 def test_undated_listing_is_dated_on_first_sight_after_the_first_run(conn):

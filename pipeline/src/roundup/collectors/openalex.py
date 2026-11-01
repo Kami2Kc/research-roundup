@@ -1,5 +1,7 @@
 """OpenAlex: fills in abstracts that Crossref doesn't have, looked up by DOI in batches."""
 
+import re
+
 from roundup.collectors.base import HttpClient
 from roundup.models import Paper
 
@@ -35,4 +37,12 @@ def fill_abstracts(papers: list[Paper], http: HttpClient) -> int:
 def rebuild_abstract(inverted_index: dict[str, list[int]]) -> str:
     """OpenAlex stores abstracts as {word: [positions]}; put the words back in order."""
     positions = {pos: word for word, places in inverted_index.items() for pos in places}
-    return " ".join(positions[i] for i in sorted(positions))
+    return space_sentences(" ".join(positions[i] for i in sorted(positions)))
+
+
+def space_sentences(text: str) -> str:
+    """OpenAlex runs some abstracts' sentences together ("effects.Using"); put the space back.
+
+    Only after a lowercase letter, digit or bracket, so abbreviations such as "U.S." are left alone.
+    """
+    return re.sub(r"(?<=[a-z0-9)][.?!])(?=[A-Z])", " ", text)

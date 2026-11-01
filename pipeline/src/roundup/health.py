@@ -17,6 +17,7 @@ class SourceHealth:
     with_abstract: int
     last_run: dict | None
     last_success: str | None
+    undated: int = 0  # papers with no publication date, which are never screened
 
     @property
     def abstract_share(self) -> float | None:
@@ -25,10 +26,10 @@ class SourceHealth:
 
 def source_health(conn: sqlite3.Connection, sources: list[Source]) -> list[SourceHealth]:
     counts = {
-        row["source_id"]: (row["papers"], row["with_abstract"])
+        row["source_id"]: (row["papers"], row["with_abstract"], row["undated"])
         for row in conn.execute(
-            "SELECT source_id, COUNT(*) AS papers, SUM(length(abstract) >= ?) AS with_abstract"
-            " FROM papers GROUP BY source_id",
+            "SELECT source_id, COUNT(*) AS papers, SUM(length(abstract) >= ?) AS with_abstract,"
+            " SUM(published_date IS NULL) AS undated FROM papers GROUP BY source_id",
             (MIN_ABSTRACT_CHARS,),
         )
     }
@@ -45,7 +46,7 @@ def source_health(conn: sqlite3.Connection, sources: list[Source]) -> list[Sourc
 
     report = []
     for s in sources:
-        papers, with_abstract = counts.get(s.id, (0, 0))
+        papers, with_abstract, undated = counts.get(s.id, (0, 0, 0))
         with_abstract = with_abstract or 0
         run = last_runs.get(s.id)
         if not s.enabled:
@@ -58,5 +59,5 @@ def source_health(conn: sqlite3.Connection, sources: list[Source]) -> list[Sourc
             status = "partial"
         else:
             status = "working"
-        report.append(SourceHealth(s, status, papers, with_abstract, run, last_success.get(s.id)))
+        report.append(SourceHealth(s, status, papers, with_abstract, run, last_success.get(s.id), undated))
     return report

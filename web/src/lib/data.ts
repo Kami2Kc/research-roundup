@@ -68,6 +68,7 @@ export interface SourceRow {
   status: SourceStatus;
   paper_count: number;
   papers_with_abstract: number;
+  papers_undated: number;
   last_success: string | null;
   last_run: {
     started_at: string;

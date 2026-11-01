@@ -123,6 +123,7 @@ def export_sources(conn: sqlite3.Connection, sources: list[Source]) -> list[dict
             "status": h.status,
             "paper_count": h.papers,
             "papers_with_abstract": h.with_abstract,
+            "papers_undated": h.undated,
             "last_success": h.last_success,
             "last_run": {k: run[k] for k in ("started_at", "status", "items_found", "items_new", "error", "duration_s")}
             if run else None,

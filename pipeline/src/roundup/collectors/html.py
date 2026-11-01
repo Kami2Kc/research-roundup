@@ -63,22 +63,34 @@ def _default_link(item, title_el):
     return (title_el.find("a") if title_el is not None else None) or item.find("a")
 
 
-def fill_abstracts(papers: list[Paper], http: HttpClient, selector: str) -> int:
+def fill_abstracts(papers: list[Paper], http: HttpClient, selector: str, end: str | None = None) -> int:
     """Take the abstract from each paper's own page when we have none, or only a short teaser."""
     filled = 0
     for p in papers:
         if (p.abstract and len(p.abstract) >= FULL_ABSTRACT_CHARS) or p.url.lower().endswith(".pdf"):
             continue
-        soup = BeautifulSoup(http.get(p.url).text, "html.parser")
-        texts = [clean_text(el.get_text(" ")) for el in soup.select(selector)]
-        best = max(texts, key=len, default="")
-        while (stripped := ABSTRACT_PREFIX.sub("", best)) != best:
-            best = stripped
+        best = page_abstract(http.get(p.url).text, selector, end)
         if len(best) > len(p.abstract or ""):
             p.abstract = best
             p.raw_meta["abstract_source"] = "page"
             filled += 1
     return filled
+
+
+def page_abstract(page: str, selector: str, end: str | None = None) -> str:
+    """The longest element matching `selector`, cut at the first `end` element (where the article body starts)."""
+    soup = BeautifulSoup(page, "html.parser")
+    texts = []
+    for el in soup.select(selector):
+        stop = el.select_one(end) if end else None
+        if stop is not None:
+            for node in [stop, *stop.next_siblings]:
+                node.extract()
+        texts.append(clean_text(el.get_text(" ")))
+    best = max(texts, key=len, default="")
+    while (stripped := ABSTRACT_PREFIX.sub("", best)) != best:
+        best = stripped
+    return best
 
 
 def parse_date(text: str) -> date | None:

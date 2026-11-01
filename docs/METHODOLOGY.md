@@ -99,7 +99,7 @@ regions: the economies or regions studied, using short common names: "US", "euro
 
 Version history: `screen-v1` was the first draft. `screen-v2` made the euro-area periphery explicitly DM, after the first test batch tagged a paper on Italian and Spanish banks EM, and placed non-euro CEE and the Gulf in EM. `screen-v3` introduced the fixed topic list and region naming, added sector and forecasting guidance, and added five calibration examples.
 
-## The editor (`editor-v2`)
+## The editor (`editor-v3`)
 
 The editor is the agentic step. It reviews the month's candidates, makes and justifies a selection, and revises its work when the code finds a problem.
 
@@ -131,6 +131,7 @@ You receive the month's candidate papers. Each has been screened already: it has
 - Balance market focus: include at least one EM, one DM and one Transversal paper where the pool has them, and no more than half the issue from any one focus.
 - Variety: at most 2 papers from the same source, and at most 2 papers whose main (first-listed) topic is the same. Never pick two papers on essentially the same question.
 - When quality is similar, prefer a mix of source types (journals, central banks, international organisations).
+- Only pick papers whose abstract reports findings. Skip any whose abstract only sets out the question, the data or the method, however relevant the topic: readers need a result they can use.
 
 Order the picks from most to least important and give a one-sentence reason for each. Then write a rationale of three to five sentences for the issue as a whole: what you prioritised, and which notable candidates you left out and why.
 ```
@@ -155,7 +156,7 @@ Then write editor_note: 80 to 130 words introducing the issue: the month's main 
 Use British English and plain text (no markdown, no bullet characters).
 ```
 
-Version history: `editor-v1` chose 5–8 papers from the top 40 by score and checked only the count, the IDs and the presence of each market focus. `editor-v2` added the reserved places in the pool, the balance and variety rules, the word limits, and the 400-character abstract minimum.
+Version history: `editor-v1` chose 5–8 papers from the top 40 by score and checked only the count, the IDs and the presence of each market focus. `editor-v2` added the reserved places in the pool, the balance and variety rules, the word limits, and the 400-character abstract minimum. `editor-v3` tells the editor to skip papers whose abstract reports no findings, after the first October issue included a BIS paper on gold whose abstract set out the question only (the editor's own note admitted as much); October was rebuilt with it.
 
 ## Evaluation
 
@@ -187,7 +188,7 @@ Prices were checked on 31 October 2026: Claude Haiku 5.5 costs $0.10 per million
 |---|---:|---:|---:|---:|
 | August 2026 | 239 | $0.07 | $0.17 | $0.24 |
 | September 2026 | 331 | $0.10 | $0.29 (one revision round) | $0.39 |
-| October 2026 | 349 | $0.10 | $0.21 | $0.31 |
+| October 2026 | 349 | $0.10 | $0.23 (rebuilt with `editor-v3`) | $0.33 |
 
 Screening averages about 2,100 input and 150 output tokens a paper (about $0.0003). A full year of weekly screening and monthly issues costs under $5. Each run caps screening at `SCREEN_LIMIT` papers (default 300) and prints the tokens used and the estimated cost. All development runs, including two deliberate full re-screens during prompt development, cost about $1.60.
 
@@ -197,4 +198,5 @@ Screening averages about 2,100 input and 150 output tokens a paper (about $0.000
 - **Coverage gaps.** Eighteen smaller European central banks aren't covered, including BOFIT, Czechia and Poland, so EM research comes mostly from the IMF and BIS. EM papers were 9–11% of screened papers each month.
 - **Feed history.** Feeds only hold recent items, and several feed-based sources reached back to September but not August when first collected. The August issue therefore leans more on the API-backed sources (journals, NBER, IMF).
 - **Model judgement.** Market focus and relevance are model outputs. The evaluation (88% agreement on market focus) uses one labeller and 25 papers, and relevance scores have not been evaluated against human judgement yet. The rationale is always shown, so readers can judge for themselves.
+- **Missing authors for the ECB.** The ECB feeds carry no author names and link straight to PDFs, so ECB papers show no authors.
 - **No cross-source deduplication yet.** An NBER paper that later appears in a journal, or a Fed paper published by two banks, is stored as two papers. The editor usually notices within an issue, but the monthly counts include both copies.

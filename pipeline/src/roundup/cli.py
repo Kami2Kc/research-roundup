@@ -113,7 +113,8 @@ def build_issue(
         try:
             if render_only:
                 issue = newsletter.load_issue(conn, month, ctx.by_id)
-                path = newsletter.write(conn, issue, sources_monitored=len(ctx.enabled), site_url=ctx.settings.site_url)
+                path = newsletter.write(conn, issue, sources_monitored=len(ctx.enabled), site_url=ctx.settings.site_url,
+                                       sources_tracked=len(ctx.sources))
                 typer.echo(f"{month}: re-rendered {path}")
             else:
                 print_issue(conn, jobs.build_and_render(ctx, month))

@@ -63,7 +63,7 @@
     <p class="tagline">The month's most useful new economics research for Global Markets: rates, FX, credit, macro and emerging markets.</p>
   </td></tr>
   <tr><td class="stats" bgcolor="#13315c">
-    {{ papers_screened }} papers screened &nbsp;·&nbsp; {{ sources_monitored }} sources monitored &nbsp;·&nbsp; {{ papers|length }} selected
+    {{ papers_screened }} papers screened &nbsp;·&nbsp; {{ sources_monitored }} active sources{% if sources_tracked %} ({{ sources_tracked }} tracked){% endif %} &nbsp;·&nbsp; {{ papers|length }} selected
   </td></tr>
 
   <tr><td class="section">
@@ -117,7 +117,7 @@
   {% endfor %}
 
   <tr><td class="footer">
-    <p><strong>How this issue was made.</strong> Each week we collect new papers from {{ sources_monitored }} sources: the top five economics journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, Brookings, the IMF and the BIS. A language model screens every paper for relevance and market focus. Each month an AI editor reviews the strongest {{ pool_size }} candidates, chooses a balanced selection and writes the summaries. Summaries are based on titles and abstracts only; for paywalled journals and NBER we never use the full text. Check the original paper before citing it.</p>
+    <p><strong>How this issue was made.</strong> Each week we collect new papers from {{ sources_monitored }} sources: the top five economics journals, G10 and European central banks, the twelve regional Federal Reserve Banks, NBER, Brookings, the IMF and the BIS.{% if sources_tracked %} We track {{ sources_tracked }} sources in all; the Sources page explains the gaps.{% endif %} A language model screens every paper for relevance and market focus. Each month an AI editor reviews the strongest {{ pool_size }} candidates, chooses a balanced selection and writes the summaries. Summaries are based on titles and abstracts only; for paywalled journals and NBER we never use the full text. Check the original paper before citing it.</p>
     <p>
       <span class="badge" style="background: {{ tag_colours.EM.bg }}; color: {{ tag_colours.EM.fg }};">EM</span> emerging and developing economies &nbsp;
       <span class="badge" style="background: {{ tag_colours.DM.bg }}; color: {{ tag_colours.DM.fg }};">DM</span> advanced economies &nbsp;

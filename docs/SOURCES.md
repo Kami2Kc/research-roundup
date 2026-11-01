@@ -72,12 +72,12 @@ Journal housekeeping items (front matter, editors' reports, "turnaround times" a
 | Bank of Japan | HTML + paper page | Working | 7 / 7 | The year's list of reports and research papers (`rs_all_{year}`), filtered to Working Papers and the BoJ Review. The "What's new" feed was mostly data releases with no summaries, so we dropped it. |
 | Swiss National Bank | RSS | Working | 7 / 7 | Working Papers, Economic Studies, Economic Notes |
 | Sveriges Riksbank | HTML | **Partial** | 0 / 6 | No research feed. The working-paper listing gives titles and dates, but links straight to PDFs, so there is no abstract and the papers are logged and skipped. |
-| Deutsche Bundesbank | RSS + paper page | Working | 10 / 10 | The Discussion Papers feed has no summaries, so the abstract (a non-technical summary) comes from each paper's page. |
+| Deutsche Bundesbank | RSS + paper page | Working | 10 / 10 | The Discussion Papers feed has no summaries, so the abstract comes from each paper's page, cut before the non-technical summary that follows it. Authors come from the feed title. |
 | Banque de France | HTML + paper page | Working | 11 / 11 | No feed. The working-paper listing is in the page HTML (the general research page is rendered by JavaScript). |
 | Banca d'Italia | HTML + paper page | Working | 6 / 6 | Feeds exist under `/util/`, but **robots.txt disallows that path**, so we use the working-paper listing (latest six) with the requested 5-second crawl delay. |
 | De Nederlandsche Bank | RSS + paper page | Working | 10 / 10 | Working Papers and Occasional Studies feeds have no summaries, so abstracts come from each paper's page. |
 | National Bank of Belgium | RSS + paper page | Working | 3 / 5 | All-publications feed (working papers, Economic Review, projections) |
-| European Central Bank | RSS | Working | 17 / 17 | Working Papers and the Research Bulletin |
+| European Central Bank | RSS | Working | 17 / 17 | Working Papers and the Research Bulletin. The feeds carry no author names and link straight to PDFs, so ECB papers have no authors. |
 
 ## Federal Reserve regional banks
 

@@ -176,8 +176,10 @@ sources:
     feed_urls: ["https://www.bundesbank.de/service/rss/en/633292/feed.rss"]
     selectors:
       abstract: "main div.richtext"
-    title_strip: "\\s*\\|.*$"  # the feed appends " | author names"
-    notes: "Discussion Papers feed. No summaries, so the abstract (a non-technical summary) comes from each paper's page."
+      # DOI line, one abstract paragraph, then the non-technical summary (sometimes without a heading first)
+      abstract_end: "h2, p:nth-of-type(3)"
+    title_strip: "\\s*\\|\\s*(?P<authors>.*)$"  # the feed appends " | author names"
+    notes: "Discussion Papers feed. No summaries, so the abstract comes from each paper's page (the text before the non-technical summary)."
 
   - id: bdf
     name: Banque de France

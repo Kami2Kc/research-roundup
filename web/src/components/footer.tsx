@@ -13,7 +13,8 @@ const Footer = () => {
         {meta && (
           <span>
             {meta.papers_screened} papers screened from {meta.sources_enabled}{" "}
-            sources · data updated {formatDate(meta.generated_at.slice(0, 10))}
+            active sources ({meta.sources_total} tracked) · data updated{" "}
+            {formatDate(meta.generated_at.slice(0, 10))}
           </span>
         )}
       </div>
