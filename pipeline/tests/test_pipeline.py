@@ -106,3 +106,11 @@ def test_draft_word_limits_are_checked():
     problems = editor.check_draft(draft, ["p1"])
     assert any("editor's note" in p for p in problems)
     assert any("summary has 200 words" in p for p in problems)
+
+
+def test_doubled_final_stop_in_rationale_is_removed():
+    def rationale(text: str) -> str:
+        return editor.Selection(picks=[], rationale=text).rationale
+
+    assert rationale("Dropped to protect variety.. ") == "Dropped to protect variety."
+    assert rationale("A close call...") == "A close call..."

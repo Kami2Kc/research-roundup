@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from datetime import date
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from roundup import db
 from roundup.llm import LLM, LLMError, estimate_cost
@@ -38,6 +38,12 @@ class ScreeningResult(BaseModel):
     focus_rationale: str
     topics: list[Topic] = Field(min_length=1, max_length=3)
     regions: list[str]
+
+    # The JSON schema can't forbid repeats, and the model occasionally lists a topic twice.
+    @field_validator("topics", "regions")
+    @classmethod
+    def drop_duplicates(cls, values: list[str]) -> list[str]:
+        return list(dict.fromkeys(values))
 
 
 SYSTEM_PROMPT = """\

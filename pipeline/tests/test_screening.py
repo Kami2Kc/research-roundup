@@ -38,6 +38,13 @@ def test_topics_must_come_from_the_fixed_list():
         ScreeningResult.model_validate_json(VALID.replace("interest rates and bonds", "rates"))
 
 
+def test_repeated_topics_and_regions_are_dropped():
+    output = VALID.replace('["interest rates and bonds"]', '["interest rates and bonds", "fiscal policy and sovereign debt", "interest rates and bonds"]')
+    result = ScreeningResult.model_validate_json(output.replace('["euro area"]', '["euro area", "euro area"]'))
+    assert result.topics == ["interest rates and bonds", "fiscal policy and sovereign debt"]
+    assert result.regions == ["euro area"]
+
+
 def test_screening_skips_missing_abstracts_and_never_rescreens(conn):
     db.upsert_papers(conn, [make_paper(id="10.1/a", abstract=ABSTRACT), make_paper(id="10.1/b", abstract=None),
                             make_paper(id="10.1/c", abstract="Too short.")])

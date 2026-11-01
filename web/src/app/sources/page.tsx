@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { SOURCE_GROUPS, formatDate, getSources, type SourceStatus } from "@/lib/data";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import {
+  SOURCE_GROUPS,
+  formatDate,
+  getSources,
+  type SourceStatus,
+} from "@/lib/data";
 
-export const metadata: Metadata = { title: "Sources and coverage · The Research Roundup" };
+export const metadata: Metadata = {
+  title: "Sources and coverage · The Research Roundup",
+};
 
 const STATUS_STYLES: Record<SourceStatus, string> = {
   working: "bg-emerald-50 text-emerald-800 border-emerald-200",
@@ -21,21 +35,34 @@ const METHOD_LABELS: Record<string, string> = {
 };
 
 function StatusBadge({ status }: { status: SourceStatus }) {
-  return <span className={`inline-block whitespace-nowrap rounded border px-2 py-0.5 text-xs font-medium ${STATUS_STYLES[status]}`}>{status}</span>;
+  return (
+    <span
+      className={`inline-block whitespace-nowrap rounded-lg border px-2 py-0.5 text-xs font-medium ${STATUS_STYLES[status]}`}
+    >
+      {status}
+    </span>
+  );
 }
 
 export default function SourcesPage() {
   const sources = getSources();
-  const counts = sources.reduce<Record<string, number>>((acc, s) => ({ ...acc, [s.status]: (acc[s.status] ?? 0) + 1 }), {});
+  const counts = sources.reduce<Record<string, number>>(
+    (acc, s) => ({ ...acc, [s.status]: (acc[s.status] ?? 0) + 1 }),
+    {},
+  );
 
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-semibold tracking-tight">Sources and coverage</h1>
+        <h1 className="font-serif text-3xl font-semibold tracking-tight">
+          Sources and coverage
+        </h1>
         <p className="mt-2 max-w-3xl text-muted-foreground">
-          Every source the pipeline monitors, how it is collected and how the latest run went. A source is{" "}
-          <em>partial</em> when most of its papers have no usable abstract (they are logged and skipped) or it
-          cannot be dated reliably; <em>not covered</em> sources are explained in the notes.
+          Every source the pipeline monitors, how it is collected and how the
+          latest run went. A source is <em>partial</em> when most of its papers
+          have no usable abstract (they are logged and skipped) or it cannot be
+          dated reliably; <em>not covered</em> sources are explained in the
+          notes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
           {(["working", "partial", "failing", "not covered"] as SourceStatus[])
@@ -54,32 +81,53 @@ export default function SourcesPage() {
         return (
           <section key={group}>
             <h2 className="mb-3 text-xl font-semibold">{label}</h2>
-            <div className="overflow-x-auto rounded-lg border">
-              <Table className="table-fixed min-w-[640px]">
+            <div className="overflow-x-auto rounded-lg border shadow-md">
+              <Table className="table-fixed min-w-160">
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-[30%]">Source</TableHead>
                     <TableHead className="w-28">Status</TableHead>
-                    <TableHead className="hidden w-44 md:table-cell">Method</TableHead>
+                    <TableHead className="hidden w-44 md:table-cell">
+                      Method
+                    </TableHead>
                     <TableHead className="w-20 text-right">Papers</TableHead>
-                    <TableHead className="hidden w-28 sm:table-cell">Last run</TableHead>
-                    <TableHead className="hidden lg:table-cell">Notes</TableHead>
+                    <TableHead className="hidden w-28 sm:table-cell">
+                      Last run
+                    </TableHead>
+                    <TableHead className="hidden lg:table-cell">
+                      Notes
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {rows.map((s) => (
                     <TableRow key={s.id}>
                       <TableCell className="align-top">
-                        <div className="whitespace-normal font-medium">{s.url ? <a href={s.url} className="hover:underline">{s.name}</a> : s.name}</div>
+                        <div className="whitespace-normal font-medium">
+                          {s.url ? (
+                            <a href={s.url} className="hover:underline">
+                              {s.name}
+                            </a>
+                          ) : (
+                            s.name
+                          )}
+                        </div>
                         <div className="text-xs text-muted-foreground">
                           {s.country_or_region}
                           {s.paywalled && " · paywalled"}
                         </div>
                       </TableCell>
-                      <TableCell className="align-top"><StatusBadge status={s.status} /></TableCell>
+                      <TableCell className="align-top">
+                        <StatusBadge status={s.status} />
+                      </TableCell>
                       <TableCell className="hidden whitespace-normal align-top text-sm md:table-cell">
                         {METHOD_LABELS[s.method] ?? s.method}
-                        {s.fallback && <span className="text-muted-foreground"> + {METHOD_LABELS[s.fallback] ?? s.fallback}</span>}
+                        {s.fallback && (
+                          <span className="text-muted-foreground">
+                            {" "}
+                            + {METHOD_LABELS[s.fallback] ?? s.fallback}
+                          </span>
+                        )}
                       </TableCell>
                       <TableCell className="align-top text-right text-sm tabular-nums">
                         {s.paper_count > 0 ? (
@@ -92,9 +140,14 @@ export default function SourcesPage() {
                       </TableCell>
                       <TableCell className="hidden align-top text-sm sm:table-cell">
                         {s.last_run ? (
-                          <span className={s.last_run.status === "ok" ? "" : "text-red-700"}>
+                          <span
+                            className={
+                              s.last_run.status === "ok" ? "" : "text-red-700"
+                            }
+                          >
                             {formatDate(s.last_run.started_at.slice(0, 10))}
-                            {s.last_run.status !== "ok" && ` · ${s.last_run.error}`}
+                            {s.last_run.status !== "ok" &&
+                              ` · ${s.last_run.error}`}
                           </span>
                         ) : (
                           "–"

@@ -1,28 +1,49 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FocusBadge } from "@/components/focus-badge";
-import { SOURCE_GROUPS, formatDate, formatMonth, getFeatures, getPapers, getPapersBySlug } from "@/lib/data";
+import {
+  SOURCE_GROUPS,
+  formatDate,
+  formatMonth,
+  getFeatures,
+  getPapers,
+  getPapersBySlug,
+} from "@/lib/data";
 
 export function generateStaticParams() {
   return getPapers().map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/papers/[slug]">) {
+export async function generateMetadata({
+  params,
+}: PageProps<"/papers/[slug]">) {
   const { slug } = await params;
   const paper = getPapersBySlug().get(slug);
-  return { title: paper ? `${paper.title} · The Research Roundup` : "Paper not found" };
+  return {
+    title: paper ? `${paper.title} · The Research Roundup` : "Paper not found",
+  };
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
-      <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</dt>
+      <dt className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        {label}
+      </dt>
       <dd className="mt-1 text-sm">{children}</dd>
     </div>
   );
 }
 
-export default async function PaperPage({ params }: PageProps<"/papers/[slug]">) {
+export default async function PaperPage({
+  params,
+}: PageProps<"/papers/[slug]">) {
   const { slug } = await params;
   const paper = getPapersBySlug().get(slug);
   if (!paper) notFound();
@@ -30,29 +51,43 @@ export default async function PaperPage({ params }: PageProps<"/papers/[slug]">)
   const doi = paper.id.startsWith("10.") ? paper.id : null;
 
   return (
-    <article className="space-y-8">
-      <div>
-        <Link href="/papers/" className="text-sm text-muted-foreground hover:underline">
-          ← Paper explorer
-        </Link>
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-          <FocusBadge focus={paper.market_focus} />
-          <span>{paper.source_name}</span>
-          <span>·</span>
-          <span>{formatDate(paper.published_date)}</span>
-          {paper.paywalled && <span className="rounded border px-1.5 py-0.5 text-xs">Paywalled: abstract only</span>}
+    <article className="flex flex-row gap-4">
+      {/* Main content with paper details */}
+      <div className="flex flex-col gap-4">
+        <div>
+          <Link
+            href="/papers/"
+            className="text-sm text-muted-foreground hover:underline"
+          >
+            Back to paper explorer
+          </Link>
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+            <FocusBadge focus={paper.market_focus} />
+            <span>{paper.source_name}</span>
+            <span>·</span>
+            <span>{formatDate(paper.published_date)}</span>
+            {paper.paywalled && (
+              <span className="rounded-lg border px-1.5 py-0.5 text-xs">
+                Paywalled: abstract only
+              </span>
+            )}
+          </div>
+          <h1 className="mt-2 max-w-4xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+            {paper.title}
+          </h1>
+          {paper.authors.length > 0 && (
+            <p className="mt-2 text-muted-foreground">
+              {paper.authors.join(", ")}
+            </p>
+          )}
+          <a
+            href={paper.url}
+            className="mt-4 inline-block rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background"
+          >
+            Read the paper
+          </a>
         </div>
-        <h1 className="mt-2 max-w-4xl text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">{paper.title}</h1>
-        {paper.authors.length > 0 && <p className="mt-2 text-muted-foreground">{paper.authors.join(", ")}</p>}
-        <a
-          href={paper.url}
-          className="mt-4 inline-block rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background"
-        >
-          Read the paper ↗
-        </a>
-      </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-8">
           <section>
             <h2 className="mb-2 text-lg font-semibold">Abstract</h2>
@@ -70,49 +105,71 @@ export default async function PaperPage({ params }: PageProps<"/papers/[slug]">)
               <h2 className="mt-2 text-lg font-semibold">{entry.headline}</h2>
               <p className="mt-2 leading-relaxed">{entry.summary}</p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm">
-                {entry.takeaways.map((t) => <li key={t}>{t}</li>)}
+                {entry.takeaways.map((t) => (
+                  <li key={t}>{t}</li>
+                ))}
               </ul>
               <p className="mt-3 text-sm">
-                <span className="font-medium">Why it matters for markets.</span> {entry.why_it_matters}
+                <span className="font-medium">Why it matters for markets.</span>{" "}
+                {entry.why_it_matters}
               </p>
               <p className="mt-3 text-sm text-muted-foreground">
-                <span className="font-medium">Why the editor chose it:</span> {entry.selection_reason}
+                <span className="font-medium">Why the editor chose it:</span>{" "}
+                {entry.selection_reason}
               </p>
             </section>
           ))}
         </div>
-
-        <aside>
-          <dl className="space-y-4 rounded-lg border p-5">
-            <Field label="Market focus">
-              <FocusBadge focus={paper.market_focus} />
-              <p className="mt-2 leading-relaxed">{paper.focus_rationale}</p>
-            </Field>
-            <Field label="Relevance to Global Markets">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-32 overflow-hidden rounded bg-muted">
-                  <div className="h-full bg-foreground" style={{ width: `${paper.relevance_score * 10}%` }} />
-                </div>
-                <span className="tabular-nums">{paper.relevance_score}/10</span>
-              </div>
-            </Field>
-            <Field label="Topics">{paper.topics.join(", ") || "–"}</Field>
-            <Field label="Regions">{paper.regions.join(", ") || "None in particular"}</Field>
-            <Field label="Source">
-              <Link href="/sources/" className="hover:underline">
-                {paper.source_name}
-              </Link>
-              {paper.source_group && <span className="text-muted-foreground"> · {SOURCE_GROUPS[paper.source_group]}</span>}
-            </Field>
-            {doi && <Field label="DOI"><a href={`https://doi.org/${doi}`} className="break-all hover:underline">{doi}</a></Field>}
-            <Field label="Classified by">
-              <span className="text-muted-foreground">
-                {paper.model}, prompt {paper.prompt_version}
-              </span>
-            </Field>
-          </dl>
-        </aside>
       </div>
+
+      {/* Sidebar with paper metadata */}
+      <aside className="space-y-4 rounded-lg border p-5 shrink-0 w-80 shadow-md">
+        <Field label="Market focus">
+          <FocusBadge focus={paper.market_focus} />
+          <p className="mt-2 leading-relaxed">{paper.focus_rationale}</p>
+        </Field>
+        <Field label="Relevance to Global Markets">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-32 overflow-hidden rounded-lg bg-muted">
+              <div
+                className="h-full bg-foreground"
+                style={{ width: `${paper.relevance_score * 10}%` }}
+              />
+            </div>
+            <span className="tabular-nums">{paper.relevance_score}/10</span>
+          </div>
+        </Field>
+        <Field label="Topics">{paper.topics.join(", ") || "–"}</Field>
+        <Field label="Regions">
+          {paper.regions.join(", ") || "None in particular"}
+        </Field>
+        <Field label="Source">
+          <Link href="/sources/" className="hover:underline">
+            {paper.source_name}
+          </Link>
+          {paper.source_group && (
+            <span className="text-muted-foreground">
+              {" "}
+              · {SOURCE_GROUPS[paper.source_group]}
+            </span>
+          )}
+        </Field>
+        {doi && (
+          <Field label="DOI">
+            <a
+              href={`https://doi.org/${doi}`}
+              className="break-all hover:underline"
+            >
+              {doi}
+            </a>
+          </Field>
+        )}
+        <Field label="Classified by">
+          <span className="text-muted-foreground">
+            {paper.model}, prompt {paper.prompt_version}
+          </span>
+        </Field>
+      </aside>
     </article>
   );
 }

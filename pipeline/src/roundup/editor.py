@@ -13,7 +13,7 @@ from collections import Counter
 from dataclasses import dataclass
 from typing import Callable, Literal, TypeVar
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from roundup import db
 from roundup.llm import LLM, LLMError, LLMResult
@@ -54,6 +54,12 @@ class Pick(BaseModel):
 class Selection(BaseModel):
     picks: list[Pick]
     rationale: str
+
+    # The model sometimes ends its rationale with a doubled full stop; an ellipsis is left alone.
+    @field_validator("rationale")
+    @classmethod
+    def single_final_stop(cls, text: str) -> str:
+        return re.sub(r"(?<!\.)\.\.$", ".", text.strip())
 
 
 class Writeup(BaseModel):

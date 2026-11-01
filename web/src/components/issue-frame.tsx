@@ -8,7 +8,8 @@ export function IssueFrame({ src, title }: { src: string; title: string }) {
 
   function fitToContent() {
     const doc = ref.current?.contentDocument;
-    if (ref.current && doc) ref.current.style.height = `${doc.documentElement.scrollHeight}px`;
+    if (ref.current && doc)
+      ref.current.style.height = `${doc.documentElement.scrollHeight}px`;
   }
 
   return (
@@ -17,7 +18,7 @@ export function IssueFrame({ src, title }: { src: string; title: string }) {
       src={src}
       title={title}
       onLoad={fitToContent}
-      className="h-[80vh] w-full rounded-lg border bg-white"
+      className="h-[80vh] w-full col-span-2 rounded-lg border bg-white"
     />
   );
 }

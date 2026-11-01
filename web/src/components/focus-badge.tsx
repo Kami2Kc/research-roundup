@@ -6,7 +6,7 @@ export function FocusBadge({ focus }: { focus: MarketFocus }) {
   return (
     <span
       title={label}
-      className="inline-block rounded px-2 py-0.5 text-xs font-semibold tracking-wide"
+      className="px-3 py-1 rounded-lg text-center inline-block text-xs font-semibold tracking-wide"
       style={{ backgroundColor: bg, color: fg }}
     >
       {focus}
