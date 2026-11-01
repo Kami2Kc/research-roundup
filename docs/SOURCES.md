@@ -2,7 +2,7 @@
 
 Every source The Research Roundup monitors: how it's collected, whether it's paywalled, its status, and the fallback it needed. The configuration lives in [`config/sources.yaml`](../config/sources.yaml). Live status comes from `roundup sources-report`, and the dashboard's Sources page shows the same data.
 
-> **Status as of 31 October 2026**, after collecting every enabled source back to 1 August 2026.
+> **Status as of 1 November 2026**, after collecting every enabled source back to 1 August 2026 and the first scheduled weekly and monthly runs (all 37 enabled sources ran without errors).
 > - **Working:** collected successfully, and at least half its papers have abstracts.
 > - **Partial:** collected successfully, but most papers lack an abstract (they are logged and skipped), or the source can't be fully dated.
 > - **Not covered:** we don't collect it. The reason is given below.
@@ -28,6 +28,7 @@ Every G10 central bank, every regional Fed, NBER, the IMF, the BIS and four of t
 - **No abstract, no screening:** a paper without an abstract (or with a teaser under 100 characters) is stored, logged and skipped that cycle. It is re-checked on later runs, because abstracts often appear in OpenAlex a few days after publication.
 - **Politeness:** every request sends a descriptive User-Agent with a contact address. We check robots.txt before each request and honour any crawl delay (Banca d'Italia asks for 5 seconds). Otherwise we make at most one request per second per host. Requests retry with backoff on errors.
 - **Blocked sites stay blocked:** when a site refuses our identified crawler (HTTP 403), we record it and **do not** try to get around it.
+- **History for the backfill:** API sources (Crossref and OpenAlex) can be queried for any period, but feeds and listing pages only show recent items. When we first collected, on 31 October, these sources reached back only to September: BIS, ECB, Bank of Canada, Bundesbank, NBB, Banco de España, Norges Bank, Banca d'Italia, and the New York, Atlanta, Chicago and Dallas Feds (through Fed in Print). Their August papers are missing, so the August issue leans more on the journals, NBER and the IMF. Weekly runs keep everything from now on.
 
 ### APIs
 

@@ -1,5 +1,7 @@
 # The Research Roundup: build plan
 
+> **Status (1 November 2026): milestones M0–M6 are complete.** Decisions that changed the plan itself (the screenings table, the `european_ncb` group, `run-monthly` collecting first, the publication-date rule) are folded into the sections below. Source-by-source decisions, such as Fed in Print for the regional Feds and Crossref for the IMF and NBER, are in [SOURCES.md](SOURCES.md). Results, live URLs and limitations are in the [README](../README.md).
+
 This is the plan for the Crédit Agricole CIB technical assessment. Read it in full before starting. Then work through it **one milestone at a time**, in order.
 
 ## 1. Context

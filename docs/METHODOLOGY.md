@@ -114,9 +114,11 @@ The editor is the agentic step. It reviews the month's candidates, makes and jus
 
 If any check fails, the model sees its own answer and the list of problems and tries again, up to twice. In October's first build, for example, the model mistyped a paper ID; the check caught it and the revised selection was valid.
 
-**3. Write-up.** For each chosen paper, the model writes a headline, a summary of about 120 words, three takeaways, "Why it matters for markets", and the market focus with a rationale. It also writes the editor's note. The code checks word counts (headline 4–14 words, summary 80–170, "Why it matters" 25–90, editor's note 60–160) and that every chosen paper is written up exactly once. Problems go back for revision in the same way.
+The source and topic limits apply only when the pool can meet them and still fill five places, because a thin month with papers from just two sources can't offer five papers at two per source. Testing exposed this case.
 
-The selection rationale and each paper's reason are stored and shown on the dashboard's issue page. If the editor changes a paper's market focus from the screening result, this is logged. The newsletter shows the editor's tag, and the dashboard keeps the screening tag.
+**3. Write-up.** For each chosen paper, the model writes a headline, a summary of about 120 words, three takeaways, "Why it matters for markets", and the market focus with a rationale. It also writes the editor's note. The code checks word counts (headline 4–14 words, summary 80–170, "Why it matters" 25–90, editor's note 60–160) and that every chosen paper is written up exactly once. Problems go back for revision in the same way. In September, for example, five headlines came back at 15–17 words; the revised draft met the limit.
+
+The selection rationale and each paper's reason are stored and shown on the dashboard's issue page. They also show the editor catching things the code doesn't: August's rationale notes that a Federal Reserve paper published by two regional banks took only one slot. If the editor changes a paper's market focus from the screening result, this is logged. The newsletter shows the editor's tag, and the dashboard keeps the screening tag.
 
 Selection system prompt:
 
@@ -181,16 +183,18 @@ To reproduce: `cd pipeline && uv run roundup eval` (under one cent). Per-paper r
 
 Prices were checked on 31 October 2026: Claude Haiku 5.5 costs $0.10 per million input tokens and $0.50 per million output tokens; Claude Sonnet 5.5 costs $2 and $10.
 
-| Step | Measured (October 2026) |
-|---|---|
-| Screening | 349 papers, about 2,100 input and 150 output tokens each: **$0.10 a month** |
-| Editor | About 27,000 input and 13,000 output tokens per issue, including any revisions: **about $0.20 an issue** |
+| Month | Papers screened | Screening | Editor (incl. revisions) | Total |
+|---|---:|---:|---:|---:|
+| August 2026 | 239 | $0.07 | $0.17 | $0.24 |
+| September 2026 | 331 | $0.10 | $0.29 (one revision round) | $0.39 |
+| October 2026 | 349 | $0.10 | $0.21 | $0.31 |
 
-A full year of weekly screening and monthly issues costs under $5. Each run caps screening at `SCREEN_LIMIT` papers (default 300) and prints the tokens used and the estimated cost.
+Screening averages about 2,100 input and 150 output tokens a paper (about $0.0003). A full year of weekly screening and monthly issues costs under $5. Each run caps screening at `SCREEN_LIMIT` papers (default 300) and prints the tokens used and the estimated cost. All development runs, including two deliberate full re-screens during prompt development, cost about $1.60.
 
 ## Limitations
 
 - **Abstract-only.** Summaries can't go beyond what the abstract says, and some papers (especially JPE) have no abstract we can use.
-- **Coverage gaps.** Eighteen smaller European central banks aren't covered, including BOFIT, Czechia and Poland, so EM research comes mostly from the IMF and BIS. EM papers were about 10% of October's screened papers.
+- **Coverage gaps.** Eighteen smaller European central banks aren't covered, including BOFIT, Czechia and Poland, so EM research comes mostly from the IMF and BIS. EM papers were 9–11% of screened papers each month.
+- **Feed history.** Feeds only hold recent items, and several feed-based sources reached back to September but not August when first collected. The August issue therefore leans more on the API-backed sources (journals, NBER, IMF).
 - **Model judgement.** Market focus and relevance are model outputs. The evaluation (88% agreement on market focus) uses one labeller and 25 papers, and relevance scores have not been evaluated against human judgement yet. The rationale is always shown, so readers can judge for themselves.
-- **No cross-source deduplication yet.** An NBER paper that later appears in a journal would be treated as two papers.
+- **No cross-source deduplication yet.** An NBER paper that later appears in a journal, or a Fed paper published by two banks, is stored as two papers. The editor usually notices within an issue, but the monthly counts include both copies.
