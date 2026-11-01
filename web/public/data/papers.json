@@ -233,9 +233,7 @@
   ],
   "model": "claude-haiku-5-5",
   "prompt_version": "screen-v3",
-  "issues": [
-   "2026-10"
-  ]
+  "issues": []
  },
  {
   "id": "url:3c7ebd08867590fb",
@@ -2154,7 +2152,9 @@
   ],
   "model": "claude-haiku-5-5",
   "prompt_version": "screen-v3",
-  "issues": []
+  "issues": [
+   "2026-10"
+  ]
  },
  {
   "id": "10.5089/9798229065108.001",
@@ -8827,9 +8827,7 @@
   ],
   "model": "claude-haiku-5-5",
   "prompt_version": "screen-v3",
-  "issues": [
-   "2026-10"
-  ]
+  "issues": []
  },
  {
   "id": "10.5089/9798229062312.001",
