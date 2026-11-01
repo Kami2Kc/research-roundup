@@ -13,14 +13,14 @@
   "status": "working",
   "paper_count": 30,
   "papers_with_abstract": 30,
-  "last_success": "2026-10-31T22:22:00+00:00",
+  "last_success": "2026-11-01T10:31:41+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:00+00:00",
+   "started_at": "2026-11-01T10:31:41+00:00",
    "status": "ok",
-   "items_found": 30,
+   "items_found": 10,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.3
+   "duration_s": 1.39
   }
  },
  {
@@ -37,14 +37,14 @@
   "status": "working",
   "paper_count": 12,
   "papers_with_abstract": 12,
-  "last_success": "2026-10-31T22:22:01+00:00",
+  "last_success": "2026-11-01T10:31:42+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:01+00:00",
+   "started_at": "2026-11-01T10:31:42+00:00",
    "status": "ok",
-   "items_found": 12,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.31
+   "duration_s": 0.83
   }
  },
  {
@@ -61,14 +61,14 @@
   "status": "partial",
   "paper_count": 25,
   "papers_with_abstract": 4,
-  "last_success": "2026-10-31T22:22:02+00:00",
+  "last_success": "2026-11-01T10:31:43+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:02+00:00",
+   "started_at": "2026-11-01T10:31:43+00:00",
    "status": "ok",
-   "items_found": 25,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.92
+   "duration_s": 2.88
   }
  },
  {
@@ -85,14 +85,14 @@
   "status": "working",
   "paper_count": 13,
   "papers_with_abstract": 13,
-  "last_success": "2026-10-31T22:22:04+00:00",
+  "last_success": "2026-11-01T10:31:46+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:04+00:00",
+   "started_at": "2026-11-01T10:31:46+00:00",
    "status": "ok",
-   "items_found": 13,
+   "items_found": 3,
    "items_new": 0,
    "error": null,
-   "duration_s": 0.41
+   "duration_s": 0.16
   }
  },
  {
@@ -109,14 +109,14 @@
   "status": "working",
   "paper_count": 36,
   "papers_with_abstract": 36,
-  "last_success": "2026-10-31T22:22:04+00:00",
+  "last_success": "2026-11-01T10:31:46+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:04+00:00",
+   "started_at": "2026-11-01T10:31:46+00:00",
    "status": "ok",
-   "items_found": 36,
+   "items_found": 5,
    "items_new": 0,
    "error": null,
-   "duration_s": 0.83
+   "duration_s": 1.09
   }
  },
  {
@@ -133,14 +133,14 @@
   "status": "working",
   "paper_count": 423,
   "papers_with_abstract": 388,
-  "last_success": "2026-10-31T22:22:05+00:00",
+  "last_success": "2026-11-01T10:31:47+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:05+00:00",
+   "started_at": "2026-11-01T10:31:47+00:00",
    "status": "ok",
-   "items_found": 423,
+   "items_found": 63,
    "items_new": 0,
    "error": null,
-   "duration_s": 13.29
+   "duration_s": 2.37
   }
  },
  {
@@ -157,9 +157,9 @@
   "status": "partial",
   "paper_count": 4,
   "papers_with_abstract": 0,
-  "last_success": "2026-10-31T22:22:19+00:00",
+  "last_success": "2026-11-01T10:31:50+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:19+00:00",
+   "started_at": "2026-11-01T10:31:50+00:00",
    "status": "ok",
    "items_found": 4,
    "items_new": 0,
@@ -181,14 +181,14 @@
   "status": "working",
   "paper_count": 74,
   "papers_with_abstract": 74,
-  "last_success": "2026-10-31T22:22:20+00:00",
+  "last_success": "2026-11-01T10:31:51+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:20+00:00",
+   "started_at": "2026-11-01T10:31:51+00:00",
    "status": "ok",
-   "items_found": 74,
+   "items_found": 18,
    "items_new": 0,
    "error": null,
-   "duration_s": 0.53
+   "duration_s": 0.17
   }
  },
  {
@@ -205,14 +205,14 @@
   "status": "working",
   "paper_count": 20,
   "papers_with_abstract": 19,
-  "last_success": "2026-10-31T22:22:20+00:00",
+  "last_success": "2026-11-01T10:31:51+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:20+00:00",
+   "started_at": "2026-11-01T10:31:51+00:00",
    "status": "ok",
-   "items_found": 20,
+   "items_found": 8,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.07
+   "duration_s": 1.32
   }
  },
  {
@@ -229,14 +229,14 @@
   "status": "working",
   "paper_count": 36,
   "papers_with_abstract": 36,
-  "last_success": "2026-10-31T22:22:21+00:00",
+  "last_success": "2026-11-01T10:31:52+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:21+00:00",
+   "started_at": "2026-11-01T10:31:52+00:00",
    "status": "ok",
-   "items_found": 36,
+   "items_found": 3,
    "items_new": 0,
    "error": null,
-   "duration_s": 3.14
+   "duration_s": 3.11
   }
  },
  {
@@ -253,14 +253,14 @@
   "status": "working",
   "paper_count": 10,
   "papers_with_abstract": 10,
-  "last_success": "2026-10-31T22:22:25+00:00",
+  "last_success": "2026-11-01T10:31:56+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:25+00:00",
+   "started_at": "2026-11-01T10:31:56+00:00",
    "status": "ok",
-   "items_found": 10,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 3.05
+   "duration_s": 3.07
   }
  },
  {
@@ -277,14 +277,14 @@
   "status": "working",
   "paper_count": 15,
   "papers_with_abstract": 15,
-  "last_success": "2026-10-31T22:22:28+00:00",
+  "last_success": "2026-11-01T10:31:59+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:28+00:00",
+   "started_at": "2026-11-01T10:31:59+00:00",
    "status": "ok",
-   "items_found": 15,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.08
+   "duration_s": 1.5
   }
  },
  {
@@ -301,14 +301,14 @@
   "status": "working",
   "paper_count": 7,
   "papers_with_abstract": 7,
-  "last_success": "2026-10-31T22:22:29+00:00",
+  "last_success": "2026-11-01T10:32:00+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:29+00:00",
+   "started_at": "2026-11-01T10:32:00+00:00",
    "status": "ok",
-   "items_found": 7,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.34
+   "duration_s": 1.26
   }
  },
  {
@@ -325,14 +325,14 @@
   "status": "working",
   "paper_count": 7,
   "papers_with_abstract": 7,
-  "last_success": "2026-10-31T22:22:30+00:00",
+  "last_success": "2026-11-01T10:32:01+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:30+00:00",
+   "started_at": "2026-11-01T10:32:01+00:00",
    "status": "ok",
-   "items_found": 7,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.07
+   "duration_s": 1.24
   }
  },
  {
@@ -349,14 +349,14 @@
   "status": "partial",
   "paper_count": 6,
   "papers_with_abstract": 0,
-  "last_success": "2026-10-31T22:22:31+00:00",
+  "last_success": "2026-11-01T10:32:03+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:31+00:00",
+   "started_at": "2026-11-01T10:32:03+00:00",
    "status": "ok",
-   "items_found": 6,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.86
+   "duration_s": 2.32
   }
  },
  {
@@ -373,14 +373,14 @@
   "status": "working",
   "paper_count": 10,
   "papers_with_abstract": 10,
-  "last_success": "2026-10-31T22:22:33+00:00",
+  "last_success": "2026-11-01T10:32:05+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:33+00:00",
+   "started_at": "2026-11-01T10:32:05+00:00",
    "status": "ok",
-   "items_found": 10,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.04
+   "duration_s": 1.87
   }
  },
  {
@@ -397,14 +397,14 @@
   "status": "working",
   "paper_count": 11,
   "papers_with_abstract": 11,
-  "last_success": "2026-10-31T22:22:34+00:00",
+  "last_success": "2026-11-01T10:32:07+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:34+00:00",
+   "started_at": "2026-11-01T10:32:07+00:00",
    "status": "ok",
-   "items_found": 11,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.3
+   "duration_s": 2.18
   }
  },
  {
@@ -421,14 +421,14 @@
   "status": "working",
   "paper_count": 6,
   "papers_with_abstract": 6,
-  "last_success": "2026-10-31T22:22:35+00:00",
+  "last_success": "2026-11-01T10:32:09+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:35+00:00",
+   "started_at": "2026-11-01T10:32:09+00:00",
    "status": "ok",
    "items_found": 6,
    "items_new": 0,
    "error": null,
-   "duration_s": 5.88
+   "duration_s": 7.85
   }
  },
  {
@@ -445,14 +445,14 @@
   "status": "working",
   "paper_count": 10,
   "papers_with_abstract": 10,
-  "last_success": "2026-10-31T22:22:41+00:00",
+  "last_success": "2026-11-01T10:32:17+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:41+00:00",
+   "started_at": "2026-11-01T10:32:17+00:00",
    "status": "ok",
-   "items_found": 10,
+   "items_found": 1,
    "items_new": 0,
    "error": null,
-   "duration_s": 2.18
+   "duration_s": 2.22
   }
  },
  {
@@ -469,14 +469,14 @@
   "status": "working",
   "paper_count": 5,
   "papers_with_abstract": 3,
-  "last_success": "2026-10-31T22:22:43+00:00",
+  "last_success": "2026-11-01T10:32:19+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:43+00:00",
+   "started_at": "2026-11-01T10:32:19+00:00",
    "status": "ok",
-   "items_found": 5,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 5.15
+   "duration_s": 3.51
   }
  },
  {
@@ -493,14 +493,14 @@
   "status": "working",
   "paper_count": 17,
   "papers_with_abstract": 17,
-  "last_success": "2026-10-31T22:22:48+00:00",
+  "last_success": "2026-11-01T10:32:23+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:48+00:00",
+   "started_at": "2026-11-01T10:32:23+00:00",
    "status": "ok",
-   "items_found": 17,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.05
+   "duration_s": 10.66
   }
  },
  {
@@ -517,14 +517,14 @@
   "status": "working",
   "paper_count": 8,
   "papers_with_abstract": 8,
-  "last_success": "2026-10-31T22:22:59+00:00",
+  "last_success": "2026-11-01T10:32:33+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:22:59+00:00",
+   "started_at": "2026-11-01T10:32:33+00:00",
    "status": "ok",
-   "items_found": 8,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.32
+   "duration_s": 10.18
   }
  },
  {
@@ -541,14 +541,14 @@
   "status": "working",
   "paper_count": 20,
   "papers_with_abstract": 20,
-  "last_success": "2026-10-31T22:23:09+00:00",
+  "last_success": "2026-11-01T10:32:43+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:09+00:00",
+   "started_at": "2026-11-01T10:32:43+00:00",
    "status": "ok",
-   "items_found": 20,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.06
+   "duration_s": 10.11
   }
  },
  {
@@ -565,14 +565,14 @@
   "status": "working",
   "paper_count": 13,
   "papers_with_abstract": 13,
-  "last_success": "2026-10-31T22:23:19+00:00",
+  "last_success": "2026-11-01T10:32:54+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:19+00:00",
+   "started_at": "2026-11-01T10:32:54+00:00",
    "status": "ok",
-   "items_found": 13,
+   "items_found": 1,
    "items_new": 0,
    "error": null,
-   "duration_s": 9.98
+   "duration_s": 10.27
   }
  },
  {
@@ -589,14 +589,14 @@
   "status": "working",
   "paper_count": 24,
   "papers_with_abstract": 24,
-  "last_success": "2026-10-31T22:23:29+00:00",
+  "last_success": "2026-11-01T10:33:04+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:29+00:00",
+   "started_at": "2026-11-01T10:33:04+00:00",
    "status": "ok",
-   "items_found": 24,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.0
+   "duration_s": 9.84
   }
  },
  {
@@ -613,14 +613,14 @@
   "status": "working",
   "paper_count": 23,
   "papers_with_abstract": 23,
-  "last_success": "2026-10-31T22:23:39+00:00",
+  "last_success": "2026-11-01T10:33:14+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:39+00:00",
+   "started_at": "2026-11-01T10:33:14+00:00",
    "status": "ok",
-   "items_found": 23,
+   "items_found": 1,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.06
+   "duration_s": 10.02
   }
  },
  {
@@ -637,14 +637,14 @@
   "status": "working",
   "paper_count": 7,
   "papers_with_abstract": 7,
-  "last_success": "2026-10-31T22:23:49+00:00",
+  "last_success": "2026-11-01T10:33:24+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:49+00:00",
+   "started_at": "2026-11-01T10:33:24+00:00",
    "status": "ok",
-   "items_found": 7,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 9.89
+   "duration_s": 9.93
   }
  },
  {
@@ -661,14 +661,14 @@
   "status": "working",
   "paper_count": 4,
   "papers_with_abstract": 4,
-  "last_success": "2026-10-31T22:23:59+00:00",
+  "last_success": "2026-11-01T10:33:34+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:23:59+00:00",
+   "started_at": "2026-11-01T10:33:34+00:00",
    "status": "ok",
-   "items_found": 4,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.08
+   "duration_s": 10.16
   }
  },
  {
@@ -685,14 +685,14 @@
   "status": "working",
   "paper_count": 21,
   "papers_with_abstract": 20,
-  "last_success": "2026-10-31T22:24:09+00:00",
+  "last_success": "2026-11-01T10:33:44+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:09+00:00",
+   "started_at": "2026-11-01T10:33:44+00:00",
    "status": "ok",
-   "items_found": 21,
+   "items_found": 2,
    "items_new": 0,
    "error": null,
-   "duration_s": 9.92
+   "duration_s": 9.79
   }
  },
  {
@@ -709,14 +709,14 @@
   "status": "working",
   "paper_count": 10,
   "papers_with_abstract": 8,
-  "last_success": "2026-10-31T22:24:19+00:00",
+  "last_success": "2026-11-01T10:33:54+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:19+00:00",
+   "started_at": "2026-11-01T10:33:54+00:00",
    "status": "ok",
-   "items_found": 10,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.14
+   "duration_s": 9.93
   }
  },
  {
@@ -733,14 +733,14 @@
   "status": "working",
   "paper_count": 24,
   "papers_with_abstract": 24,
-  "last_success": "2026-10-31T22:24:29+00:00",
+  "last_success": "2026-11-01T10:34:03+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:29+00:00",
+   "started_at": "2026-11-01T10:34:03+00:00",
    "status": "ok",
-   "items_found": 24,
+   "items_found": 1,
    "items_new": 0,
    "error": null,
-   "duration_s": 9.86
+   "duration_s": 9.93
   }
  },
  {
@@ -757,14 +757,14 @@
   "status": "working",
   "paper_count": 18,
   "papers_with_abstract": 18,
-  "last_success": "2026-10-31T22:24:39+00:00",
+  "last_success": "2026-11-01T10:34:13+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:39+00:00",
+   "started_at": "2026-11-01T10:34:13+00:00",
    "status": "ok",
-   "items_found": 18,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.1
+   "duration_s": 10.03
   }
  },
  {
@@ -781,14 +781,14 @@
   "status": "working",
   "paper_count": 20,
   "papers_with_abstract": 20,
-  "last_success": "2026-10-31T22:24:49+00:00",
+  "last_success": "2026-11-01T10:34:23+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:49+00:00",
+   "started_at": "2026-11-01T10:34:23+00:00",
    "status": "ok",
-   "items_found": 20,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 9.91
+   "duration_s": 10.22
   }
  },
  {
@@ -805,14 +805,14 @@
   "status": "working",
   "paper_count": 18,
   "papers_with_abstract": 18,
-  "last_success": "2026-10-31T22:24:59+00:00",
+  "last_success": "2026-11-01T10:34:34+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:24:59+00:00",
+   "started_at": "2026-11-01T10:34:34+00:00",
    "status": "ok",
-   "items_found": 18,
+   "items_found": 7,
    "items_new": 0,
    "error": null,
-   "duration_s": 2.76
+   "duration_s": 1.17
   }
  },
  {
@@ -914,14 +914,14 @@
   "status": "working",
   "paper_count": 4,
   "papers_with_abstract": 4,
-  "last_success": "2026-10-31T22:25:02+00:00",
+  "last_success": "2026-11-01T10:34:35+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:25:02+00:00",
+   "started_at": "2026-11-01T10:34:35+00:00",
    "status": "ok",
-   "items_found": 4,
+   "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 10.17
+   "duration_s": 10.26
   }
  },
  {
@@ -989,14 +989,14 @@
   "status": "partial",
   "paper_count": 100,
   "papers_with_abstract": 0,
-  "last_success": "2026-10-31T22:25:12+00:00",
+  "last_success": "2026-11-01T10:34:45+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:25:12+00:00",
+   "started_at": "2026-11-01T10:34:45+00:00",
    "status": "ok",
    "items_found": 100,
    "items_new": 0,
    "error": null,
-   "duration_s": 1.39
+   "duration_s": 2.78
   }
  },
  {
@@ -1166,14 +1166,14 @@
   "status": "working",
   "paper_count": 0,
   "papers_with_abstract": 0,
-  "last_success": "2026-10-31T22:25:13+00:00",
+  "last_success": "2026-11-01T10:34:48+00:00",
   "last_run": {
-   "started_at": "2026-10-31T22:25:13+00:00",
+   "started_at": "2026-11-01T10:34:48+00:00",
    "status": "ok",
    "items_found": 0,
    "items_new": 0,
    "error": null,
-   "duration_s": 2.11
+   "duration_s": 2.82
   }
  },
  {
